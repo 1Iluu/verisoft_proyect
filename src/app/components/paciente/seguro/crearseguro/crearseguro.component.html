@@ -1,0 +1,36 @@
+<div class="title-container"><h1>Registro de Seguros</h1></div>
+<div class="title-container" >
+    
+  <form [formGroup]="form" (submit)="aceptar()">
+
+    <mat-form-field>
+      <mat-label>Codigo</mat-label>
+      <input matInput formControlName="codigo" />
+    </mat-form-field>
+    <br />
+
+    <mat-form-field>
+      <mat-label>Nombre</mat-label>
+      <input matInput formControlName="nombre" />
+      <mat-error *ngIf="form.get('nombre')?.hasError('required')"
+        >El nombre es obligatorio.</mat-error>
+    </mat-form-field>
+    <br />
+    <mat-form-field>
+      <mat-label>Tipo</mat-label>
+      <mat-select formControlName="tipo">
+        <mat-option *ngFor="let g of listaTipos" [value]="g.value">
+          {{ g.viewValue }}
+        </mat-option>
+      </mat-select>
+      <mat-error *ngIf="form.get('genero')?.hasError('required')"
+        >El tipo es obligatorio.</mat-error>
+    </mat-form-field>
+    <br />
+
+
+    
+    
+    <div class="title-container"><button mat-raised-button color="accent">Aceptar</button></div>
+  </form>
+</div>
