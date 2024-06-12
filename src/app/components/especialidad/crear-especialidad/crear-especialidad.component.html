@@ -1,0 +1,36 @@
+<div class="title-container"><h1>Registro de Especialidades</h1></div>
+<div class="title-container">
+  <form [formGroup]="form" (submit)="aceptar()">
+    <mat-form-field>
+      <mat-label>ID</mat-label>
+      <input matInput formControlName="id" />
+    </mat-form-field>
+    <br />
+
+    <mat-form-field>
+      <mat-label>Nombre de Especialidad</mat-label>
+      <input matInput formControlName="nombreEspecialidad" />
+      <mat-error *ngIf="form.get('nombreEspecialidad')?.hasError('required')">
+        El nombre de la especialidad es obligatorio.
+      </mat-error>
+    </mat-form-field>
+    <br />
+
+    <mat-form-field>
+      <mat-label>Complejidad</mat-label>
+      <mat-select formControlName="complejidad">
+        <mat-option *ngFor="let c of listaComplejidades" [value]="c.value">
+          {{ c.viewValue }}
+        </mat-option>
+      </mat-select>
+      <mat-error *ngIf="form.get('complejidad')?.hasError('required')">
+        La complejidad es obligatoria.
+      </mat-error>
+    </mat-form-field>
+    <br />
+
+    <div class="title-container">
+      <button mat-raised-button color="accent">Aceptar</button>
+    </div>
+  </form>
+</div>

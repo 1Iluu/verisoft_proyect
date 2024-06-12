@@ -1,0 +1,23 @@
+<div class="title-container"><h1>Registro de Tipos de Tratamiento</h1></div>
+<div class="title-container">
+  <form [formGroup]="form" (submit)="aceptar()">
+    <mat-form-field>
+      <mat-label>ID</mat-label>
+      <input matInput formControlName="id" />
+    </mat-form-field>
+    <br />
+
+    <mat-form-field>
+      <mat-label>Nombre del Tratamiento</mat-label>
+      <input matInput formControlName="nombreTratamiento" />
+      <mat-error *ngIf="form.get('nombreTratamiento')?.hasError('required')">
+        El nombre del tratamiento es obligatorio.
+      </mat-error>
+    </mat-form-field>
+    <br />
+
+    <div class="title-container">
+      <button mat-raised-button color="accent">Aceptar</button>
+    </div>
+  </form>
+</div>

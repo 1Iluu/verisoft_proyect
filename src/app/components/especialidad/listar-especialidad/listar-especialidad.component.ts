@@ -1,37 +1,28 @@
+import { EspecialidadService } from './../../../services/especialidad.service';
+import { Especialidad } from './../../../models/especialidad';
 import { Component, OnInit } from '@angular/core';
-import {MatTableDataSource, MatTableModule} from '@angular/material/table';
-import { Seguro } from '../../../../models/seguro';
-import { SeguroService } from '../../../../services/seguro.service';
 import { RouterLink } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
-
-
-export interface PeriodicElement {
-  codigo: number;
-  Seguro: string;
-  descripcion: string;
-}
-
-
+import {MatTableDataSource, MatTableModule} from '@angular/material/table';
 @Component({
-  selector: 'app-listarseguros',
+  selector: 'app-listar-especialidad',
   standalone: true,
   imports: [MatTableModule,RouterLink,MatButtonModule],
-  templateUrl: './listarseguros.component.html',
-  styleUrl: './listarseguros.component.css'
+  templateUrl: './listar-especialidad.component.html',
+  styleUrl: './listar-especialidad.component.css'
 })
-export class ListarsegurosComponent implements OnInit {
+export class ListarEspecialidadComponent {
   displayedColumns: string[] = 
   [
-  'codigo', 
-  'seguro', 
-  'descripcion',
+  'id', 
+  'nombreEspecialidad', 
+  'complejidad',
   'accion01',
   'accion02'
   ];
 
-  dataSource:MatTableDataSource<Seguro> = new MatTableDataSource()
-  constructor(private sS:SeguroService ){}
+  dataSource:MatTableDataSource<Especialidad> = new MatTableDataSource()
+  constructor(private sS:EspecialidadService ){}
   ngOnInit(): void {
     this.sS.list().subscribe((data)=>{
       this.dataSource=new MatTableDataSource(data)

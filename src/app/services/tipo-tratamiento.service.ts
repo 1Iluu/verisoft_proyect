@@ -1,38 +1,37 @@
 import { Injectable } from '@angular/core';
 import { environment } from '../../environments/enviroment';
 import { HttpClient } from '@angular/common/http';
-import { Seguro } from '../models/seguro';
+import { TipoTratamiento } from '../models/tipo_de_tratamiento';
 import { Subject } from 'rxjs';
-
-
-
 const base_url = environment.csbase
+
 @Injectable({
   providedIn: 'root'
 })
-export class SeguroService {
-  private url =`${base_url}/seguros`
-private listaCambio = new Subject<Seguro[]>()
+export class TipoTratamientoService {
+  private url =`${base_url}/tipotratamientos`
+private listaCambio = new Subject<TipoTratamiento[]>()
   constructor(private hhtp:HttpClient) {}
   list(){
-    return this.hhtp.get<Seguro[]>(this.url)
+    return this.hhtp.get<TipoTratamiento[]>(this.url)
   }
-  inser(s:Seguro){
+  inser(s:TipoTratamiento){
     return this.hhtp.post(this.url,s)
 
   }
-  setList(listaNueva: Seguro[]){
+  setList(listaNueva: TipoTratamiento[]){
     this.listaCambio.next(listaNueva);
   }
   getList(){
     return this.listaCambio.asObservable();
   }
 
+
   listId(id: number){
-    return this.hhtp.get<Seguro>(`${this.url}/${id}`)
+    return this.hhtp.get<TipoTratamiento>(`${this.url}/${id}`)
  }
 
- update(s: Seguro){
+ update(s: TipoTratamiento){
    return this.hhtp.put(this.url, s);
  }
 
