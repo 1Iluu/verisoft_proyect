@@ -18,7 +18,8 @@ import { MatIconModule } from '@angular/material/icon';
     MatPaginatorModule,
     MatFormFieldModule,
     MatInputModule,
-    MatIconModule],
+    MatIconModule,
+  RouterLink],
   templateUrl: './listarusers.component.html',
   styleUrl: './listarusers.component.css'
 })

@@ -1,17 +1,10 @@
-<!DOCTYPE html>
-<html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Users</title>
-  </head>
-  <body>
+
     <div class="container">
       <br>
       <h2 style="text-align: center">Lista de Usuarios</h2>
-      <div style="text-align: right;"><button mat-raised-button color="primary" style="background-color: #78CAD2;" routerLink="/components/users/nuevo" class="funcionality"><mat-icon>person_add</mat-icon></button>
+      <div style="text-align: right;"><button mat-raised-button color="primary" style="background-color: #78CAD2;" routerLink="/users/nuevo" class="funcionality"><mat-icon>person_add</mat-icon></button>
       </div>
-     
+      <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
         <!-- Position Column -->
         <ng-container matColumnDef="codigo">
           <th mat-header-cell *matHeaderCellDef>Código</th>
@@ -106,6 +99,5 @@
         [pageSizeOptions]="[1,5, 10, 25, 100]"
         showFirstLastButtons
       ></mat-paginator>
+    </table>
       </div>
-    </body>
-  </html>

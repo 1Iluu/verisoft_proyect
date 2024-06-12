@@ -10,7 +10,7 @@ const base_url = environment.csbase;
   providedIn: 'root'
 })
 export class RolesService {
-  private url = `${base_url}/Roles`;
+  private url = `${base_url}/roles`;
   private listaCambio = new Subject<Roles[]>();
 
   constructor(private http:HttpClient) {}
