@@ -7,7 +7,7 @@ import { CommonModule } from '@angular/common'; // Asegúrate de importar Common
 @Component({
   selector: 'app-tipo-tratamiento',
   standalone: true,
-  imports: [RouterOutlet],
+  imports: [RouterOutlet, ListarTipoTratamientoComponent],
   templateUrl: './tipo-tratamiento.component.html',
   styleUrls: ['./tipo-tratamiento.component.css']
 })

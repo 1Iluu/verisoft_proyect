@@ -75,7 +75,7 @@ export class CrearEspecialidadComponent implements OnInit {
           });
         });
       } else {
-        this.especialidadService.inser(this.especialidad).subscribe(() => {
+        this.especialidadService.insert(this.especialidad).subscribe(() => {
           this.especialidadService.list().subscribe((data) => {
             this.especialidadService.setList(data);
           });

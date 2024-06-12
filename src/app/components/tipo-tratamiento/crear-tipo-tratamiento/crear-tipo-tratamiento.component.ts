@@ -65,7 +65,7 @@ export class CrearTipoTratamientoComponent implements OnInit {
           });
         });
       } else {
-        this.tipoTratamientoService.inser(this.tipoTratamiento).subscribe(() => {
+        this.tipoTratamientoService.insert(this.tipoTratamiento).subscribe(() => {
           this.tipoTratamientoService.list().subscribe((data) => {
             this.tipoTratamientoService.setList(data);
           });

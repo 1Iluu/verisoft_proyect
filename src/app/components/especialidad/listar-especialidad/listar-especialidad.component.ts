@@ -17,7 +17,6 @@ export class ListarEspecialidadComponent {
   'id', 
   'nombreEspecialidad', 
   'complejidad',
-  'accion01',
   'accion02'
   ];
 

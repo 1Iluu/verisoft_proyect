@@ -4,7 +4,7 @@ import { ActivatedRoute, RouterOutlet, } from '@angular/router';
 @Component({
   selector: 'app-especialidad',
   standalone: true,
-  imports: [RouterOutlet],
+  imports: [RouterOutlet, ListarEspecialidadComponent],
   templateUrl: './especialidad.component.html',
   styleUrl: './especialidad.component.css'
 })
@@ -13,4 +13,6 @@ export class EspecialidadComponent {
   ngOnInit(): void {
     
   }
+
+  
 }

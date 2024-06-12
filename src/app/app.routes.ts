@@ -41,7 +41,7 @@ export const routes: Routes = [
     path:'especialidades',component:EspecialidadComponent,
     children:[
             {path:'nuevo',component:CrearEspecialidadComponent},
-            {path:'ediciones/:id',component:CrearseguroComponent}       
+            {path:'ediciones/:id',component:CrearEspecialidadComponent}       
     ]
   },
   {
@@ -51,9 +51,6 @@ export const routes: Routes = [
             {path:'ediciones/:id',component:CrearTipoTratamientoComponent}       
     ]
   }
-
-
-
 
     
 ];
