@@ -11,6 +11,7 @@ import { CrearseguroComponent } from './components/paciente/seguro/crearseguro/c
 import { AlergiasComponent } from './components/oncologo/alergias/alergias.component';
 import { CirguiasComponent } from './components/paciente/cirguias/cirguias.component';
 
+
 export const routes: Routes = [
  
   {
@@ -25,31 +26,6 @@ export const routes: Routes = [
   },
   {
     path: 'home',component: HomeComponent
-    
+
   },
-  
-{
-    path:'alergias',component: AlergiasComponent,
-    children:[
-        {path:'nuevo',component: CreaeditaalergiasComponent},
-        {path:'ediciones/:id',component:CreaeditaalergiasComponent}
-    ]
-},
-
-{
-    path:'cirugias',component: CirguiasComponent, 
-    children:[
-        {path:'nuevo', component:CreaeditacirugiasComponent},
-        {path:'ediciones/:id',component:CreaeditacirugiasComponent}
-        
-    ]
-},
-{
-  path:'seguros',component:SeguroComponent,
-  children:[
-          {path:'nuevo',component:CrearseguroComponent},
-          {path:'ediciones/:id',component:CrearseguroComponent}
-  ]
-  }
-
 ];
