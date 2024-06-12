@@ -6,8 +6,8 @@ import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
-import { Alergias } from '../../../models/alergias';
-import { AlergiasService } from '../../../services/alergias.service';
+import { Alergias } from '../../../../models/alergias';
+import { AlergiasService } from '../../../../services/alergias.service';
 
 
 @Component({

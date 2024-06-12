@@ -1,4 +1,4 @@
-import { Component, NgModule, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ActivatedRoute, Params, Router, RouterLink } from '@angular/router';
 import { CommonModule, NgIf } from '@angular/common';
@@ -7,10 +7,9 @@ import { MatInputModule } from '@angular/material/input';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatSelectModule } from '@angular/material/select';
 import { MatDatepickerModule } from '@angular/material/datepicker';
-import { MatIconModule } from '@angular/material/icon';
-import { Alergias } from '../../../models/alergias';
-import { AlergiasService } from '../../../services/alergias.service';
 import { MatFormFieldModule} from '@angular/material/form-field';
+import { Alergias } from '../../../../models/alergias';
+import { AlergiasService } from '../../../../services/alergias.service';
 
 
 @Component({
