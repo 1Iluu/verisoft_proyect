@@ -3,12 +3,12 @@ import { Routes } from '@angular/router';
 import { LandinpageComponent } from './components/landinpage/landinpage.component';
 import { LoginComponent } from './components/login/login.component';
 
-import { PacienteComponent } from './components/paciente/paciente.component';
-
 import { HomeComponent } from './components/home/home.component';
 import { ListarsegurosComponent } from './components/paciente/seguro/listarseguros/listarseguros.component';
 import { CrearseguroComponent } from './components/paciente/seguro/crearseguro/crearseguro.component';
 import { SeguroComponent } from './components/paciente/seguro/seguro.component';
+import { UsersComponent } from './components/users/users.component';
+import { CreaeditausersComponent } from './components/users/creaeditausers/creaeditausers.component';
 
 export const routes: Routes = [
  
@@ -34,11 +34,18 @@ export const routes: Routes = [
             {path:'ediciones/:id',component:CrearseguroComponent}
                    
     ]
+  },
 
-}
+    {
+      path: 'users', component: UsersComponent,
+      children: [
+        {
+          path: 'nuevo', component: CreaeditausersComponent
+        },
+        {
+          path: 'ediciones/:id', component: CreaeditausersComponent
+        }
+      ]
+    },
 
-
-
-
-    
 ];

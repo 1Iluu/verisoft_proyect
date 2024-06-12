@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Roles</title>
+  </head>
+  <body>
+    <div class="container" style="text-align: center">
+      <mat-card>
+        <mat-card-content><h2>Registro de Roles</h2></mat-card-content>
+        <form [formGroup]="form" (submit)="aceptar()" class="example-form">
+          <mat-form-field class="example-full-width" *ngIf="edicion">
+            <mat-label>idRoles</mat-label>
+            <input matInput placeholder="Id" formControlName="id" />
+          </mat-form-field>
+
+          <br>
+          <mat-form-field class="example-full-width">
+            <mat-label>Roles</mat-label>
+            <mat-select formControlName="rol">
+              <mat-option *ngFor="let r of tipos" [value]="r.value">
+                {{r.viewValue}}
+              </mat-option>
+            </mat-select>
+            <mat-error *ngIf="obtenerControlCampo('rol')?.errors?.['required']">
+              Elegir el rol es obligatorio.
+            </mat-error>
+          </mat-form-field>
+
+          <br>
+          <mat-form-field class="example-full-width">
+            <mat-label>Usuarios</mat-label>
+            <mat-select
+            [(value)]="idUserSeleccionado"
+            formControlName="user">
+              <mat-option *ngFor="let u of listaUsers" [value]="u.id">
+                {{u.username}}
+              </mat-option>
+            </mat-select>
+            <mat-error *ngIf="obtenerControlCampo('user')?.errors?.['required']">
+              Elegir el usuario para asignarle el rol es obligatorio.
+            </mat-error>
+          </mat-form-field>
+
+          <br />
+          <button mat-raised-button color="primary" class="accept">Aceptar</button>
+          <button mat-raised-button color="warn" routerLink="/components/roles" class="cancel">
+            Cancelar
+          </button>
+          <p>{{ mensaje }}</p>
+      </form>
+      </mat-card>
+    </div>
+  </body>
+</html>
+

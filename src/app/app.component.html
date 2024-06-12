@@ -3,7 +3,7 @@
     
    
   <button mat-button [matMenuTriggerFor]="menuPaciente">Paciente</button> 
-  <button mat-button [matMenuTriggerFor]="menuOncologo">Onocolo</button> 
+  <button mat-button [matMenuTriggerFor]="menuOncologo">Oncologo</button> 
   <button mat-button [matMenuTriggerFor]="menuAdmin">Admin</button>
   <button mat-button [matMenuTriggerFor]="menuLogin">Salir</button>
 
@@ -25,12 +25,10 @@
 </mat-menu>
 
 <mat-menu #menuAdmin="matMenu">
-  <button mat-menu-item routerLink="/usarios">listar usuarios</button>
+  <button mat-menu-item routerLink="/users">listar usuarios</button>
+  <button mat-menu-item routerLink="/users/nuevo">crear usuarios</button>
 </mat-menu>
 
-<mat-menu #menuAdmin="matMenu">
-  <button mat-menu-item routerLink="/usarios">listar usuarios</button>
-</mat-menu>
 
 <mat-menu #menuLogin="matMenu">
   <button mat-menu-item routerLink="/">Salir</button>

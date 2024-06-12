@@ -19,7 +19,8 @@ import { CommonModule } from '@angular/common';
     MatButtonModule,
     RouterLink,
     CommonModule,
-    ],
+   
+  ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
