@@ -1,15 +1,20 @@
-import { Component,  } from '@angular/core';
-
-import { RouterOutlet, } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { RouterOutlet,ActivatedRoute } from '@angular/router';
+import { ListarcirugiasComponent } from './listarcirugias/listarcirugias.component';
+import { ListarsegurosComponent } from './seguro/listarseguros/listarseguros.component';
 
 @Component({
   selector: 'app-paciente',
   standalone: true,
-  imports: [RouterOutlet],
+  imports: [ListarsegurosComponent,RouterOutlet,
+            ListarcirugiasComponent],
   templateUrl: './paciente.component.html',
   styleUrl: './paciente.component.css'
 })
-export class PacienteComponent  {
-  
+export class PacienteComponent implements OnInit{
+  constructor(public route: ActivatedRoute){}
+  ngOnInit(): void {
+    
+  }
 
 }
