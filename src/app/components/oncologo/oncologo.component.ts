@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, RouterOutlet } from '@angular/router';
+import { Component } from '@angular/core';
+import {  RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-oncologo',
@@ -8,10 +8,6 @@ import { ActivatedRoute, RouterOutlet } from '@angular/router';
   templateUrl: './oncologo.component.html',
   styleUrl: './oncologo.component.css'
 })
-export class oncologoComponent implements OnInit{
-  constructor(public route: ActivatedRoute){}
-  ngOnInit(): void {
-    
-  }
-
+export class oncologoComponent{
+ 
 }

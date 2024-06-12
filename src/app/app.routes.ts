@@ -8,6 +8,8 @@ import { ListaralergiasComponent } from './components/oncologo/alergias/listaral
 import { CreaeditaalergiasComponent } from './components/oncologo/alergias/creaeditaalergias/creaeditaalergias.component';
 import { SeguroComponent } from './components/paciente/seguro/seguro.component';
 import { CrearseguroComponent } from './components/paciente/seguro/crearseguro/crearseguro.component';
+import { AlergiasComponent } from './components/oncologo/alergias/alergias.component';
+import { CirguiasComponent } from './components/paciente/cirguias/cirguias.component';
 
 export const routes: Routes = [
  
@@ -27,7 +29,7 @@ export const routes: Routes = [
   },
   
 {
-    path:'alergias',component:ListaralergiasComponent,
+    path:'alergias',component: AlergiasComponent,
     children:[
         {path:'nuevo',component: CreaeditaalergiasComponent},
         {path:'ediciones/:id',component:CreaeditaalergiasComponent}
@@ -35,7 +37,7 @@ export const routes: Routes = [
 },
 
 {
-    path:'cirugias',component: ListarcirugiasComponent, 
+    path:'cirugias',component: CirguiasComponent, 
     children:[
         {path:'nuevo', component:CreaeditacirugiasComponent},
         {path:'ediciones/:id',component:CreaeditacirugiasComponent}
