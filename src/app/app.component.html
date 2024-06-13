@@ -1,26 +1,22 @@
 
 <mat-toolbar color="accent"  >
-    
-   
-  <button mat-button [matMenuTriggerFor]="menuPaciente">Paciente</button> 
-  <button mat-button [matMenuTriggerFor]="menuOncologo">Onocolo</button> 
-  <button mat-button [matMenuTriggerFor]="menuEspecialidad">Especialidad</button> 
-  <button mat-button [matMenuTriggerFor]="menuTipotratamiento">Tipo de Tratamiento</button> 
+
+
+  <button mat-button [matMenuTriggerFor]="menuPaciente">Paciente</button>
+  <button mat-button [matMenuTriggerFor]="menuOncologo">Oncologo</button>
   <button mat-button [matMenuTriggerFor]="menuAdmin">Admin</button>
   <button mat-button [matMenuTriggerFor]="menuLogin">Salir</button>
 
 
 </mat-toolbar>
-
-
 <mat-menu #menuPaciente="matMenu">
   <button mat-menu-item routerLink="/seguros">listar seguros</button>
   <button mat-menu-item routerLink="/seguros/nuevo">Crear un seguros</button>
   <button mat-menu-item routerLink="/cirugias">listar cirugias</button>
-  <button mat-menu-item routerLink="/especialidad">listar especialidad</button>
-  
-  <button mat-menu-item routerLink="/tipotratamiento">listar tipo de tratamiento</button>
-  
+  <button mat-menu-item routerLink="/especialidades">Listar Especialidades</button>
+  <button mat-menu-item routerLink="/especialidades/nuevo">Crear una Especialidad</button>
+  <button mat-menu-item routerLink="/tipotratamientos">Listar Tipos de Tratamiento</button>
+  <button mat-menu-item routerLink="/tipotratamientos/nuevo">Crear TIpo de Tratamiento</button>
 </mat-menu>
 <mat-menu #menuOncologo="matMenu">
   <button mat-menu-item routerLink="/alergias">listar alergias</button>
@@ -33,17 +29,6 @@
 
 <mat-menu #menuAdmin="matMenu">
   <button mat-menu-item routerLink="/usarios">listar usuarios</button>
-</mat-menu>
-
-
-
-<mat-menu #menuEspecialidad="matMenu">
-  <button mat-menu-item routerLink="/especialidades">Listar Especialidades</button>
-  <button mat-menu-item routerLink="/especialidades/nuevo">Crear una Especialidad</button>
-</mat-menu>
-<mat-menu #menuTipotratamiento="matMenu">
-  <button mat-menu-item routerLink="/tipotratamientos">Listar Tipo de Tratamiento</button>
-  <button mat-menu-item routerLink="/tipotratamientos/nuevo">Crear TIpo de Tratamiento</button>
 </mat-menu>
 
 <mat-menu #menuLogin="matMenu">

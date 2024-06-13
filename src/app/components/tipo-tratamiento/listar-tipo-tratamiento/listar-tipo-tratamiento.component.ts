@@ -3,19 +3,21 @@ import { TipoTratamientoService } from './../../../services/tipo-tratamiento.ser
 import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { MatButtonModule } from '@angular/material/button';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-listar-tipo-tratamiento',
   standalone: true,
-  imports: [MatTableModule, MatButtonModule],
+  imports: [MatTableModule, MatButtonModule, RouterLink],
   templateUrl: './listar-tipo-tratamiento.component.html',
-  styleUrls: ['./listar-tipo-tratamiento.component.css']
+  styleUrls: ['./listar-tipo-tratamiento.component.css'],
 })
 export class ListarTipoTratamientoComponent implements OnInit {
   displayedColumns: string[] = [
     'id',
     'nombreTratamiento',
-    'accion02'
+    'accion01',
+    'accion02',
   ];
 
   dataSource: MatTableDataSource<TipoTratamiento> = new MatTableDataSource();

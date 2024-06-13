@@ -11,17 +11,20 @@ import {MatTableDataSource, MatTableModule} from '@angular/material/table';
   templateUrl: './listar-especialidad.component.html',
   styleUrl: './listar-especialidad.component.css'
 })
-export class ListarEspecialidadComponent {
-  displayedColumns: string[] = 
+export class ListarEspecialidadComponent implements OnInit {
+  displayedColumns: string[] =
   [
-  'id', 
-  'nombreEspecialidad', 
+  'id',
+  'nombreEspecialidad',
   'complejidad',
+  'accion01',
   'accion02'
   ];
 
   dataSource:MatTableDataSource<Especialidad> = new MatTableDataSource()
+
   constructor(private sS:EspecialidadService ){}
+
   ngOnInit(): void {
     this.sS.list().subscribe((data)=>{
       this.dataSource=new MatTableDataSource(data)
