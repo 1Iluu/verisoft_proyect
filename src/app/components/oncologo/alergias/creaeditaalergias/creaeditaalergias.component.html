@@ -1,0 +1,22 @@
+<div class="container">
+    <div class="title-container">
+      <h1 class="title">Registro de Alergias</h1>
+    </div>
+    <div class="form-container">
+      <form [formGroup]="form" (submit)="aceptar()" class="example-form">
+        <mat-form-field>
+          <mat-label>Id de la alergia</mat-label>
+          <input matInput formControlName="idalergias">
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Descripción de la alergia</mat-label>
+          <input matInput formControlName="descripcionAlergias">
+        </mat-form-field>
+        <br />
+        <button mat-raised-button color="primary">Aceptar</button>
+        <button mat-raised-button color="warn" routerLink="/alergias">Cancelar</button>
+        <p>{{ mensaje }}</p>
+      </form>
+    </div>
+  
+  

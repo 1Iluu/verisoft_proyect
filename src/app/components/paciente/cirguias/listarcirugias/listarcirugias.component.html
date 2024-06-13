@@ -1,0 +1,48 @@
+<div class="container">
+    <div class="title-container"><h1 class="title">Lista de Cirugias</h1></div>
+      <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+          <!-- Position Column -->
+          <ng-container matColumnDef="idcirugias">
+            <th mat-header-cell *matHeaderCellDef> idcirugias </th>
+            <td mat-cell *matCellDef="let element"> {{element.idcirugias}} </td>
+          </ng-container>
+        
+          <!-- Name Column -->
+          <ng-container matColumnDef="descripcionCirugias">
+            <th mat-header-cell *matHeaderCellDef> descripcionCirugias </th>
+            <td mat-cell *matCellDef="let element"> {{element.descripcionCirugias}} </td>
+          
+          </ng-container>
+          <ng-container matColumnDef="accion01">
+            <th mat-header-cell *matHeaderCellDef>Actualizar</th>
+            <td mat-cell *matCellDef="let element">
+              <button
+                mat-raised-button
+                color="warn"
+                [routerLink]="['ediciones', element.idcirugias]"
+              >
+              <mat-icon> border_color</mat-icon>        </button>
+            </td></ng-container
+          >
+          <ng-container matColumnDef="accion02">
+            <th mat-header-cell *matHeaderCellDef>Eliminar</th>
+            <td mat-cell *matCellDef="let element">
+              <button
+                mat-raised-button
+                color="accent"
+                (click)="eliminar(element.idcirugias)"
+              >
+              <mat-icon>delete</mat-icon>
+            </button>
+            </td></ng-container
+          >
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+        </table>
+        <mat-paginator
+          [pageSizeOptions]="[5, 10, 25, 100]"
+          showFirstLastButtons
+        ></mat-paginator>
+      </div>
+        
+ 

@@ -1,0 +1,36 @@
+.container {
+    display: flex;
+    flex-direction: column; /* Alinear los elementos verticalmente */
+    justify-content: center; /* Centrar verticalmente en el eje principal */
+    align-items: center; /* Centrar horizontalmente en el eje transversal */
+    height: 100vh; /* Ajustar la altura del contenedor al 100% del viewport height (alto de la ventana del navegador) */
+  }
+  
+  .title-container {
+    margin-bottom: 20px; /* Agregar margen inferior al título para separarlo del formulario */
+  }
+  
+  .form-container {
+    width: 300px; /* Establecer un ancho para el formulario */
+  }
+  
+  .title {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 2em;
+    color: #333;
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column; /* Alinear los elementos verticalmente */
+  }
+  
+  mat-form-field {
+    margin-bottom: 10px; /* Agregar espacio entre los campos de formulario */
+  }
+  
+  button {
+    margin-top: 10px; /* Agregar espacio entre los botones y el último campo de formulario */
+  }
+  

@@ -1,10 +1,7 @@
 
 <mat-toolbar color="accent"  >
-
-
-  <button mat-button [matMenuTriggerFor]="menuPaciente">Paciente</button>
-  <button mat-button [matMenuTriggerFor]="menuOncologo">Oncologo</button>
   <button mat-button [matMenuTriggerFor]="menuAdmin">Admin</button>
+  <button mat-button [matMenuTriggerFor]="menuRol">Roles</button>
   <button mat-button [matMenuTriggerFor]="menuLogin">Salir</button>
 
 
@@ -12,24 +9,24 @@
 <mat-menu #menuPaciente="matMenu">
   <button mat-menu-item routerLink="/seguros">listar seguros</button>
   <button mat-menu-item routerLink="/seguros/nuevo">Crear un seguros</button>
-  <button mat-menu-item routerLink="/cirugias">listar cirugias</button>
-  <button mat-menu-item routerLink="/especialidades">Listar Especialidades</button>
-  <button mat-menu-item routerLink="/especialidades/nuevo">Crear una Especialidad</button>
-  <button mat-menu-item routerLink="/tipotratamientos">Listar Tipos de Tratamiento</button>
-  <button mat-menu-item routerLink="/tipotratamientos/nuevo">Crear TIpo de Tratamiento</button>
 </mat-menu>
 <mat-menu #menuOncologo="matMenu">
-  <button mat-menu-item routerLink="/alergias">listar alergias</button>
+  <button mat-menu-item routerLink="/alergias">Listar alergias</button>
+  <button mat-menu-item routerLink="/alergias/nuevo">Registrar alergias</button>
+  
   <button mat-menu-item routerLink="/examendedetencion">listar examenes de deteccion</button>
 </mat-menu>
 
 <mat-menu #menuAdmin="matMenu">
-  <button mat-menu-item routerLink="/usarios">listar usuarios</button>
+  <button mat-menu-item routerLink="/users">listar usuarios</button>
+  <button mat-menu-item routerLink="/users/nuevo">crear usuarios</button>
 </mat-menu>
 
-<mat-menu #menuAdmin="matMenu">
-  <button mat-menu-item routerLink="/usarios">listar usuarios</button>
+<mat-menu #menuRol="matMenu">
+  <button mat-menu-item routerLink="/rol">listar rol</button>
+  <button mat-menu-item routerLink="/rol/nuevo">crear rol</button>
 </mat-menu>
+
 
 <mat-menu #menuLogin="matMenu">
   <button mat-menu-item routerLink="/">Salir</button>
