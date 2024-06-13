@@ -3,7 +3,5 @@ export class Especialidad{
     nombreEspecialidad:string="";
     complejidad:string="";
 
-    /*private int id;
-    private String nombreEspecialidad;
-    private String complejidad;*/
+
 }
