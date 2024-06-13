@@ -28,7 +28,6 @@ private listaCambio = new Subject<Seguro[]>()
     return this.listaCambio.asObservable();
   }
 
-
   listId(id: number){
     return this.hhtp.get<Seguro>(`${this.url}/${id}`)
  }

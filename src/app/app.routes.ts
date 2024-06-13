@@ -37,10 +37,10 @@ export const routes: Routes = [
         {path:'ediciones/:id',component:CreaeditaalergiasComponent}
              ]
   },
-
   {
     path:'cirugias',component: CirguiasComponent, 
     children:[
+
         {path:'nuevo', component:CreaeditacirugiasComponent},
         {path:'ediciones/:id',component:CreaeditacirugiasComponent}
         
