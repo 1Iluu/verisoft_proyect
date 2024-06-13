@@ -13,7 +13,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { EspecialidadService } from '../../../services/especialidad.service';
-import { Especialidad } from './../../../models/especialidad'; 
+import { Especialidad } from './../../../models/especialidad';
 
 @Component({
   selector: 'app-crear-especialidad',
@@ -56,7 +56,6 @@ export class CrearEspecialidadComponent implements OnInit {
     });
 
     this.form = this.formBuilder.group({
-      id: [''],
       nombreEspecialidad: ['', Validators.required],
       complejidad: ['', Validators.required],
     });
@@ -64,7 +63,7 @@ export class CrearEspecialidadComponent implements OnInit {
 
   aceptar(): void {
     if (this.form.valid) {
-      this.especialidad.id = this.form.value.id;
+      this.especialidad.id = this.id;
       this.especialidad.nombreEspecialidad = this.form.value.nombreEspecialidad;
       this.especialidad.complejidad = this.form.value.complejidad;
 

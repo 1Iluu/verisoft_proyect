@@ -48,14 +48,13 @@ export class CrearTipoTratamientoComponent implements OnInit {
     });
 
     this.form = this.formBuilder.group({
-      id: [''],
       nombreTratamiento: ['', Validators.required],
     });
   }
 
   aceptar(): void {
     if (this.form.valid) {
-      this.tipoTratamiento.id = this.form.value.id;
+      this.tipoTratamiento.id = this.id;
       this.tipoTratamiento.nombreTratamiento = this.form.value.nombreTratamiento;
 
       if (this.edicion) {
@@ -71,7 +70,7 @@ export class CrearTipoTratamientoComponent implements OnInit {
           });
         });
       }
-      this.router.navigate(['tipo-tratamientos']);
+      this.router.navigate(['tipotratamientos']);
     }
   }
 

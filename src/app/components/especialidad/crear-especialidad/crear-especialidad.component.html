@@ -2,12 +2,6 @@
 <div class="title-container">
   <form [formGroup]="form" (submit)="aceptar()">
     <mat-form-field>
-      <mat-label>ID</mat-label>
-      <input matInput formControlName="id" />
-    </mat-form-field>
-    <br />
-
-    <mat-form-field>
       <mat-label>Nombre de Especialidad</mat-label>
       <input matInput formControlName="nombreEspecialidad" />
       <mat-error *ngIf="form.get('nombreEspecialidad')?.hasError('required')">
