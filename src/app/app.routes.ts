@@ -16,6 +16,7 @@ import { EspecialidadComponent } from './components/especialidad/especialidad.co
 import { CrearEspecialidadComponent } from './components/especialidad/crear-especialidad/crear-especialidad.component';
 import { TipoTratamientoComponent } from './components/tipo-tratamiento/tipo-tratamiento.component';
 import { CrearTipoTratamientoComponent } from './components/tipo-tratamiento/crear-tipo-tratamiento/crear-tipo-tratamiento.component';
+import { segGuard } from './guard/seguridad.guard';
 
 
 export const routes: Routes = [
@@ -31,7 +32,8 @@ export const routes: Routes = [
     path: 'login', component: LoginComponent
   },
   {
-    path: 'home',component: HomeComponent
+    path: 'home',component: HomeComponent,
+    canActivate: [segGuard],
 
   },
   {
@@ -39,7 +41,8 @@ export const routes: Routes = [
     children:[
         {path:'nuevo',component: CreaeditaalergiasComponent},
         {path:'ediciones/:id',component:CreaeditaalergiasComponent}
-             ]
+             ],
+             canActivate: [segGuard],
   },
   {
     path:'cirugias',component: CirguiasComponent, 
@@ -48,7 +51,8 @@ export const routes: Routes = [
         {path:'nuevo', component:CreaeditacirugiasComponent},
         {path:'ediciones/:id',component:CreaeditacirugiasComponent}
         
-            ]
+            ],
+            canActivate: [segGuard],
   },
 
   {
@@ -56,7 +60,8 @@ export const routes: Routes = [
   children:[
           {path:'nuevo',component:CrearseguroComponent},
           {path:'ediciones/:id',component:CrearseguroComponent}
-           ]
+           ],
+           canActivate: [segGuard],
   },
 
   {
@@ -64,7 +69,8 @@ export const routes: Routes = [
   children:[
           {path:'nuevo',component:CreaeditausersComponent},
           {path:'ediciones/:id',component:CreaeditausersComponent}
-           ]
+           ],
+           canActivate: [segGuard],
   },
 
   {
@@ -72,22 +78,24 @@ export const routes: Routes = [
   children:[
           {path:'nuevo',component:CreaeditarolesComponent},
           {path:'ediciones/:id',component:CreaeditarolesComponent}
-           ]
+           ],
+           canActivate: [segGuard],
   },
-  
 {
   path:'especialidades',component:EspecialidadComponent,
   children:[
           {path:'nuevo',component:CrearEspecialidadComponent},
           {path:'ediciones/:id',component:CrearEspecialidadComponent}       
-  ]
+  ],
+  canActivate: [segGuard],
 },
 {
   path:'tipotratamientos',component:TipoTratamientoComponent,
   children:[
           {path:'nuevo',component:CrearTipoTratamientoComponent},
           {path:'ediciones/:id',component:CrearTipoTratamientoComponent}       
-  ]
+  ],
+  canActivate: [segGuard],
 }
 
 

@@ -1,4 +1,4 @@
-<mat-toolbar color="accent"  >
+<mat-toolbar color="accent" *ngIf="verificar()" >
   <button mat-button [matMenuTriggerFor]="menuPaciente">Paciente</button> 
   <button mat-button [matMenuTriggerFor]="menuOncologo">Oncologo</button> 
   <button mat-button [matMenuTriggerFor]="menuAdmin">Admin</button>
