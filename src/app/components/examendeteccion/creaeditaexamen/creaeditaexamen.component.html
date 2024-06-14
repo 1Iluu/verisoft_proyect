@@ -1,0 +1,57 @@
+<div class="title-container">
+  <h1>Registro de Examenes de Deteccion</h1>
+
+  <div class="title-container">
+    <form [formGroup]="form" (submit)="guardar()">
+      
+      <mat-form-field *ngIf="edicion"> 
+        <mat-label>Código</mat-label>
+       <input matInput formControlName="codigo">
+    </mat-form-field> 
+
+      <mat-form-field>     
+<mat-label>Fecha</mat-label>
+    <input matInput [matDatepicker]="picker" formControlName="fecha">
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+<mat-error *ngIf="form.get('fecha')?.hasError('required')">
+    Ingresar la fecha del examen de detección es obligatoria.
+    </mat-error>
+    <mat-error *ngIf="form.get('fecha')?.hasError('fechaExamenVal')">
+    La fecha del examen de detección no puede ser mayor a esta fecha.
+    </mat-error>
+  </mat-form-field>   
+
+  <mat-form-field>  
+    <mat-label>Hora</mat-label>
+   <input matInput formControlName="hora">
+ <mat-error *ngIf="form.get('hora')?.hasError('required')">
+   Registrar la hora del examen de detección es obligatorio.
+ </mat-error>
+</mat-form-field> 
+
+  <mat-form-field>
+    <mat-label>Tipo de Examen</mat-label>
+   <mat-select formControlName="tipoExamen">
+    <mat-option *ngFor="let tipoExamen of listaTipoExamenes" [value]="tipoExamen.value">
+    {{tipoExamen.viewValue}}
+    </mat-option>
+   </mat-select>
+   <mat-error *ngIf="form.get('tipoExamen')?.hasError('required')">
+    Elegir el tipo de examen de detección es obligatorio.
+  </mat-error>
+  </mat-form-field>
+   
+  <mat-form-field>  
+         <mat-label>Resultados</mat-label>
+        <input matInput formControlName="resultados">
+      <mat-error *ngIf="form.get('resultados')?.hasError('required')">
+        Registrar los resultados del examen de detección es obligatorio.
+      </mat-error>
+    </mat-form-field> 
+    
+      <div class="title-container">
+        <button mat-raised-button color="accent">Guardar</button>
+      </div>
+    </form>
+</div>

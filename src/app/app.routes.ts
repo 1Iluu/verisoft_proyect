@@ -19,6 +19,7 @@ import { CrearTipoTratamientoComponent } from './components/tipo-tratamiento/cre
 import { segGuard } from './guard/seguridad.guard';
 
 
+
 export const routes: Routes = [
  
   {
@@ -94,10 +95,17 @@ export const routes: Routes = [
   children:[
           {path:'nuevo',component:CrearTipoTratamientoComponent},
           {path:'ediciones/:id',component:CrearTipoTratamientoComponent}       
+  ]
+},
   ],
   canActivate: [segGuard],
 }
 
-
-
+{
+  path:'examenes',component:ExamendeteccionComponent,
+  children:[
+    {path:'nuevo',component:CreaeditaexamenComponent},
+    {path:'ediciones/:id',component:CreaeditaexamenComponent}
+    ]
+  }
 ];
