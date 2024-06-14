@@ -1,0 +1,36 @@
+<div class="container">
+    <div class="title-container">
+      <h1 class="title">Lista de Exámenes de Detección</h1>
+    </div>
+      <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+        
+        <ng-container matColumnDef="codigo">
+          <th mat-header-cell *matHeaderCellDef>Código</th>
+          <td mat-cell *matCellDef="let element">{{element.examenDeteccionId}}</td>
+        </ng-container>
+  
+          <ng-container matColumnDef="fecha">
+            <th mat-header-cell *matHeaderCellDef>Fecha</th>
+            <td mat-cell *matCellDef="let element">{{element.fecha}}</td>
+          </ng-container>
+        
+          <ng-container matColumnDef="hora">
+            <th mat-header-cell *matHeaderCellDef>Hora</th>
+            <td mat-cell *matCellDef="let element">{{element.hora}}</td>
+          </ng-container>
+  
+          <ng-container matColumnDef="tipoExamen">
+            <th mat-header-cell *matHeaderCellDef> Tipo de Examen</th>
+            <td mat-cell *matCellDef="let element">{{element.tipoExamen}}</td>
+          </ng-container>
+   
+              <ng-container matColumnDef="Resultados">
+                  <th mat-header-cell *matHeaderCellDef> Resultados </th>
+                  <td mat-cell *matCellDef="let element">{{element.resultados}}</td>
+                </ng-container>
+  
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+
+</div>

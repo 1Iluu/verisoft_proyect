@@ -16,6 +16,8 @@ import { EspecialidadComponent } from './components/especialidad/especialidad.co
 import { CrearEspecialidadComponent } from './components/especialidad/crear-especialidad/crear-especialidad.component';
 import { TipoTratamientoComponent } from './components/tipo-tratamiento/tipo-tratamiento.component';
 import { CrearTipoTratamientoComponent } from './components/tipo-tratamiento/crear-tipo-tratamiento/crear-tipo-tratamiento.component';
+import { ExamendeteccionComponent } from './components/examendeteccion/examendeteccion.component';
+import { CreaeditaexamenComponent } from './components/examendeteccion/creaeditaexamen/creaeditaexamen.component';
 
 
 export const routes: Routes = [
@@ -88,8 +90,11 @@ export const routes: Routes = [
           {path:'nuevo',component:CrearTipoTratamientoComponent},
           {path:'ediciones/:id',component:CrearTipoTratamientoComponent}       
   ]
+},
+
+{
+  path:'examenes',component:ExamendeteccionComponent,
+  children:[{path:'nuevo',component:CreaeditaexamenComponent}]
 }
-
-
 
 ];
