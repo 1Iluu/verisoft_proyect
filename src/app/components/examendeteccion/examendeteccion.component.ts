@@ -5,7 +5,8 @@ import { ListarexamenComponent } from './listarexamen/listarexamen.component';
 @Component({
   selector: 'app-examendeteccion',
   standalone: true,
-  imports: [RouterOutlet,ListarexamenComponent],
+  imports: [
+    RouterOutlet,ListarexamenComponent],
   templateUrl: './examendeteccion.component.html',
   styleUrl: './examendeteccion.component.css'
 })

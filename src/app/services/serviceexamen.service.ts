@@ -9,7 +9,7 @@ const base_url=environment.base
 @Injectable({
   providedIn: 'root'
 })
-export class ExamendeteccionService {
+export class Serviceexamen {
 private url=`${base_url}/examenes`;
 private listaCambio=new Subject<Examendeteccion[]>();
 
@@ -29,5 +29,11 @@ this.listaCambio.next(listaNueva);
   getList(){
     return this.listaCambio.asObservable();
   }
+ListId(id:number){
+  return this.http.get<Examendeteccion>(`${this.url}/${id}`)
+}
 
+update(e: Examendeteccion){
+  return this.http.put(this.url, e);
+}
 }

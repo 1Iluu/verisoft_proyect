@@ -94,7 +94,10 @@ export const routes: Routes = [
 
 {
   path:'examenes',component:ExamendeteccionComponent,
-  children:[{path:'nuevo',component:CreaeditaexamenComponent}]
-}
+  children:[
+    {path:'nuevo',component:CreaeditaexamenComponent},
+    {path:'ediciones/:id',component:CreaeditaexamenComponent}
+    ]
+  }
 
 ];

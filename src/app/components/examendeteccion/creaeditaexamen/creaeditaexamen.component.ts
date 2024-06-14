@@ -1,15 +1,16 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatSelectModule} from '@angular/material/select';
 import {MatInputModule} from '@angular/material/input';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { provideNativeDateAdapter } from '@angular/material/core';
-import { Router } from '@angular/router';
-import { ExamendeteccionService } from '../../../services/examendeteccion.service';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
 import { Examendeteccion } from '../../../models/examendeteccion';
+import { Server } from 'http';
+import { Serviceexamen } from '../../../services/serviceexamen.service';
 
 
 @Component({
@@ -31,8 +32,9 @@ import { Examendeteccion } from '../../../models/examendeteccion';
 
 export class CreaeditaexamenComponent implements OnInit {
 form: FormGroup=new FormGroup({});
-service: Examendeteccion=new Examendeteccion();
-
+service: Examendeteccion=new Examendeteccion ();
+id:number=0;
+edicion:boolean=false
 
 listaTipoExamenes:{value:String;viewValue:string}[]=[
   {value:'Mamografía', viewValue: 'Mamografía'},
@@ -47,13 +49,22 @@ listaTipoExamenes:{value:String;viewValue:string}[]=[
 
 constructor(
   private formBuilber:FormBuilder,
-  private eS:ExamendeteccionService,
-  private router:Router
+  private eS:Serviceexamen,
+  private router:Router,
+  private route:ActivatedRoute
 ){}
 
 ngOnInit(): void{
+
+  this.route.params.subscribe((data:Params)=>{
+  this.id=data['id'];
+  this.edicion=data['id']!=null;
+  this.init()
+  })
+
   this.form=this.formBuilber.group({
-    Fecha:['',[
+    codigo:[''],
+    fecha:['',[
     Validators.required,
     this.fechaValidar()
     ]],
@@ -67,17 +78,43 @@ ngOnInit(): void{
 
 guardar(): void {
   if (this.form.valid) {
-    this.service.fecha=this.form.value.Fecha;
+    this.service.examenDeteccionId=this.form.value.codigo;
+    this.service.fecha=this.form.value.fecha;
     this.service.hora=this.form.value.hora;
     this.service.tipoExamen=this.form.value.tipoExamen;
     this.service.resultados=this.form.value.resultados;
     console.log(this.service);
-    this.eS.insert(this.service).subscribe((data) => {
+
+
+    if(this.edicion){
+      this.eS.update(this.service).subscribe((data) => {
+        this.eS.list().subscribe((data) => {
+          this.eS.setList(data);
+        });
+      });
+    }else{
+
+      this.eS.insert(this.service).subscribe((data) => {
       this.eS.list().subscribe((data) => {
         this.eS.setList(data);
       });
-     this.router.navigate(['examenes']);
     });
+     this.router.navigate(['examenes']);
+    };
+  }
+}
+
+init(){
+  if(this.edicion){
+    this.eS.ListId(this.id).subscribe((data) => {
+      this.form=new FormGroup({
+        codigo:new FormControl(data.examenDeteccionId),
+        fecha:new FormControl(data.fecha),
+        hora:new FormControl(data.hora),
+        tipoExamen:new FormControl(data.tipoExamen),
+        resultados:new FormControl(data.resultados),
+      });
+    })
   }
 }
 
