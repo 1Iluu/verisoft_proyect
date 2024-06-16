@@ -1,12 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { RouterOutlet,ActivatedRoute } from '@angular/router';
-import { ListarsegurosComponent } from './seguro/listarseguros/listarseguros.component';
+
+import { ListaPacienteComponent } from './listarpaciente/listarpaciente.component';
 
 
 @Component({
   selector: 'app-paciente',
   standalone: true,
-  imports: [RouterOutlet,ListarsegurosComponent],
+  imports: [RouterOutlet,ListaPacienteComponent],
   templateUrl: './paciente.component.html',
   styleUrl: './paciente.component.css'
 })
