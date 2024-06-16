@@ -19,6 +19,10 @@ import { CrearTipoTratamientoComponent } from './components/tipo-tratamiento/cre
 import { segGuard } from './guard/seguridad.guard';
 import { ExamendeteccionComponent } from './components/examendeteccion/examendeteccion.component';
 import { CreaeditaexamenComponent } from './components/examendeteccion/creaeditaexamen/creaeditaexamen.component';
+import { ComentarioComponent } from './components/comentario/comentario.component';
+import { CreaeditacomentarioComponent } from './components/comentario/creaeditacomentario/creaeditacomentario.component';
+import { CitaComponent } from './components/cita/cita.component';
+import { CreaeditacitaComponent } from './components/cita/creaeditacita/creaeditacita.component';
 
 
 
@@ -108,6 +112,23 @@ export const routes: Routes = [
     ],
     canActivate: [segGuard],
 },
+{
+  path:'comentario',component:ComentarioComponent,
+  children:[
+    {path:'nuevo',component:CreaeditacomentarioComponent},
+    {path:'ediciones/:id',component:CreaeditacomentarioComponent}
+    ],
+    canActivate: [segGuard],
+},
+{
+  path:'cita',component:CitaComponent,
+  children:[
+    {path:'nuevo',component:CreaeditacitaComponent},
+    {path:'ediciones/:id',component:CreaeditacitaComponent}
+    ],
+    canActivate: [segGuard],
+},
+
 
 
 
