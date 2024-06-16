@@ -3,7 +3,7 @@ import {MatTableDataSource, MatTableModule} from '@angular/material/table';
 import { RouterLink } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
 import { PacienteService } from '../../../services/paciente.service';
-import { Pacient } from '../../../models/paciente';
+import { Paciente } from '../../../models/paciente';
 import { Users } from '../../../models/users';
 
 
@@ -33,7 +33,7 @@ export class ListaPacienteComponent implements OnInit {
   'accion02'
   ];
 
-  dataSource:MatTableDataSource<Pacient> = new MatTableDataSource()
+  dataSource:MatTableDataSource<Paciente> = new MatTableDataSource()
   constructor(private pS:PacienteService ){}
   ngOnInit(): void {
     this.pS.list().subscribe((data)=>{

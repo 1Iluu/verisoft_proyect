@@ -13,7 +13,8 @@ import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { PacienteService } from '../../../services/paciente.service';
-import { Pacient } from '../../../models/paciente';
+import { Paciente } from '../../../models/paciente';
+
 
 @Component({
   selector: 'app-creaeditapaciente',
@@ -32,7 +33,7 @@ import { Pacient } from '../../../models/paciente';
 export class creaeditapaciente implements OnInit{
   form: FormGroup = new FormGroup({});
   id:number =0;
-  paciente:Pacient= new Pacient
+  paciente:Paciente= new Paciente
   edicion:boolean=false;
   
 

@@ -1,9 +1,8 @@
-
-import {Pacient} from "./paciente"
+import {Paciente} from "./paciente"
 
 export class  Respuesta{
     idRespuesta: number=0
     gradoConsulta:string=""
     nivelRespuesta:string=""
-    paciente: Pacient= new Pacient
+    paciente: Paciente= new Paciente();
 }

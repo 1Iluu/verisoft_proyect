@@ -1,5 +1,21 @@
 
-.container{
+html, body {
+  height: 100%;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh; 
+}
+
+.container {
   background-color: #f4efec;
   border-radius: 30px;
   box-shadow: 0 5px 15px rgba(150, 90, 90, 0.35);
@@ -8,8 +24,10 @@
   width: 768px;
   max-width: 100%;
   min-height: 480px;
+  text-align: center;
 }
-.container button{
+
+.container button {
   background-color: #3a3636;
   color: #fff;
   font-size: 12px;
