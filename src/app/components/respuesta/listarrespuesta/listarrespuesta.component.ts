@@ -35,7 +35,7 @@ export class ListarrespuestaComponent implements OnInit {
   
   displayedColumns: string[]=
   [
-    'id',
+    'idRespuesta',
     'gradoConsulta',
     'nivelRespuesta',
     'paciente',
