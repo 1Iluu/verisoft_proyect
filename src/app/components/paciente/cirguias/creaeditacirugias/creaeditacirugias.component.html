@@ -1,21 +1,18 @@
-<div class="container">
-    <div class="title-container">
-      <h1 class="title">Registro de Cirugias</h1>
-    </div>
-    <div class="form-container">
-      <form [formGroup]="form" (submit)="aceptar()" class="example-form">
-        <mat-form-field>
-          <mat-label>Id de la Cirugias</mat-label>
-          <input matInput formControlName="id">
-        </mat-form-field>
-        <mat-form-field>
-          <mat-label>Descripción de la Cirugias</mat-label>
-          <input matInput formControlName="descripcionCirugias">
-        </mat-form-field>
-        <br />
-        <button mat-raised-button color="primary">Aceptar</button>
-        <button mat-raised-button color="warn" routerLink="/cirugias">Cancelar</button>
-        <p>{{ mensaje }}</p>
-      </form>
-    </div>
-  </div>
+<div class="title-container"><h1>Registro de Cirugias</h1></div>
+<div class="title-container" >
+    
+  <form [formGroup]="form" (submit)="aceptar()">
+      <mat-form-field>
+        <mat-label>Id de la Cirugias</mat-label>
+        <input matInput formControlName="idcirugias">
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Descripción de la Cirugias</mat-label>
+        <input matInput formControlName="descripcionCirugias">
+      </mat-form-field>
+      <br />
+      <div class="title-container"><button mat-raised-button color="accent">Aceptar</button></div>
+     
+      
+    </form>
+  </div>

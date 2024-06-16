@@ -71,16 +71,22 @@ export class CreaeditaalergiasComponent implements OnInit {
       this.alergias.idalergias = this.form.value.idalergias;
       this.alergias.descripcionAlergias = this.form.value.descripcionAlergias;
         
-       
-        this.aS.insert(this.alergias).subscribe((data) => {
+      if(this.edicion){
+        this.aS.update(this.alergias).subscribe((data) => {
           this.aS.list().subscribe((data) => {
             this.aS.setList(data);
           });
         });
-      
+      }else{
+        this.aS.insert(this.alergias).subscribe((data)=> {
+          this.aS.list().subscribe((data)=>{
+            this.aS.setList(data);
+          });
+        });
       this.router.navigate(['alergias']);
   }
   }
+}
 
   init(){
     if(this.edicion){

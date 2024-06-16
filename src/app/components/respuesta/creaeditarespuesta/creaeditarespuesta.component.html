@@ -1,0 +1,29 @@
+<div class="container">
+    <div class="title-container">
+      <h1 class="title">Registro de Respuesta</h1>
+    </div>
+    <div class="form-container">
+      <form [formGroup]="form" (submit)="aceptar()" class="example-form">
+        <mat-form-field>
+          <mat-label>idRespuesta</mat-label>
+          <input matInput formControlName="idRespuesta">
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>gradoConsulta</mat-label>
+          <input matInput formControlName="gradoConsulta">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>nivelRespuesta</mat-label>
+            <input matInput formControlName="nivelRespuesta">
+          </mat-form-field>
+        <mat-form-field>
+            <mat-label>paciente</mat-label>
+            <input matInput formControlName="paciente">
+          </mat-form-field>
+          <br />
+        <button mat-raised-button color="primary">Aceptar</button>
+        <button mat-raised-button color="warn" routerLink="/respuestas">Cancelar</button>
+        <p>{{ mensaje }}</p>
+      </form>
+    </div>
+  
