@@ -1,8 +1,8 @@
-import { Users } from "./users"
+import { Users } from "./users";
 
-export class Pacient{
-    idPaciente: number=0
-    user: Users=new Users
-    contactoEmergencia:string=""
-    estado:string=""
+export class Paciente {
+  idPaciente: number = 0;
+  user: Users = new Users();
+  contactoEmergencia: string = "";
+  estado: string = "";
 }
