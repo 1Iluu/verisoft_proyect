@@ -1,10 +1,14 @@
 
-html, body {
+.diva {
   height: 100%;
   margin: 0;
   display: flex;
   justify-content: center;
   align-items: center;
+  background-image: url('/assets/images/F.jpg'); /* Aquí pones la ruta de tu imagen */
+  background-size: cover; /* Hace que la imagen cubra toda la pantalla */
+  background-position: center; /* Centra la imagen */
+  background-repeat: no-repeat; /* Evita que la imagen se repita */
 }
 
 .container-wrapper {
