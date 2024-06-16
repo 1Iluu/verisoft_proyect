@@ -1,6 +1,6 @@
-<mat-toolbar color="accent" *ngIf="verificar()" >
-  <button mat-button [matMenuTriggerFor]="menuPaciente">Paciente</button> 
-  <button mat-button [matMenuTriggerFor]="menuOncologo">Oncologo</button> 
+<mat-toolbar color="accent" *ngIf="verificar()">
+  <button mat-button [matMenuTriggerFor]="menuPaciente">Paciente</button>
+  <button mat-button [matMenuTriggerFor]="menuOncologo">Oncologo</button>
   <button mat-button [matMenuTriggerFor]="menuAdmin">Admin</button>
   <button mat-button [matMenuTriggerFor]="menuRol">Roles</button>
   <button mat-button [matMenuTriggerFor]="menuLogin">Salir</button>
@@ -11,8 +11,22 @@
   <button mat-menu-item routerLink="/seguros/nuevo">Crear un seguros</button>
   <button mat-menu-item routerLink="/cirugias">Listar cirugias</button>
   <button mat-menu-item routerLink="/cirugias/nuevo">Registrar cirugias</button>
-  <button mat-menu-item routerLink="/especialidad">listar especialidad</button>
-  <button mat-menu-item routerLink="/tipotratamiento">listar tipo de tratamiento</button> 
+  <button mat-menu-item routerLink="/especialidades">
+    listar especialidad
+  </button>
+  <button mat-menu-item routerLink="/especialidades/nuevo">
+    Registrar especialidad
+  </button>
+  <button mat-menu-item routerLink="/tipotratamientos">
+    listar tipo de tratamiento
+  </button>
+  <button mat-menu-item routerLink="/tipotratamientos/nuevo">
+    Registrar tipo de tratamiento
+  </button>
+  <button mat-menu-item routerLink="/tratamientos">listar tratamientos</button>
+  <button mat-menu-item routerLink="/tratamientos/nuevo">
+    Registrar tratamiento
+  </button>
 </mat-menu>
 
 <mat-menu #menuOncologo="matMenu">
@@ -22,8 +36,12 @@
   <button mat-menu-item routerLink="/respuestas/nuevo">Registrar Respuesta</button>
   <button mat-menu-item routerLink="/alergias">Listar alergias</button>
   <button mat-menu-item routerLink="/alergias/nuevo">Registrar alergias</button>
-  <button mat-menu-item routerLink="/examenes">Listar Exámenes de Deteccion</button>
-  <button mat-menu-item routerLink="/examenes/nuevo">Registrar Exámenes de Deteccion</button>
+  <button mat-menu-item routerLink="/examenes">
+    Listar Exámenes de Deteccion
+  </button>
+  <button mat-menu-item routerLink="/examenes/nuevo">
+    Registrar Exámenes de Deteccion
+  </button>
 </mat-menu>
 
 <mat-menu #menuAdmin="matMenu">
@@ -38,8 +56,9 @@
 
 <mat-menu #menuLogin="matMenu">
   <button mat-menu-item routerLink="/">Salir</button>
-  <button mat-menu-item> Rol: <span>{{ role }}</span>
+  <button mat-menu-item>
+    Rol: <span>{{ role }}</span>
   </button>
 </mat-menu>
 
-  <router-outlet></router-outlet>
+<router-outlet></router-outlet>
