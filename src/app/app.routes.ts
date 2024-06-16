@@ -19,6 +19,8 @@ import { CrearTipoTratamientoComponent } from './components/tipo-tratamiento/cre
 import { segGuard } from './guard/seguridad.guard';
 import { ExamendeteccionComponent } from './components/examendeteccion/examendeteccion.component';
 import { CreaeditaexamenComponent } from './components/examendeteccion/creaeditaexamen/creaeditaexamen.component';
+import { TratamientoComponent } from './components/tratamiento/tratamiento.component';
+import { CreaeditatratamientoComponent } from './components/tratamiento/creaeditatratamiento/creaeditatratamiento.component';
 
 export const routes: Routes = [
   {
@@ -102,6 +104,15 @@ export const routes: Routes = [
     children: [
       { path: 'nuevo', component: CrearTipoTratamientoComponent },
       { path: 'ediciones/:id', component: CrearTipoTratamientoComponent },
+    ],
+    canActivate: [segGuard],
+  },
+  {
+    path: 'tratamientos',
+    component: TratamientoComponent,
+    children: [
+      { path: 'nuevo', component: CreaeditatratamientoComponent },
+      { path: 'ediciones/:id', component: CreaeditatratamientoComponent },
     ],
     canActivate: [segGuard],
   },

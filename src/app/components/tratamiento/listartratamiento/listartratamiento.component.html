@@ -1,0 +1,95 @@
+<div class="container">
+  <div class="title-container">
+    <h1 class="title">Lista de Tratamientos</h1>
+  </div>
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+    <ng-container matColumnDef="idTratamiento">
+      <th mat-header-cell *matHeaderCellDef>Código</th>
+      <td mat-cell *matCellDef="let element">{{ element.idTratamiento }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="descripcionTratamiento">
+      <th mat-header-cell *matHeaderCellDef>Descripción</th>
+      <td mat-cell *matCellDef="let element">
+        {{ element.descripcionTratamiento }}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="estadoTratamiento">
+      <th mat-header-cell *matHeaderCellDef>Estado</th>
+      <td mat-cell *matCellDef="let element">
+        {{ element.estadoTratamiento }}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="presupuestoTratamiento">
+      <th mat-header-cell *matHeaderCellDef>Presupuesto</th>
+      <td mat-cell *matCellDef="let element">
+        {{ element.presupuestoTratamiento }}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="fechaTratamiento">
+      <th mat-header-cell *matHeaderCellDef>Fecha</th>
+      <td mat-cell *matCellDef="let element">
+        {{ element.fechaTratamiento | date }}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="horasTratamiento">
+      <th mat-header-cell *matHeaderCellDef>Horas programadas</th>
+      <td mat-cell *matCellDef="let element">{{ element.horasTratamiento }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="efectosEsperadosTratamiento">
+      <th mat-header-cell *matHeaderCellDef>Efectos esperados</th>
+      <td mat-cell *matCellDef="let element">
+        {{ element.efectosEsperadosTratamiento }}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="oncologo">
+      <th mat-header-cell *matHeaderCellDef>Oncólogo asignado</th>
+      <td mat-cell *matCellDef="let element">
+        {{ element.oncologo.user_id.nombre }}
+        {{ element.oncologo.user_id.apellido }}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="nombreTratamiento">
+      <th mat-header-cell *matHeaderCellDef>Nombre</th>
+      <td mat-cell *matCellDef="let element">
+        {{ element.nombreTratamiento }}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="accion01">
+      <th mat-header-cell *matHeaderCellDef>Editar</th>
+      <td mat-cell *matCellDef="let element">
+        <button
+          mat-raised-button
+          color="accent"
+          [routerLink]="['ediciones', element.idTratamiento]"
+        >
+          Actualizar
+        </button>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="accion02">
+      <th mat-header-cell *matHeaderCellDef>Acciones</th>
+      <td mat-cell *matCellDef="let element">
+        <button
+          mat-raised-button
+          color="accent"
+          (click)="deletes(element.idTratamiento)"
+        >
+          Eliminar
+        </button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
+</div>

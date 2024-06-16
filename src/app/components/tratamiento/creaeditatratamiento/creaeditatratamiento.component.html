@@ -1,0 +1,65 @@
+<div class="title-container"><h1>Registro de Tratamiento</h1></div>
+<div class="title-container">
+  <form [formGroup]="form" (submit)="aceptar()">
+    <mat-form-field>
+      <mat-label>Descripción</mat-label>
+      <input matInput formControlName="descripcion" />
+      <mat-error *ngIf="form.get('descripcion')?.hasError('required')">
+        La descripción es obligatoria.
+      </mat-error>
+    </mat-form-field>
+    <br />
+    <mat-form-field>
+      <mat-label>Estado</mat-label>
+      <input matInput formControlName="estado" />
+      <mat-error *ngIf="form.get('estado')?.hasError('required')">
+        El estado es obligatorio.
+      </mat-error>
+    </mat-form-field>
+    <br />
+    <mat-form-field>
+      <mat-label>Presupuesto</mat-label>
+      <input matInput formControlName="presupuesto" type="number" />
+      <mat-error *ngIf="form.get('presupuesto')?.hasError('required')">
+        El presupuesto es obligatorio.
+      </mat-error>
+    </mat-form-field>
+    <br />
+    <mat-form-field appearance="fill">
+      <mat-label>Fecha</mat-label>
+      <input matInput [matDatepicker]="picker" formControlName="fecha" />
+      <mat-datepicker-toggle
+        matIconSuffix
+        [for]="picker"
+      ></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+    <br />
+    <mat-form-field>
+      <mat-label>Horas programadas</mat-label>
+      <input matInput formControlName="horas" type="number" />
+      <mat-error *ngIf="form.get('horas')?.hasError('required')">
+       Las horas son obligatorias.
+      </mat-error>
+    </mat-form-field>
+    <br />
+    <mat-form-field>
+      <mat-label>Efectos esperados</mat-label>
+      <input matInput formControlName="efectosEsperados" />
+      <mat-error *ngIf="form.get('efectosEsperados')?.hasError('required')">
+       Los efectos esperados son obligatorios.
+      </mat-error>
+    </mat-form-field>
+    <br />
+    <mat-form-field>
+      <mat-label>Oncologo asignado</mat-label>
+      <input matInput formControlName="oncologo" type="number" />
+      <mat-error *ngIf="form.get('oncologo')?.hasError('required')">
+       Se debe asignar un oncologo
+      </mat-error>
+    </mat-form-field>
+    <div class="title-container">
+      <button mat-raised-button color="accent">Aceptar</button>
+    </div>
+  </form>
+</div>
