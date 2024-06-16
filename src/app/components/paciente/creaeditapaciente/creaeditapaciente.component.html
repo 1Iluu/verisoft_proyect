@@ -1,0 +1,28 @@
+<div class="title-container"><h1>Registro de Pacientes</h1></div>
+<div class="title-container" >
+    
+  <form [formGroup]="form" (submit)="aceptar()">
+
+    <mat-form-field>
+      <mat-label>Id</mat-label>
+      <input matInput formControlName="idPaciente" />
+    </mat-form-field>
+    <br />
+
+    <mat-form-field>
+      <mat-label>User</mat-label>
+      <input matInput formControlName="user" />
+      <mat-error *ngIf="form.get('user')?.hasError('required')"
+        >El nombre es obligatorio.</mat-error>
+    </mat-form-field>
+    <br />
+    <mat-form-field>
+        <mat-label>Contacto de emergencia</mat-label>
+        <input matInput formControlName="contactoEmergencia" />
+      </mat-form-field>
+    <br />
+    <mat-form-field>
+        <mat-label>Estado</mat-label>
+        <input matInput formControlName="estado" />
+      </mat-form-field>
+    <br />
