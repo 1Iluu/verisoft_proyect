@@ -20,95 +20,98 @@ import { segGuard } from './guard/seguridad.guard';
 import { ExamendeteccionComponent } from './components/examendeteccion/examendeteccion.component';
 import { CreaeditaexamenComponent } from './components/examendeteccion/creaeditaexamen/creaeditaexamen.component';
 
-
-
 export const routes: Routes = [
- 
   {
     path: '',
-    redirectTo: 'landing', pathMatch: 'full'
+    redirectTo: 'landing',
+    pathMatch: 'full',
   },
   {
-    path: 'landing', component: LandinpageComponent
+    path: 'landing',
+    component: LandinpageComponent,
   },
   {
-    path: 'login', component: LoginComponent
+    path: 'login',
+    component: LoginComponent,
   },
   {
-    path: 'home',component: HomeComponent,
+    path: 'home',
+    component: HomeComponent,
     canActivate: [segGuard],
-
   },
   {
-    path:'alergias',component: AlergiasComponent,
-    children:[
-        {path:'nuevo',component: CreaeditaalergiasComponent},
-        {path:'ediciones/:id',component:CreaeditaalergiasComponent}
-             ],
-             canActivate: [segGuard],
-  },
-  {
-    path:'cirugias',component: CirguiasComponent, 
-    children:[
-
-        {path:'nuevo', component:CreaeditacirugiasComponent},
-        {path:'ediciones/:id',component:CreaeditacirugiasComponent}
-        
-            ],
-            canActivate: [segGuard],
-  },
-
-  {
-  path:'seguros',component:SeguroComponent,
-  children:[
-          {path:'nuevo',component:CrearseguroComponent},
-          {path:'ediciones/:id',component:CrearseguroComponent}
-           ],
-           canActivate: [segGuard],
-  },
-
-  {
-  path:'users',component:UsersComponent,
-  children:[
-          {path:'nuevo',component:CreaeditausersComponent},
-          {path:'ediciones/:id',component:CreaeditausersComponent}
-           ],
-           canActivate: [segGuard],
-  },
-
-  {
-  path:'rol',component:RolesComponent,
-  children:[
-          {path:'nuevo',component:CreaeditarolesComponent},
-          {path:'ediciones/:id',component:CreaeditarolesComponent}
-           ],
-           canActivate: [segGuard],
-  },
-{
-  path:'especialidades',component:EspecialidadComponent,
-  children:[
-          {path:'nuevo',component:CrearEspecialidadComponent},
-          {path:'ediciones/:id',component:CrearEspecialidadComponent}       
-  ],
-  canActivate: [segGuard],
-},
-{
-  path:'tipotratamientos',component:TipoTratamientoComponent,
-  children:[
-          {path:'nuevo',component:CrearTipoTratamientoComponent},
-          {path:'ediciones/:id',component:CrearTipoTratamientoComponent}       
-  ],
-  canActivate: [segGuard],
-},
-{
-  path:'examenes',component:ExamendeteccionComponent,
-  children:[
-    {path:'nuevo',component:CreaeditaexamenComponent},
-    {path:'ediciones/:id',component:CreaeditaexamenComponent}
+    path: 'alergias',
+    component: AlergiasComponent,
+    children: [
+      { path: 'nuevo', component: CreaeditaalergiasComponent },
+      { path: 'ediciones/:id', component: CreaeditaalergiasComponent },
     ],
     canActivate: [segGuard],
-},
+  },
+  {
+    path: 'cirugias',
+    component: CirguiasComponent,
+    children: [
+      { path: 'nuevo', component: CreaeditacirugiasComponent },
+      { path: 'ediciones/:id', component: CreaeditacirugiasComponent },
+    ],
+    canActivate: [segGuard],
+  },
 
+  {
+    path: 'seguros',
+    component: SeguroComponent,
+    children: [
+      { path: 'nuevo', component: CrearseguroComponent },
+      { path: 'ediciones/:id', component: CrearseguroComponent },
+    ],
+    canActivate: [segGuard],
+  },
 
+  {
+    path: 'users',
+    component: UsersComponent,
+    children: [
+      { path: 'nuevo', component: CreaeditausersComponent },
+      { path: 'ediciones/:id', component: CreaeditausersComponent },
+    ],
+    canActivate: [segGuard],
+  },
 
+  {
+    path: 'rol',
+    component: RolesComponent,
+    children: [
+      { path: 'nuevo', component: CreaeditarolesComponent },
+      { path: 'ediciones/:id', component: CreaeditarolesComponent },
+    ],
+    canActivate: [segGuard],
+  },
+  {
+    path: 'especialidades',
+    component: EspecialidadComponent,
+    children: [
+      { path: 'nuevo', component: CrearEspecialidadComponent },
+      { path: 'ediciones/:id', component: CrearEspecialidadComponent },
+    ],
+    canActivate: [segGuard],
+  },
+  {
+    path: 'tipotratamientos',
+    component: TipoTratamientoComponent,
+    children: [
+      { path: 'nuevo', component: CrearTipoTratamientoComponent },
+      { path: 'ediciones/:id', component: CrearTipoTratamientoComponent },
+    ],
+    canActivate: [segGuard],
+  },
+  {
+    path: 'examenes',
+    component: ExamendeteccionComponent,
+    children: [
+      { path: 'nuevo', component: CreaeditaexamenComponent },
+      { path: 'ediciones/:id', component: CreaeditaexamenComponent },
+    ],
+    canActivate: [segGuard],
+  },
 ];
