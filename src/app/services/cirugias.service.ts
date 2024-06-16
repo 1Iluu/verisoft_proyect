@@ -9,14 +9,14 @@ const base_url=environment.csbase
   providedIn: 'root',
 })
 export class CirugiasService  {
-  private url = `${base_url}/cirugias`;
-  private listaCambio = new Subject<Cirugias[]>();
-  constructor(private httpClient: HttpClient) {}
+  private url = `${base_url}/cirugias`
+  private listaCambio = new Subject<Cirugias[]>()
+  constructor(private http: HttpClient) {}
   list() {
-    return this.httpClient.get<Cirugias[]>(this.url);
+    return this.http.get<Cirugias[]>(this.url)
   }
-  insert(c: Cirugias) {
-    return this.httpClient.post(this.url, c);
+  inser(c: Cirugias) {
+    return this.http.post(this.url, c);
   }
   setList(listaNueva: Cirugias[]) {
     this.listaCambio.next(listaNueva);
@@ -25,13 +25,13 @@ export class CirugiasService  {
     return this.listaCambio.asObservable();
   }
   listId(id: number) {
-    return this.httpClient.get<Cirugias>(`${this.url}/${id}`);
+    return this.http.get<Cirugias>(`${this.url}/${id}`);
   }
   update(c: Cirugias) {
-    return this.httpClient.put(this.url, c);
+    return this.http.put(this.url, c);
   }
-  eliminar(id: number) {
-    return this.httpClient.delete(`${this.url}/${id}`);
+  delete(id: number) {
+    return this.http.delete(`${this.url}/${id}`);
   }
   
 }

@@ -23,6 +23,13 @@ import { ComentarioComponent } from './components/comentario/comentario.componen
 import { CreaeditacomentarioComponent } from './components/comentario/creaeditacomentario/creaeditacomentario.component';
 import { CitaComponent } from './components/cita/cita.component';
 import { CreaeditacitaComponent } from './components/cita/creaeditacita/creaeditacita.component';
+import { RespuestaComponent } from './components/respuesta/respuesta.component';
+import { CreaeditarespuestaComponent } from './components/respuesta/creaeditarespuesta/creaeditarespuesta.component';
+import { PacientesComponent } from './components/pacientes/pacientes.component';
+import { creaeditapaciente } from './components/pacientes/creaeditapaciente/creaeditapaciente.component';
+import { TratamientoComponent } from './components/tratamiento/tratamiento.component';
+import { CreaeditatratamientoComponent } from './components/tratamiento/creaeditatratamiento/creaeditatratamiento.component';
+
 
 
 
@@ -43,6 +50,8 @@ export const routes: Routes = [
     canActivate: [segGuard],
 
   },
+  
+
   {
     path:'alergias',component: AlergiasComponent,
     children:[
@@ -130,6 +139,31 @@ export const routes: Routes = [
 },
 
 
+{
+  path: 'paciente', component: PacientesComponent,
+  children:[
+    {path:'nuevo',component: creaeditapaciente},
+    {path:'ediciones/:id',component:creaeditapaciente}
+         ],
+         canActivate: [segGuard],
+},
+{
+  path: 'respuestas', component: RespuestaComponent,
+  children:[
+    {path:'nuevo',component: CreaeditarespuestaComponent},
+    {path:'ediciones/:id',component:CreaeditarespuestaComponent}
+         ],
+         canActivate: [segGuard],
+},
+{
+  path: 'tratamientos',
+  component: TratamientoComponent,
+  children: [
+    { path: 'nuevo', component: CreaeditatratamientoComponent },
+    { path: 'ediciones/:id', component: CreaeditatratamientoComponent },
+  ],
+  canActivate: [segGuard],
+},
 
 
 ];
