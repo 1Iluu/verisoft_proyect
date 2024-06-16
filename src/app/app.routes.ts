@@ -19,6 +19,11 @@ import { CrearTipoTratamientoComponent } from './components/tipo-tratamiento/cre
 import { segGuard } from './guard/seguridad.guard';
 import { ExamendeteccionComponent } from './components/examendeteccion/examendeteccion.component';
 import { CreaeditaexamenComponent } from './components/examendeteccion/creaeditaexamen/creaeditaexamen.component';
+import { Component } from '@angular/core';
+import { PacienteComponent } from './components/paciente/paciente.component';
+import { creaeditapaciente } from './components/paciente/creaeditapaciente/creaeditapaciente.component';
+import { RespuestaComponent } from './components/respuesta/respuesta.component';
+import { CreaeditarespuestaComponent } from './components/respuesta/creaeditarespuesta/creaeditarespuesta.component';
 
 
 
@@ -39,6 +44,8 @@ export const routes: Routes = [
     canActivate: [segGuard],
 
   },
+  
+
   {
     path:'alergias',component: AlergiasComponent,
     children:[
@@ -109,6 +116,22 @@ export const routes: Routes = [
     canActivate: [segGuard],
 },
 
+{
+  path: 'paciente', component: PacienteComponent,
+  children:[
+    {path:'nuevo',component: creaeditapaciente},
+    {path:'ediciones/:id',component:creaeditapaciente}
+         ],
+         canActivate: [segGuard],
+},
+{
+  path: 'respuestas', component: RespuestaComponent,
+  children:[
+    {path:'nuevo',component: CreaeditarespuestaComponent},
+    {path:'ediciones/:id',component:CreaeditarespuestaComponent}
+         ],
+         canActivate: [segGuard],
+}
 
 
 ];
