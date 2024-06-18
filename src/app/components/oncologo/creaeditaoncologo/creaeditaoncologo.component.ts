@@ -14,6 +14,8 @@ import { Users } from '../../../models/users';
 import { UsersService } from '../../../services/users.service';
 import { Router } from '@angular/router';
 import { OncologoService } from '../../../services/oncologo.service';
+import { Especialidad } from '../../../models/especialidad';
+import { EspecialidadService } from '../../../services/especialidad.service';
 
 @Component({
   selector: 'app-creaeditaoncologo',
@@ -40,6 +42,8 @@ export class CreaeditaoncologoComponent implements OnInit {
   cantidad_pacientes: number=0;
   edicion: boolean = false;
   listaUsers: Users[] = [];
+  listaEspecialidad: Especialidad[] = [];
+  idEspecialidadSeleccionado:number=0;
   idUserSeleccionado:number=0
   nombreyapellido: string = '';
   educacion:{value:string,viewValue:string}[]=[{value:'Completa',viewValue:'Completa'},
@@ -49,6 +53,7 @@ export class CreaeditaoncologoComponent implements OnInit {
   constructor(
     private oS: OncologoService,
     private uS: UsersService,
+    private eS: EspecialidadService,
     private router: Router,
     private formBuilder:FormBuilder,
     private route: ActivatedRoute
@@ -62,6 +67,7 @@ export class CreaeditaoncologoComponent implements OnInit {
     this.form = this.formBuilder.group({
       Oncologo_id: ['',],
       user_id: ['', Validators.required],
+      especialidad_id: ['', Validators.required],
       nombreyapellido: ['', Validators.required],
       experiencia_laboral_anios: ['', [Validators.required, this.validateNumero]],
       educacion_universitaria: ['',[Validators.required, Validators.maxLength(30)]],
@@ -73,11 +79,15 @@ export class CreaeditaoncologoComponent implements OnInit {
     this.uS.list().subscribe((data) => {
       this.listaUsers = data;
     });
+    this.eS.list().subscribe((data) => {
+      this.listaEspecialidad = data;
+    })
   }
   aceptar() {
     if (this.form.valid) {
       this.Oncologo.oncologo_id = this.form.value.Oncologo_id;
       this.Oncologo.user_id.id = this.form.value.user_id;
+      this.Oncologo.especialidad_id.id = this.form.value.especialidad_id;
       this.Oncologo.nombreyapellido = this.form.value.nombreyapellido_id;
       this.Oncologo.experiencia_laboral_anios = this.form.value.experiencia_laboral_anios;
       this.Oncologo.cantidad_pacientes = this.form.value.cantidad_pacientes;
@@ -155,6 +165,7 @@ export class CreaeditaoncologoComponent implements OnInit {
         Oncologo_id: new FormControl(data.oncologo_id),
         user_id: new FormControl(data.user_id.id),
         nombreyapellido_id: new FormControl(data.nombreyapellido),
+        especialidad_id: new FormControl(data.especialidad_id.id),
         experiencia_laboral_anios: new FormControl(data.experiencia_laboral_anios),
         cantidad_pacientes: new FormControl(data.cantidad_pacientes),
         horario_atencion: new FormControl(data.horario_atencion),

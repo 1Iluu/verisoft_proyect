@@ -26,6 +26,7 @@ export class ListaroncologoComponent implements OnInit{
   dataSource: MatTableDataSource<Oncologo>=new MatTableDataSource();
   displayedColumns: String[]=['codigo',
   'usuario',
+  'especialidad',
   'anios',
   'educacion',
   'cantidad',
@@ -54,5 +55,8 @@ export class ListaroncologoComponent implements OnInit{
         this.oS.setList(data);
       });
     });
+  }
+  filter(en: any) {
+    this.dataSource.filter = en.target.value.trim();
   }
 }
