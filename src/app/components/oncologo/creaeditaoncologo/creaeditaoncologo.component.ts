@@ -164,9 +164,9 @@ export class CreaeditaoncologoComponent implements OnInit {
       {this.form = new FormGroup({
         Oncologo_id: new FormControl(data.oncologo_id),
         user_id: new FormControl(data.user_id.id),
-        nombreyapellido_id: new FormControl(data.nombreyapellido),
         especialidad_id: new FormControl(data.especialidad_id.id),
-        experiencia_laboral_anios: new FormControl(data.experiencia_laboral_anios),
+        nombreyapellido_id: new FormControl(data.nombreyapellido),
+       experiencia_laboral_anios: new FormControl(data.experiencia_laboral_anios),
         cantidad_pacientes: new FormControl(data.cantidad_pacientes),
         horario_atencion: new FormControl(data.horario_atencion),
         salario: new FormControl(data.salario),

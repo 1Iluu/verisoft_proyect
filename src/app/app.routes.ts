@@ -95,7 +95,7 @@ export const routes: Routes = [
   canActivate: [segGuard],
 },
 {
-  path: 'Oncologo', component: OncologoComponent,
+  path: 'oncologos', component: OncologoComponent,
   children: [
     {
       path: 'nuevo', component: CreaeditaoncologoComponent
@@ -103,7 +103,8 @@ export const routes: Routes = [
     {
       path: 'ediciones/:id', component: CreaeditaoncologoComponent
     },
-  ]
+  ],
+  canActivate: [segGuard],
 },
 {
   path:'tipotratamientos',component:TipoTratamientoComponent,
