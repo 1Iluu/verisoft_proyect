@@ -11,7 +11,7 @@
   
           <ng-container matColumnDef="codigo_oncologo">
             <th mat-header-cell *matHeaderCellDef>Código del Oncólogo</th>
-            <td mat-cell *matCellDef="let element">{{element.oncologo.oncologo_id}}</td>
+            <td mat-cell *matCellDef="let element">{{element.oncologo?.oncologo_id}}</td>
           </ng-container>
         
           <ng-container matColumnDef="nombreHerramienta">
