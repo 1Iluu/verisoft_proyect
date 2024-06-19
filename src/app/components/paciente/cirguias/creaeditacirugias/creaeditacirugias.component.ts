@@ -4,9 +4,7 @@ import { ActivatedRoute, Params, Router, RouterLink } from '@angular/router';
 import { CommonModule, NgIf } from '@angular/common';
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
-import { MatNativeDateModule } from '@angular/material/core';
 import { MatSelectModule } from '@angular/material/select';
-import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatFormFieldModule} from '@angular/material/form-field';
 import { Cirugias } from '../../../../models/cirugias';
 import { CirugiasService } from '../../../../services/cirugias.service';
@@ -46,16 +44,16 @@ export class CreaeditacirugiasComponent implements OnInit {
     })
 
     this.form = this.formBuilder.group({
-      idcirugias: ['',],
-      descripcionCirugias: ['', Validators.required],
+     
+      descripcioncirugias: ['', Validators.required],
       
     });
   }
 
   aceptar(): void {
     if (this.form.valid) {
-      this.cirugias.idcirugias = this.form.value.idcirugias;
-      this.cirugias.descripcionCirugias = this.form.value.descripcionCirugias;
+
+      this.cirugias.descripcioncirugias = this.form.value.descripcioncirugias;
 
       if (this.edicion) {
         this.cS.update(this.cirugias).subscribe(() => {
@@ -81,7 +79,7 @@ export class CreaeditacirugiasComponent implements OnInit {
     this.cS.listId(this.id).subscribe((data) => {
       this.form= new FormGroup({
         idcirugias:new FormControl( data.idcirugias),
-        descripcionCirugias:new FormControl( data.descripcionCirugias),
+        descripcionCirugias:new FormControl( data.descripcioncirugias),
       })
     })
   }
