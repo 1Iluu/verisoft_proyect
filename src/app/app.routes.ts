@@ -160,6 +160,7 @@ export const routes: Routes = [
     ],
     canActivate: [segGuard],
 },
+{
 
   path: 'paciente', component: PacientesComponent,
   children:[
