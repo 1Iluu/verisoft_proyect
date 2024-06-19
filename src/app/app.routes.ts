@@ -21,6 +21,23 @@ import { ExamendeteccionComponent } from './components/examendeteccion/examendet
 import { CreaeditaexamenComponent } from './components/examendeteccion/creaeditaexamen/creaeditaexamen.component';
 import { OncologoComponent } from './components/oncologo/oncologo.component';
 import { CreaeditaoncologoComponent } from './components/oncologo/creaeditaoncologo/creaeditaoncologo.component';
+import { HerramientaComponent } from './components/oncologo/herramienta/herramienta.component';
+import { CreaeditaherramientaComponent } from './components/oncologo/herramienta/creaeditaherramienta/creaeditaherramienta.component';
+import { CreardetallehistorialComponent } from './components/oncologo/detallehistorial/creardetallehistorial/creardetallehistorial.component';
+import { DetallehistorialComponent } from './components/oncologo/detallehistorial/detallehistorial.component';
+import { ComentarioComponent } from './components/comentario/comentario.component';
+import { CreaeditacomentarioComponent } from './components/comentario/creaeditacomentario/creaeditacomentario.component';
+import { CitaComponent } from './components/cita/cita.component';
+import { CreaeditacitaComponent } from './components/cita/creaeditacita/creaeditacita.component';
+import { RespuestaComponent } from './components/respuesta/respuesta.component';
+import { CreaeditarespuestaComponent } from './components/respuesta/creaeditarespuesta/creaeditarespuesta.component';
+import { PacientesComponent } from './components/pacientes/pacientes.component';
+import { creaeditapaciente } from './components/pacientes/creaeditapaciente/creaeditapaciente.component';
+import { TratamientoComponent } from './components/tratamiento/tratamiento.component';
+import { CreaeditatratamientoComponent } from './components/tratamiento/creaeditatratamiento/creaeditatratamiento.component';
+
+
+
 
 
 
@@ -41,6 +58,8 @@ export const routes: Routes = [
     canActivate: [segGuard],
 
   },
+  
+
   {
     path:'alergias',component: AlergiasComponent,
     children:[
@@ -122,7 +141,66 @@ export const routes: Routes = [
     ],
     canActivate: [segGuard],
 },
+{
+  path:'comentario',component:ComentarioComponent,
+  children:[
+    {path:'nuevo',component:CreaeditacomentarioComponent},
+    {path:'ediciones/:id',component:CreaeditacomentarioComponent}
+    ],
+    canActivate: [segGuard],
+},
+{
+  path:'cita',component:CitaComponent,
+  children:[
+    {path:'nuevo',component:CreaeditacitaComponent},
+    {path:'ediciones/:id',component:CreaeditacitaComponent}
+    ],
+    canActivate: [segGuard],
+},
 
+{
+  path:'herramientas',component:HerramientaComponent,
+  children:[
+    {path:'nuevo',component:CreaeditaherramientaComponent},
+    {path:'ediciones/:id',component:CreaeditaherramientaComponent}
+    ],
+    canActivate: [segGuard],
+},
+
+{
+
+  path:'DetalleHistorial',component:DetallehistorialComponent,
+  children:[
+    {path:'nuevo',component:CreardetallehistorialComponent},
+    ],
+    canActivate: [segGuard],
+},
+{
+
+  path: 'paciente', component: PacientesComponent,
+  children:[
+    {path:'nuevo',component: creaeditapaciente},
+    {path:'ediciones/:id',component:creaeditapaciente}
+         ],
+         canActivate: [segGuard],
+},
+{
+  path: 'respuestas', component: RespuestaComponent,
+  children:[
+    {path:'nuevo',component: CreaeditarespuestaComponent},
+    {path:'ediciones/:id',component:CreaeditarespuestaComponent}
+         ],
+         canActivate: [segGuard],
+},
+{
+  path: 'tratamientos',
+  component: TratamientoComponent,
+  children: [
+    { path: 'nuevo', component: CreaeditatratamientoComponent },
+    { path: 'ediciones/:id', component: CreaeditatratamientoComponent },
+  ],
+  canActivate: [segGuard],
+},
 
 
 ];

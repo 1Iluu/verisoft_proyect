@@ -9,7 +9,11 @@ import { MatInputModule } from '@angular/material/input';
 import { Cirugias } from '../../../../models/cirugias';
 import { CirugiasService } from '../../../../services/cirugias.service';
 
-
+export interface PeriodicElement {
+  codigo: number;
+  Cirugias: string;
+  descripcionCirugias: string;
+}
 @Component({
   selector: 'app-listarcirugias',
   standalone: true,
@@ -26,7 +30,6 @@ import { CirugiasService } from '../../../../services/cirugias.service';
   styleUrl: './listarcirugias.component.css'
 })
 export class ListarcirugiasComponent implements OnInit{
-  dataSource: MatTableDataSource<Cirugias>= new MatTableDataSource();
   displayedColumns: string[]=
   [
     'idcirugias',
@@ -34,20 +37,22 @@ export class ListarcirugiasComponent implements OnInit{
     'accion01',
     'accion02'
   ];
-  @ViewChild(MatPaginator) paginator! : MatPaginator;
+  dataSource: MatTableDataSource<Cirugias>= new MatTableDataSource();
+
+
   constructor(private cS:CirugiasService ){}
   ngOnInit(): void {
     this.cS.list().subscribe((data)=>{
       this.dataSource=new MatTableDataSource(data);
-      this.dataSource.paginator=this.paginator;
+
     });
     this.cS.getList().subscribe((data)=>{
       this.dataSource=new MatTableDataSource(data);
-      this.dataSource.paginator= this.paginator;
+
     });
 }
- eliminar(id:number) {
-  this.cS.eliminar(id).subscribe((data) => {
+ deletes(id:number) {
+  this.cS.delete(id).subscribe((data) => {
     this.cS.list().subscribe((data)=>{
       this.cS.setList(data);
     });

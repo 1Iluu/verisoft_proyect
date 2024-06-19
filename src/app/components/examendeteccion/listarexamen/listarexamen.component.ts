@@ -1,6 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
-import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import {RouterLink} from '@angular/router';
@@ -13,7 +12,6 @@ import { Serviceexamen } from '../../../services/serviceexamen.service';
   standalone: true,
   imports: [
     MatTableModule,
-    MatPaginatorModule,
     MatIconModule,
     MatButtonModule,
     RouterLink
