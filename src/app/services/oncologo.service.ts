@@ -10,7 +10,7 @@ const base_url = environment.csbase;
   providedIn: 'root'
 })
 export class OncologoService {
-  private url = `${base_url}/Oncologo`;
+  private url = `${base_url}/oncologos`;
   private listaCambio = new Subject<Oncologo[]>();
 
   constructor(private http:HttpClient) {}
