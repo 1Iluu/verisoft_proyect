@@ -8,6 +8,7 @@ import {RouterLink} from '@angular/router';
 
 import { Herramienta } from '../../../../models/herramienta';
 import { ServicioherramientaService } from '../../../../services/servicioherramienta.service';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-listarherramienta',
@@ -17,6 +18,7 @@ import { ServicioherramientaService } from '../../../../services/servicioherrami
     MatIconModule,
     MatButtonModule,
     RouterLink,
+    CommonModule
   ],
   templateUrl: './listarherramienta.component.html',
   styleUrl: './listarherramienta.component.css'
