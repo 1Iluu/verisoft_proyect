@@ -1,0 +1,36 @@
+<div class="container">
+    <div class="title-container">
+      <h1 class="title">Lista de Herramientas del Oncólogo</h1>
+    </div>
+      <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+        
+        <ng-container matColumnDef="codigo_herramienta">
+          <th mat-header-cell *matHeaderCellDef>Código herramienta</th>
+          <td mat-cell *matCellDef="let element">{{element.herramienta_id}}</td>
+        </ng-container>
+  
+          <ng-container matColumnDef="codigo_oncologo">
+            <th mat-header-cell *matHeaderCellDef>Código del Oncólogo</th>
+            <td mat-cell *matCellDef="let element">{{element.oncologo.oncologo_id}}</td>
+          </ng-container>
+        
+          <ng-container matColumnDef="nombreHerramienta">
+            <th mat-header-cell *matHeaderCellDef>Nombre de la herramienta</th>
+            <td mat-cell *matCellDef="let element">{{element.nombreHerramienta}}</td>
+          </ng-container>
+  
+          <ng-container matColumnDef="accion01">
+          <th mat-header-cell *matHeaderCellDef> Acciones </th>
+          <td mat-cell *matCellDef="let element">
+          <button mat-raised-button color="accent" [routerLink]="['ediciones',element.herramienta_id]">
+            Actualizar
+            </button> 
+              </td>
+                </ng-container>
+  
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+  
+  </div>
+  

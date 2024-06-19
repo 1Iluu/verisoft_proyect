@@ -19,6 +19,10 @@ import { CrearTipoTratamientoComponent } from './components/tipo-tratamiento/cre
 import { segGuard } from './guard/seguridad.guard';
 import { ExamendeteccionComponent } from './components/examendeteccion/examendeteccion.component';
 import { CreaeditaexamenComponent } from './components/examendeteccion/creaeditaexamen/creaeditaexamen.component';
+import { HerramientaComponent } from './components/oncologo/herramienta/herramienta.component';
+import { CreaeditaherramientaComponent } from './components/oncologo/herramienta/creaeditaherramienta/creaeditaherramienta.component';
+import { CreardetallehistorialComponent } from './components/oncologo/detallehistorial/creardetallehistorial/creardetallehistorial.component';
+import { DetallehistorialComponent } from './components/oncologo/detallehistorial/detallehistorial.component';
 
 
 
@@ -109,6 +113,21 @@ export const routes: Routes = [
     canActivate: [segGuard],
 },
 
+{
+  path:'herramientas',component:HerramientaComponent,
+  children:[
+    {path:'nuevo',component:CreaeditaherramientaComponent},
+    {path:'ediciones/:id',component:CreaeditaherramientaComponent}
+    ],
+    canActivate: [segGuard],
+},
 
+{
+  path:'DetalleHistorial',component:DetallehistorialComponent,
+  children:[
+    {path:'nuevo',component:CreardetallehistorialComponent},
+    ],
+    canActivate: [segGuard],
+},
 
 ];
