@@ -19,6 +19,8 @@ import { CrearTipoTratamientoComponent } from './components/tipo-tratamiento/cre
 import { segGuard } from './guard/seguridad.guard';
 import { ExamendeteccionComponent } from './components/examendeteccion/examendeteccion.component';
 import { CreaeditaexamenComponent } from './components/examendeteccion/creaeditaexamen/creaeditaexamen.component';
+import { OncologoComponent } from './components/oncologo/oncologo.component';
+import { CreaeditaoncologoComponent } from './components/oncologo/creaeditaoncologo/creaeditaoncologo.component';
 
 
 
@@ -91,6 +93,17 @@ export const routes: Routes = [
           {path:'ediciones/:id',component:CrearEspecialidadComponent}       
   ],
   canActivate: [segGuard],
+},
+{
+  path: 'Oncologo', component: OncologoComponent,
+  children: [
+    {
+      path: 'nuevo', component: CreaeditaoncologoComponent
+    },
+    {
+      path: 'ediciones/:id', component: CreaeditaoncologoComponent
+    },
+  ]
 },
 {
   path:'tipotratamientos',component:TipoTratamientoComponent,
