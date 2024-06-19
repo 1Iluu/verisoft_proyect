@@ -1,8 +1,6 @@
-mat-toolbar{
-    
-    top: 0px;
-    left: 0px;
-    background-color: #ddb7ac;
-    z-index: 1000;
-  }
-  
+mat-toolbar {
+  top: 0px;
+  left: 0px;
+  background-color: #ddb7ac;
+  z-index: 1000;
+}

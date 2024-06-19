@@ -1,4 +1,3 @@
-
 import { Oncologo } from "./oncologo";
 
 export class Tratamiento {
@@ -11,3 +10,5 @@ export class Tratamiento {
   efectosEsperadosTratamiento: string = '';
   oncologo: Oncologo = new Oncologo();
 }
+
+
