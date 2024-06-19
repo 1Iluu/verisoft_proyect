@@ -1,0 +1,73 @@
+<div class="title-container">
+    <h1>Registro de Detalle Historial</h1>
+  </div>
+  <div class="title-container" >
+    
+    <form [formGroup]="Form" (submit)="guardar()">
+
+      <mat-form-field>
+        <mat-label>Código</mat-label>
+        <input matInput formControlName="codigo" />
+      </mat-form-field>
+  
+      <mat-form-field>
+        <mat-label>Fecha de ingreso Detalle Historial</mat-label>
+        <input matInput [matDatepicker]="picker" formControlName="fechaDetalleHistorial" />
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+        <mat-error *ngIf="Form.get('fechaDetalleHistorial')?.hasError('required')">
+      Ingresar la fecha de registro es obligatorio.
+        </mat-error>
+        <mat-error *ngIf="Form.get('fechaDetalleHistorial')?.hasError('fechaServicioVal')">
+      La fecha de registro no puede ser mayor a la fecha actual.
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Nro. Seguro</mat-label>
+        <input matInput formControlName="codigoseguro" />
+        <mat-error *ngIf="Form.get('codigoseguro')?.hasError('required')">
+        Ingresar el Nro de Seguro es obligatorio.
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Nro. Cirugía</mat-label>
+        <input matInput formControlName="codigocirugia" />
+        <mat-error *ngIf="Form.get('codigocirugia')?.hasError('required')">
+        Ingresar el Nro de Cirugía es obligatorio.
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Nro. Tratamiento</mat-label>
+        <input matInput formControlName="codigotratamiento" />
+        <mat-error *ngIf="Form.get('codigotratamiento')?.hasError('required')">
+        Ingresar el Nro de Tratamiento es obligatorio.
+        </mat-error>
+      </mat-form-field>
+  
+      <mat-form-field>
+        <mat-label>Nro. Examen de Deteccion</mat-label>
+        <input matInput formControlName="codigoexamendeteccion" />
+        <mat-error *ngIf="Form.get('codigoexamendeteccion')?.hasError('required')">
+        Ingresar el Nro de Examen de Deteccion es obligatorio.
+        </mat-error>
+      </mat-form-field>
+  
+      <mat-form-field>
+        <mat-label>Nro. Paciente</mat-label>
+        <input matInput formControlName="codigopaciente" />
+        <mat-error *ngIf="Form.get('codigopaciente')?.hasError('required')">
+        Ingresar el Nro de Paciente es obligatorio.
+        </mat-error>
+      </mat-form-field>
+  
+  
+       
+      <div class="title-container">
+        <button mat-raised-button color="primary">Guardar</button>
+      </div>
+    </form>
+  </div>
+  

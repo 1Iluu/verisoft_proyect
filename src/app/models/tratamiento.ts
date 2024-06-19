@@ -10,3 +10,5 @@ export class Tratamiento {
   efectosEsperadosTratamiento: string = '';
   oncologo: Oncologo = new Oncologo();
 }
+
+

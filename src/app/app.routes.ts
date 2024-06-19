@@ -19,6 +19,10 @@ import { CrearTipoTratamientoComponent } from './components/tipo-tratamiento/cre
 import { segGuard } from './guard/seguridad.guard';
 import { ExamendeteccionComponent } from './components/examendeteccion/examendeteccion.component';
 import { CreaeditaexamenComponent } from './components/examendeteccion/creaeditaexamen/creaeditaexamen.component';
+import { HerramientaComponent } from './components/oncologo/herramienta/herramienta.component';
+import { CreaeditaherramientaComponent } from './components/oncologo/herramienta/creaeditaherramienta/creaeditaherramienta.component';
+import { CreardetallehistorialComponent } from './components/oncologo/detallehistorial/creardetallehistorial/creardetallehistorial.component';
+import { DetallehistorialComponent } from './components/oncologo/detallehistorial/detallehistorial.component';
 import { ComentarioComponent } from './components/comentario/comentario.component';
 import { CreaeditacomentarioComponent } from './components/comentario/creaeditacomentario/creaeditacomentario.component';
 import { CitaComponent } from './components/cita/cita.component';
@@ -29,6 +33,7 @@ import { PacientesComponent } from './components/pacientes/pacientes.component';
 import { creaeditapaciente } from './components/pacientes/creaeditapaciente/creaeditapaciente.component';
 import { TratamientoComponent } from './components/tratamiento/tratamiento.component';
 import { CreaeditatratamientoComponent } from './components/tratamiento/creaeditatratamiento/creaeditatratamiento.component';
+
 
 
 
@@ -138,8 +143,24 @@ export const routes: Routes = [
     canActivate: [segGuard],
 },
 
+{
+  path:'herramientas',component:HerramientaComponent,
+  children:[
+    {path:'nuevo',component:CreaeditaherramientaComponent},
+    {path:'ediciones/:id',component:CreaeditaherramientaComponent}
+    ],
+    canActivate: [segGuard],
+},
 
 {
+
+  path:'DetalleHistorial',component:DetallehistorialComponent,
+  children:[
+    {path:'nuevo',component:CreardetallehistorialComponent},
+    ],
+    canActivate: [segGuard],
+},
+
   path: 'paciente', component: PacientesComponent,
   children:[
     {path:'nuevo',component: creaeditapaciente},
