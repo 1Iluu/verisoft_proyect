@@ -177,7 +177,7 @@ export const routes: Routes = [
 },
 {
 
-  path: 'paciente', component: PacientesComponent,
+  path: 'pacientes', component: PacientesComponent,
   children:[
     {path:'nuevo',component: creaeditapaciente},
     {path:'ediciones/:id',component:creaeditapaciente}

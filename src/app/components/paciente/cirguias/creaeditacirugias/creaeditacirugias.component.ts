@@ -35,7 +35,7 @@ export class CreaeditacirugiasComponent implements OnInit {
     private cS: CirugiasService,
     private router: Router,
     private formBuilder: FormBuilder,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
   ){}
 
   ngOnInit(): void {
@@ -46,9 +46,8 @@ export class CreaeditacirugiasComponent implements OnInit {
     })
 
     this.form = this.formBuilder.group({
-      codigo: ['',],
-      nombre: ['', Validators.required],
-      tipo: ['', Validators.required],
+      idcirugias: ['',],
+      descripcionCirugias: ['', Validators.required],
       
     });
   }
