@@ -1,35 +1,42 @@
 <div class="container" style="text-align: center">
   <h2>Registro de Herramientas</h2>
   <form [formGroup]="form" (submit)="guardar()" class="example-form">
+
       <mat-form-field class="example-full-width" *ngIf="edicion" >
-        <mat-label>Codigo</mat-label>
-        <input matInput placeholder="codigo" formControlName="codigo" />
-        <mat-error *ngIf="form.get('codigo')?.hasError('required')"
+        <mat-label>Código Herramienta</mat-label>
+        <input matInput placeholder="herramienta_id" formControlName="herramienta_id" />
+        <mat-error *ngIf="form.get('herramienta_id')?.hasError('required')"
       >El codigo no se modifica.</mat-error
     >
-    <mat-form-field class="example-full-width">
-      <mat-label>Codigo Oncólogo</mat-label>
-      <input matInput placeholder="codigooncologo" formControlName="codigooncologo" />
-      <mat-error *ngIf="form.get('codigooncologo')?.hasError('required')"
-    >El codigo no se modifica.</mat-error
-  >
   </mat-form-field>
-    <mat-form-field class="example-full-width">
+    <br/>     
+  <mat-form-field class="example-full-width">
+    <mat-label>Código Oncólogo</mat-label>
+    <mat-select formControlName="oncologo_id">
+      <mat-option *ngFor="let c of listaOncologos" [value]="c.oncologo_id">
+        {{c.oncologo_id}}
+      </mat-option>
+    </mat-select>
+    <mat-error *ngIf="form.get('oncologo_id')?.hasError('required')"
+    >El código es obligatorio.</mat-error
+    >       
+  </mat-form-field>
+
+  <br/>     
+    <mat-form-field appearance="fill" class="example-full-width">
       <mat-label>Herramienta</mat-label>
-      <mat-select formControlName="herramienta">
+      <mat-select formControlName="nombreHerramienta">
       <mat-option *ngFor="let g of listaHerramientas" [value]="g.value">
         {{g.viewValue}}
       </mat-option>
     </mat-select>
-    <mat-error *ngIf="form.get('herramienta')?.hasError('required')"
-    >El Género es obligatorio.</mat-error
+    <mat-error *ngIf="form.get('nombreHerramienta')?.hasError('required')"
+    >El tipo de herramienta es obligatorio.</mat-error
   >
   </mat-form-field>
 <br/>     
-    </mat-form-field>
-    <br />
-    <button mat-raised-button color="primary">Aceptar</button>
-    <button mat-raised-button color="warn" routerLink="/peliculas">
+    <button mat-raised-button color="accent">Aceptar</button>
+    <button mat-raised-button color="primary" routerLink="/herramientas">
       Cancelar
     </button>
     <p>{{ mensaje }}</p>
