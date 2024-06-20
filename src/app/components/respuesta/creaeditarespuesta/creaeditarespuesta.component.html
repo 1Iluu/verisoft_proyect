@@ -16,9 +16,13 @@
             <mat-label>nivelRespuesta</mat-label>
             <input matInput formControlName="nivelRespuesta">
           </mat-form-field>
-        <mat-form-field>
-            <mat-label>paciente</mat-label>
-            <input matInput formControlName="paciente">
+        
+          <mat-form-field>
+            <mat-label>Nro. Paciente</mat-label>
+            <input matInput formControlName="idPaciente" />
+            <mat-error *ngIf="form.get('idPaciente')?.hasError('required')">
+            Ingresar el Nro de Paciente es obligatorio.
+            </mat-error>
           </mat-form-field>
           <br />
         <button mat-raised-button color="primary">Aceptar</button>
