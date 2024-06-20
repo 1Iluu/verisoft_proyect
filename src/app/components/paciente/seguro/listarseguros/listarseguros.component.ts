@@ -4,6 +4,7 @@ import { Seguro } from '../../../../models/seguro';
 import { SeguroService } from '../../../../services/seguro.service';
 import { RouterLink } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
+import { MatIcon } from '@angular/material/icon';
 
 
 export interface PeriodicElement {
@@ -16,7 +17,7 @@ export interface PeriodicElement {
 @Component({
   selector: 'app-listarseguros',
   standalone: true,
-  imports: [MatTableModule,RouterLink,MatButtonModule],
+  imports: [MatTableModule,RouterLink,MatButtonModule,MatIcon],
   templateUrl: './listarseguros.component.html',
   styleUrl: './listarseguros.component.css'
 })

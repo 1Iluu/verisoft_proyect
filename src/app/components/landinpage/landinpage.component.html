@@ -4,10 +4,10 @@
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <link rel="icon" href="/images/Logo.png">
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/assets/owl.carousel.min.css">
   <link rel="stylesheet" href="/assets/bootstrap.min.css">
+  <link rel="stylesheet" href="/src/app/components/landinpage/landinpage.component.css">
   <title> Verisoft </title>
   <style>@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@900&display=swap");</style>
 </head>
@@ -22,7 +22,7 @@
     <div class="site-mobile-menu-body"></div>
   </div>
 
-  <header class="site-navbar js-sticky-header site-navbar-target" role="banner" style="background-color: #ddb7ac;">
+  <header class="site-navbar js-sticky-header site-navbar-target" role="banner" style="background-color: #ddb7ac; position: fixed;">
     <div class="container">
       <div class="row align-items-center position-relative">
         <div class="site-logo">
@@ -36,7 +36,7 @@
               <li><a href="#servicios-section" class="nav-link">Servicios</a></li>
               <li><a href="#criticas-section" class="nav-link">Críticas</a></li>
               <li><a href="#contactanos-section" class="nav-link">Contáctanos</a></li>
-              <li><button mat-raised-button color="#f0d9d1" routerLink="/login">Login</button></li> 
+              <li><button mat-raised-button class="custom-button" routerLink="/login">Login</button></li> 
              
             </ul>
           </nav>
@@ -47,7 +47,7 @@
   </header>
 
   <!-- Sección Nosotros -->
-  <section id="nosotros-section" style="padding: 13%; background: linear-gradient(to bottom,#f0d9d1, #dda490)">
+  <section id="nosotros-section" style="padding: 16%; background: linear-gradient(to bottom,#f0d9d1, #dda490)">
     <div class="container">
       <div class="row text-center justify-content-center">
         <div class="col col-lg-5 col-md-12 col-12">
@@ -75,49 +75,59 @@
     </div>
   </section>
 
- <!-- Sección Características -->
-<section id="caracteristicas-section" style="padding: 12%">
-  <div class="container">
-    <h1 class="display-4 mt-5" style="color:black; font-size: 40px; font-weight: bold; text-align: center;">
+<!-- Sección Características -->
+<section id="caracteristicas-section" style="height: 100vh; padding: 5% 0;">
+  <div class="container-fluid h-100">
+    <h1 class="display-4 mt-3 mb-3" style="color:black; font-size: 40px; font-weight: bold; text-align: center;">
       Por estos motivos deberian descargar la app
     </h1>
-    <div class="row text-center justify-content-center">
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div class="row text-center justify-content-center mx-0">
       <div class="col col-lg-1 col-0"></div>
-      <div class="col col-lg-6 col-12">
-        <h1 class="display-4 mt-5" style="color:black; font-size: 30px; font-weight: bold"></h1>
-        <div class="row pt-5 mb-5 d-flex justify-content-between">
-          <div class="col col-lg-4 col-12 mt-lg-0 mt-3">
+      <div class="col col-lg-10 col-12">
+        <h1 class="display-4 mt-2" style="color:black; font-size: 30px; font-weight: bold"></h1>
+        <div class="row pt-3 mb-3 d-flex justify-content-between mx-0">
+          <div class="col col-lg-4 col-12 mt-lg-0 mt-3 px-4">
             <div class="card shadow-lg">
               <div class="card-body bg-light" style="font-size: 13px;">
                 <img src="assets/images/Ahorro.png" height="100" width="100">
                 <div class="mb-1"></div>
                 <p style="color:black; font-size: 20px; font-weight: bold">Ahorro</p>
                 <p class="card-title" style="color:black; font-size: 18px;">
-                  Citas online, sin tener que ir a una clinica!!
+                  Que mejor que tener una, sin tener que salir de casa e ir a una clinica!!
+                  Atraves de nuestra plataforma podras tener una cita 100 % virtual.
                 </p>
               </div>
             </div>
           </div>
-          <div class="col col-lg-4 col-12 mt-lg-0 mt-3">
+          <div class="col col-lg-4 col-12 mt-lg-0 mt-3 px-4">
             <div class="card shadow-lg">
               <div class="card-body bg-light" style="font-size: 13px;">
                 <img src="assets/images/localizacion.png" height="100" width="100">
                 <div class="mb-1"></div>
                 <p style="color:black; font-size: 20px; font-weight: bold">Cerca</p>
                 <p class="card-title" style="color:black; font-size: 18px;">
-                  Se priorizarán los oncólogos en tu zona más cercana.
+                  Los mejores Oncologos de lima estan registrados en nuestra aplicaion ademas
+                  podras contactar al oncolo mas cercano de tu zona. Para cualquier emergencia
                 </p>
               </div>
             </div>
           </div>
-          <div class="col col-lg-4 col-12 mt-lg-0 mt-3">
+          <div class="col col-lg-4 col-12 mt-lg-0 mt-3 px-4">
             <div class="card shadow-lg">
               <div class="card-body bg-light" style="font-size: 13px;">
                 <img src="assets/images/tendencias.png" height="100" width="100">
                 <div class="mb-1"></div>
                 <p style="color:black; font-size: 20px; font-weight: bold">Tendencias</p>
                 <p class="card-title" style="color:black; font-size: 18px;">
-                  Información sobre los oncólogos más prestigiosos de tu zona.
+                  Sabes que tu salud es primordial. Asi que haceemos constantes acutualizanes 
+                  y tenemos una seccion para que puedas veer la ultimas novedades.
                 </p>
               </div>
             </div>
@@ -125,19 +135,26 @@
         </div>
       </div>
     </div>
-  </div>
-  <!-- fila para las imágenes pequeñas -->
-  <div class="row mt-5 justify-content-center">
-    <div class="col-auto">
-      <img src="assets/images/seguro1.png" class="img-fluid" style="max-height: 50px;">
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <!-- fila para las imágenes pequeñas -->
+    <div class="row mt-3 justify-content-center mx-0 ">
+      <div class="col-auto px-0">
+        <img src="assets/images/seguro1.png" class="img-fluid mx-4" style="max-height: 50px;">
+      </div>
+      <div class="col-auto px-0">
+        <img src="assets/images/seguro2.png" class="img-fluid mx-4" style="max-height: 50px;">
+      </div>
+      <div class="col-auto px-0">
+        <img src="assets/images/seguro5.png" class="img-fluid mx-4" style="max-height: 50px;">
+      </div>
     </div>
-    <div class="col-auto">
-      <img src="assets/images/seguro2.png" class="img-fluid" style="max-height: 50px;">
-    </div>
-    <div class="col-auto">
-      <img src="assets/images/seguro5.png" class="img-fluid" style="max-height: 50px;">
-    </div>
-    <div style="padding: 2%;"></div>
   </div>
 </section>
 
@@ -167,7 +184,7 @@
   <section >
     <div class="m-5 pt-5"></div>
     <div class="container px-4">
-      <h1 class="display-3 text-center" style="color: #2b5f74">Experiencias</h1>
+      <h1 class="display-3 text-center" style="color:black; font-size: 40px; font-weight: bold; text-align: center;">Experiencias</h1>
       <div class="container">
         <div class="row text-center mt-5 mb-5">
           <div class="col pr-lg-5 mb-lg-0 mb-5">
@@ -189,45 +206,61 @@
       </div>
     </div>
   </section>
-<!--Sección Contactanos -->
-  <div id="contactanos-section" style="padding: 2%;"></div>
-  <section >
-    <div class="m-5 pt-5"></div>
-    <div class="container px-4">
-      <h1 class="display-4 text-center mb-5" style="color: #000000">CONTÁCTANOS</h1>
-      <form class="row g-3 needs-validation pt-4" novalidate>
-        <div class="col-md-6">
-          <div class="mb-4">
-            <label for="validationCustom01" class="form-label" style="color:#000000; font-size: 26px">NOMBRE:</label>
-            <input type="text" class="form-control" id="validationCustom01" placeholder="Ingresar nombre" required>
-          </div>
-          <div class="mb-4">
-            <label for="validationCustom02" class="form-label" style="color:#000000; font-size: 26px">APELLIDO:</label>
-            <input type="text" class="form-control" id="validationCustom02" placeholder="Ingresar apellido" required>
-          </div>
-          <div class="mb-4">
-            <label for="validationCustomcorreo" class="form-label" style="color:#000000; font-size: 26px">CORREO ELECTRONICO:</label>
-            <input type="text" class="form-control" id="validationCustomcorreo" placeholder="Ingresar correo" aria-describedby="inputGroupPrepend" required>
-          </div>
-          <div >
-            <label for="validationCustom04" class="form-label" style="color:#000000; font-size: 26px">TELEFONO:</label>
-            <input type="text" class="form-control" id="validationCustom04" placeholder="Ingresar numero" required>
-          </div>
-        </div>
-        <div class="col-md-6">
-            <div class="mb-5">
-              <label for="exampleFormControlTextarea1" class="form-label" style="color:#000000; font-size: 26px">CUÉNTENOS:</label>
-              <textarea class="form-control" id="exampleFormControlTextarea1" rows="10"></textarea>
-            </div>
-            <div class="text-center">
-              <a class="" href="index.html" style="color:#000000 ">ENVIAR</a>
-            </div>
-        </div>
+<!-- Sección Contactanos -->
+<section id="contactanos-section" style="height: 100vh; padding: 5% ;">
+  <div class="container-fluid h-100">
+    <h1 class="display-4 mt-3 mb-3" style="color:black; font-size: 40px; font-weight: bold; text-align: center;">
+      Contactanos
+    </h1>
+   
+    <div class="row h-100">
+      
+      <div class="col-md-6 d-flex align-items-center">
+        <form class="w-100 px-4">
 
-      </form>
+              <td style="padding-right: 30px;">
+                <div class="title-container"><h1 style="color:black; font-size: 20px; font-weight: bold;">Primer Nombre</h1></div>
+                <mat-form-field style="width: 120%;">
+                  <mat-label>Nombre</mat-label>
+                  <input matInput>
+                </mat-form-field>
+              </td>
+              <td style="padding-left: 40px;">
+                <div class="title-container"><h1 style="color:black; font-size: 20px; font-weight: bold;">Apellido Paterno</h1></div>
+                <mat-form-field  style="width: 120%;">
+                  <mat-label>Apellido</mat-label>
+                  <input matInput>
+                </mat-form-field>
+              </td>
+        
+          <div class="title-container"><h1 style="color:black; font-size: 20px; font-weight: bold;">Direccion de correo</h1></div>
+            <mat-form-field  style="width: 70%;">
+              <mat-label>Correo</mat-label>
+              <input matInput>
+            </mat-form-field>
+          
+          <table  >
+            <tr>
+              <td>
+                <div class="title-container"><h1 style="color:black; font-size: 20px; font-weight: bold;">Tu mensaje</h1></div>
+                <mat-form-field style="width: 260%;">
+                  <mat-label>Mensaje</mat-label>
+                  <textarea matInput placeholder="Cuentanos"></textarea>
+                </mat-form-field>
+              </td>
+            </tr>
+          </table>
+        </form>
+      </div>
+      <div class="col-md-6 d-flex justify-content-center align-items-center">
+        <img src="assets/images/Contacto.jpg" class="img-fluid" style="max-height: 80vh;">
+      </div>
     </div>
-  </section>
-  <div class="m-5 p-5"></div>
+  </div>
+</section>
+<div class="m-5 p-5"></div>
+
+
 <!-- Sección footer -->
   <!-- Footer -->
   <footer class=" text-center text-white"Style="background-color: #999b85">

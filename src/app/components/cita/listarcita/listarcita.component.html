@@ -60,6 +60,10 @@
       <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
     </table>
 
+    <div *ngFor="let element of dataSource.data">
+      {{ element | json }}
+    </div>
+    
    
     
   </div>

@@ -1,6 +1,7 @@
 .title-container {
     text-align: center;
     margin: 20px 0;
+    
   }
   
   form {
@@ -17,8 +18,8 @@
     margin-bottom: 20px;
   }
   
-  button {
-    display: block;
-    margin: 0 auto;
+
+  .custom-button {
+    background-color: #ddb7ac; 
+    color: white;
   }
-  

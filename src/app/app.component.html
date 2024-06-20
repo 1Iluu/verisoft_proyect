@@ -1,5 +1,6 @@
 <mat-toolbar color="accent" *ngIf="verificar()">
-  <button mat-button [matMenuTriggerFor]="menuPaciente">Paciente</button>
+  <img src="assets/images/logito.png" alt="" width="50" height="50" class="d-inline-block align-text-top">
+  <button mat-button [matMenuTriggerFor]="menuPaciente" >Paciente</button>
   <button mat-button [matMenuTriggerFor]="menuOncologo">Oncologo</button>
   <button mat-button [matMenuTriggerFor]="menuAdmin">Admin</button>
   <button mat-button [matMenuTriggerFor]="menuRol">Roles</button>
@@ -9,7 +10,6 @@
 
 <mat-menu #menuPaciente="matMenu">
   <button mat-menu-item routerLink="/seguros">listar seguros</button>
-  <button mat-menu-item routerLink="/seguros/nuevo">Crear un seguros</button>
   <button mat-menu-item routerLink="/cirugias">Listar cirugias</button>
   <button mat-menu-item routerLink="/cirugias/nuevo">Registrar cirugias</button>
   <button mat-menu-item routerLink="/especialidad">listar especialidad</button>
