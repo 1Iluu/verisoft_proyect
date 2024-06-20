@@ -1,57 +1,65 @@
-<div class="title-container">
-  <h1>Registro de Examenes de Deteccion</h1>
-
-  <div class="title-container">
-    <form [formGroup]="form" (submit)="guardar()">
+<div class="container" style="text-align: center">
+  <h2>Registro de Examen Detección</h2>
+  <form [formGroup]="form" (submit)="guardar()" class="example-form">
+      <mat-form-field class="example-full-width" *ngIf="edicion" >
+        <mat-label>Codigo</mat-label>
+        <input matInput placeholder="codigo" formControlName="codigo" />
+        <mat-error *ngIf="form.get('codigo')?.hasError('required')"
+      >Ingresar el código es obligatorio.</mat-error
+    >
+    </mat-form-field>
+    <mat-form-field appearance="fill" class="example-full-width">
+      <input
+        matInput
+        placeholder="Ingrese fecha"
+        [matDatepicker]="picker"
+        formControlName="fecha"
+      />
+      <mat-hint>MM/DD/YYYY</mat-hint>
+      <mat-datepicker-toggle
+        matIconSuffix
+        [for]="picker"
+      ></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
       
-      <mat-form-field *ngIf="edicion"> 
-        <mat-label>Código</mat-label>
-       <input matInput formControlName="codigo">
-    </mat-form-field> 
-
-      <mat-form-field>     
-<mat-label>Fecha</mat-label>
-    <input matInput [matDatepicker]="picker" formControlName="fecha">
-    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-    <mat-datepicker #picker></mat-datepicker>
-<mat-error *ngIf="form.get('fecha')?.hasError('required')">
-    Ingresar la fecha del examen de detección es obligatoria.
-    </mat-error>
-    <mat-error *ngIf="form.get('fecha')?.hasError('fechaExamenVal')">
-    La fecha del examen de detección no puede ser mayor a esta fecha.
-    </mat-error>
-  </mat-form-field>   
-
-  <mat-form-field>  
-    <mat-label>Hora</mat-label>
-   <input matInput formControlName="hora">
- <mat-error *ngIf="form.get('hora')?.hasError('required')">
-   Registrar la hora del examen de detección es obligatorio.
- </mat-error>
-</mat-form-field> 
-
-  <mat-form-field>
-    <mat-label>Tipo de Examen</mat-label>
-   <mat-select formControlName="tipoExamen">
-    <mat-option *ngFor="let tipoExamen of listaTipoExamenes" [value]="tipoExamen.value">
-    {{tipoExamen.viewValue}}
+      <mat-error *ngIf="form.get('fecha')?.hasError('required')"
+        >La fecha es obligatoria.</mat-error
+      >
+    </mat-form-field>  
+    <br />
+<mat-form-field class="example-full-width">
+  <mat-label>Hora</mat-label>
+  <input matInput placeholder="hora" formControlName="hora" />
+  <mat-error *ngIf="form.get('hora')?.hasError('required')"
+  >Ingresar la hora es obligatorio.</mat-error
+>
+</mat-form-field>
+<br/>
+  <mat-form-field class="example-full-width">
+  <mat-label>Tipo de Examen</mat-label>
+  <mat-select formControlName="tipoExamen">
+  <mat-option *ngFor="let g of listaTipoExamenes" [value]="g.value">
+    {{g.viewValue}}
     </mat-option>
-   </mat-select>
-   <mat-error *ngIf="form.get('tipoExamen')?.hasError('required')">
-    Elegir el tipo de examen de detección es obligatorio.
-  </mat-error>
-  </mat-form-field>
-   
-  <mat-form-field>  
-         <mat-label>Resultados</mat-label>
-        <input matInput formControlName="resultados">
-      <mat-error *ngIf="form.get('resultados')?.hasError('required')">
-        Registrar los resultados del examen de detección es obligatorio.
-      </mat-error>
-    </mat-form-field> 
-    
-      <div class="title-container">
-        <button mat-raised-button color="accent">Guardar</button>
-      </div>
+    </mat-select>
+    <mat-error *ngIf="form.get('tipoExamen')?.hasError('required')"
+  >Seleccionar el tipo de examen es obligatorio.</mat-error
+>
+</mat-form-field>
+<br />
+
+<mat-form-field class="example-full-width">
+        <mat-label>Resultados del examen:</mat-label>
+        <textarea  matInput placeholder="resultados" formControlName="resultados"></textarea>
+        <mat-error *ngIf="form.get('resultados')?.hasError('required')"
+        >Ingresar los resultados es obligatorio.</mat-error
+      >
+      </mat-form-field>
+      <br />
+      <button mat-raised-button color="primary">Guardar</button>
+      <button mat-raised-button color="warn" routerLink="/examenes">
+        Cancelar
+      </button>
+      <p>{{ mensaje }}</p>
     </form>
-</div>
+  </div>
