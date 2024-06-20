@@ -1,1 +1,135 @@
-<p>creaeditaoncologo works!</p>
+
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+<div class="container" style="text-align: center">
+  <mat-card>
+    <mat-card-content><h2>Registro de Oncologos</h2></mat-card-content>
+    <form [formGroup]="form" (submit)="aceptar()" class="example-form">
+      <mat-form-field class="example-full-width" *ngIf="edicion">
+        <mat-label>Oncologo id</mat-label>
+        <input matInput placeholder="Id" formControlName="Oncologo_id" />
+      </mat-form-field>
+
+      <br>
+      <mat-form-field class="example-full-width">
+        <mat-label>Usuarios</mat-label>
+        <mat-select
+        [(value)]="idUserSeleccionado"
+        formControlName="user_id">
+          <mat-option *ngFor="let u of listaUsers" [value]="u.id">
+            {{u.username}}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="obtenerControlCampo('user_id')?.errors?.['required']">
+          Elegir el usuario es obligatorio.
+        </mat-error>
+      </mat-form-field>
+
+      <br>
+      <mat-form-field class="example-full-width">
+        <mat-label>Especialidad</mat-label>
+        <mat-select
+        [(value)]="idEspecialidadSeleccionado"
+        formControlName="especialidad_id">
+          <mat-option *ngFor="let e of listaEspecialidad" [value]="e.id">
+            {{e.nombreEspecialidad}}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="obtenerControlCampo('especialidad_id')?.errors?.['required']">
+          Elegir la especialidad es obligatorio.
+        </mat-error>
+      </mat-form-field>
+
+      <br />
+      <mat-form-field class="example-full-width">
+        <mat-label>Años de experiencia laboral</mat-label>
+        <input matInput placeholder="Años" formControlName="experiencia_laboral_anios"/>
+        <mat-error
+            *ngIf="obtenerControlCampo('experiencia_laboral_anios')?.errors?.['required']"
+          >
+            Definir los años son obligatorios
+          </mat-error>
+          <mat-error *ngIf="obtenerControlCampo('experiencia_laboral_anios')?.errors?.['invalidInteger']">
+            Por favor, ingrese un número entero.
+          </mat-error>
+          <mat-error *ngIf="obtenerControlCampo('experiencia_laboral_anios')?.errors?.['negativeValue']">
+            Por favor, ingrese un número positivo.
+          </mat-error>
+      </mat-form-field>
+
+      <br>
+      <mat-form-field class="example-full-width">
+        <mat-label>Educacion Universitaria</mat-label>
+        <mat-select formControlName="educacion_universitaria">
+          <mat-option *ngFor="let e of educacion" [value]="e.value">
+            {{e.viewValue}}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="obtenerControlCampo('educacion_universitaria')?.errors?.['required']">
+          Elegir la educacion es obligatorio.
+        </mat-error>
+      </mat-form-field>
+
+
+      <br />
+      <mat-form-field class="example-full-width">
+        <mat-label>Numero de pacientes</mat-label>
+        <input matInput placeholder="Numero pacientes" formControlName="cantidad_pacientes"/>
+        <mat-error
+            *ngIf="obtenerControlCampo('cantidad_pacientes')?.errors?.['required']"
+          >
+            Definir la cantidad de pacientes es obligatorio
+          </mat-error>
+          <mat-error *ngIf="obtenerControlCampo('cantidad_pacientes')?.errors?.['invalidInteger']">
+            Por favor, ingrese un número entero.
+          </mat-error>
+          <mat-error *ngIf="obtenerControlCampo('cantidad_pacientes')?.errors?.['negativeValue']">
+            Por favor, ingrese un número positivo.
+          </mat-error>
+      </mat-form-field>
+
+      <br />
+      <mat-form-field class="example-full-width">
+        <mat-label>Horario de atencion</mat-label>
+        <input matInput placeholder="horario" formControlName="horario_atencion"/>
+        <mat-error
+            *ngIf="obtenerControlCampo('horario_atencion')?.errors?.['required']"
+          >
+            El horario de atencion es obligatorio.
+          </mat-error>
+      </mat-form-field>
+
+      <br>
+    <mat-form-field class="example-full-width">
+      <mat-label>Salario</mat-label>
+      <input matInput placeholder="salario" formControlName="salario"/>
+      <mat-error
+        *ngIf="obtenerControlCampo('salario')?.errors?.['required']"
+      >
+        El salario es obligatorio.
+      </mat-error>
+      <mat-error *ngIf="obtenerControlCampo('salario')?.errors?.['invalidDecimal']">
+        El salario debe ser un número válido.
+      </mat-error>
+      <mat-error *ngIf="obtenerControlCampo('salario')?.errors?.['negativeValue']">
+        El salario no puede ser negativo.
+      </mat-error>
+    </mat-form-field>
+
+      <br />
+      <button mat-raised-button color="primary" class="accept">Aceptar</button>
+      <button mat-raised-button color="warn" routerLink="/components/oncologo" class="cancel">
+        Cancelar
+      </button>
+      <p>{{ mensaje }}</p>
+  </form>
+  </mat-card>
+</div>
+</body>
+</html>
