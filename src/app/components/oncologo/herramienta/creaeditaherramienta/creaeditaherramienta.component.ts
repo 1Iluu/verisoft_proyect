@@ -34,9 +34,10 @@ import { MatIconModule } from '@angular/material/icon';
   templateUrl: './creaeditaherramienta.component.html',
   styleUrl: './creaeditaherramienta.component.css'
 })
-export class CreaeditaherramientaComponent implements OnInit {
+export class CreaeditaherramientaComponent {
 form:FormGroup=new FormGroup({});
 service:Herramienta=new Herramienta();
+listaOncologos: Oncologo[]=[];
 mensaje: string = '';
 id: number = 0;
 edicion: boolean = false;
@@ -63,7 +64,7 @@ constructor(
   private hS:ServicioherramientaService,
   private router:Router,
   private route:ActivatedRoute,
-  private os: OncologoService
+  private oS: OncologoService
 ){}
 
 ngOnInit(): void{
@@ -78,6 +79,9 @@ ngOnInit(): void{
     oncologo_id: ['', Validators.required],
     nombreHerramienta: ['', Validators.required],
  });
+  this.oS.list().subscribe((data) => {
+    this.listaOncologos = data;
+  });
 }
 guardar(): void{
 if (this.form.valid) {
