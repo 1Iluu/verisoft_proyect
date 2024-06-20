@@ -8,6 +8,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { Alergias } from '../../../../models/alergias';
 import { AlergiasService } from '../../../../services/alergias.service';
+import { CommonModule } from '@angular/common';
 
 
 @Component({
@@ -19,7 +20,8 @@ import { AlergiasService } from '../../../../services/alergias.service';
     MatPaginatorModule,
     MatFormFieldModule,
     MatInputModule,
-    MatIconModule
+    MatIconModule,
+    CommonModule
   ],
   templateUrl: './listaralergias.component.html',
   styleUrl: './listaralergias.component.css'
