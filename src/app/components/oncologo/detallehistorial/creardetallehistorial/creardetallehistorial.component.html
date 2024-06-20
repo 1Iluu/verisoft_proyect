@@ -1,73 +1,72 @@
-<div class="title-container">
-    <h1>Registro de Detalle Historial</h1>
-  </div>
-  <div class="title-container" >
-    
-    <form [formGroup]="Form" (submit)="guardar()">
-
-      <mat-form-field>
-        <mat-label>Código</mat-label>
-        <input matInput formControlName="codigo" />
-      </mat-form-field>
-  
-      <mat-form-field>
-        <mat-label>Fecha de ingreso Detalle Historial</mat-label>
-        <input matInput [matDatepicker]="picker" formControlName="fechaDetalleHistorial" />
-        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-        <mat-datepicker #picker></mat-datepicker>
-        <mat-error *ngIf="Form.get('fechaDetalleHistorial')?.hasError('required')">
-      Ingresar la fecha de registro es obligatorio.
-        </mat-error>
-        <mat-error *ngIf="Form.get('fechaDetalleHistorial')?.hasError('fechaServicioVal')">
-      La fecha de registro no puede ser mayor a la fecha actual.
-        </mat-error>
-      </mat-form-field>
-
-      <mat-form-field>
-        <mat-label>Nro. Seguro</mat-label>
-        <input matInput formControlName="codigoseguro" />
-        <mat-error *ngIf="Form.get('codigoseguro')?.hasError('required')">
-        Ingresar el Nro de Seguro es obligatorio.
-        </mat-error>
-      </mat-form-field>
-
-      <mat-form-field>
-        <mat-label>Nro. Cirugía</mat-label>
-        <input matInput formControlName="codigocirugia" />
-        <mat-error *ngIf="Form.get('codigocirugia')?.hasError('required')">
-        Ingresar el Nro de Cirugía es obligatorio.
-        </mat-error>
-      </mat-form-field>
-
-      <mat-form-field>
-        <mat-label>Nro. Tratamiento</mat-label>
-        <input matInput formControlName="codigotratamiento" />
-        <mat-error *ngIf="Form.get('codigotratamiento')?.hasError('required')">
-        Ingresar el Nro de Tratamiento es obligatorio.
-        </mat-error>
-      </mat-form-field>
-  
-      <mat-form-field>
-        <mat-label>Nro. Examen de Deteccion</mat-label>
-        <input matInput formControlName="codigoexamendeteccion" />
-        <mat-error *ngIf="Form.get('codigoexamendeteccion')?.hasError('required')">
-        Ingresar el Nro de Examen de Deteccion es obligatorio.
-        </mat-error>
-      </mat-form-field>
-  
-      <mat-form-field>
-        <mat-label>Nro. Paciente</mat-label>
-        <input matInput formControlName="codigopaciente" />
-        <mat-error *ngIf="Form.get('codigopaciente')?.hasError('required')">
-        Ingresar el Nro de Paciente es obligatorio.
-        </mat-error>
-      </mat-form-field>
-  
-  
-       
-      <div class="title-container">
-        <button mat-raised-button color="primary">Guardar</button>
-      </div>
-    </form>
-  </div>
-  
+<div class="container" style="text-align: center">
+  <h2>Detalle Historial</h2>
+  <form [formGroup]="Form" (submit)="guardar()" class="example-form">
+     
+    <mat-form-field appearance="fill" class="example-full-width">
+      <input
+        matInput
+        placeholder="Ingrese fecha"
+        [matDatepicker]="picker"
+        formControlName="fechaDetalleHistorial"
+      />
+      <mat-hint>MM/DD/YYYY</mat-hint>
+      <mat-datepicker-toggle
+        matIconSuffix
+        [for]="picker"
+      ></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+      
+      <mat-error *ngIf="Form.get('fechaDetalleHistorial')?.hasError('required')"
+      >La fecha es obligatoria.
+      </mat-error>
+    </mat-form-field>  
+      <br/>
+    <mat-form-field class="example-full-width">
+      <mat-label>No. Seguro</mat-label>
+      <mat-select formControlName="seguro">
+        <mat-option *ngFor="let c of listaseguros" [value]="c.idseguro">
+          {{c.idseguro}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <br/>
+ <mat-form-field class="example-full-width">
+      <mat-label>No. Cirugias</mat-label>
+      <mat-select formControlName="cirugias">
+        <mat-option *ngFor="let c of listacirugias" [value]="c.idcirugias">
+          {{c.idcirugias}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <br/>
+    <mat-form-field class="example-full-width">
+      <mat-label>No. Tratamiento</mat-label>
+      <mat-select formControlName="tratamiento">
+        <mat-option *ngFor="let c of listatratamiento" [value]="c.idTratamiento">
+          {{c.idTratamiento}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <br/>
+    <mat-form-field class="example-full-width">
+      <mat-label>No. Examen</mat-label>
+      <mat-select formControlName="examenDeteccion">
+        <mat-option *ngFor="let c of listaexamendeteccion" [value]="c.examenDeteccionId">
+          {{c.examenDeteccionId}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <br/>
+    <mat-form-field class="example-full-width">
+      <mat-label>No. Paciente</mat-label>
+      <mat-select formControlName="paciente">
+        <mat-option *ngFor="let c of listapaciente" [value]="c.idPaciente">
+          {{c.idPaciente}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <br/>
+    <button mat-raised-button color="primary">Guardar</button>
+    <button mat-raised-button color="warn" routerLink="/DetalleHistorial">
+      Cancelar
+    </button>
