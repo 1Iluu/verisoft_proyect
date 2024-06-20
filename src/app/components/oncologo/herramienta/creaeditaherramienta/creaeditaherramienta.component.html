@@ -1,39 +1,37 @@
-<div class="title-container">
-    <h1>Registro de Herramientas del Oncólogo</h1>
-  
-    <div class="title-container">
-      <form [formGroup]="form" (submit)="guardar()">
-        
-        <mat-form-field *ngIf="edicion"> 
-          <mat-label>Código</mat-label>
-         <input matInput formControlName="codigo_herramienta">
-      </mat-form-field>  
-      <mat-error *ngIf="form.get('codigo_herramienta')?.hasError('required')">
-        Registrar el código de la herramienta es obligatorio.
-      </mat-error>
-
-      <mat-form-field> 
-        <mat-label>Código del Oncólogo</mat-label>
-       <input matInput formControlName="codigo_oncologo">
+<div class="container" style="text-align: center">
+  <h2>Registro de Herramientas</h2>
+  <form [formGroup]="form" (submit)="guardar()" class="example-form">
+      <mat-form-field class="example-full-width" *ngIf="edicion" >
+        <mat-label>Codigo</mat-label>
+        <input matInput placeholder="codigo" formControlName="codigo" />
+        <mat-error *ngIf="form.get('codigo')?.hasError('required')"
+      >El codigo no se modifica.</mat-error
+    >
+    <mat-form-field class="example-full-width">
+      <mat-label>Codigo Oncólogo</mat-label>
+      <input matInput placeholder="codigooncologo" formControlName="codigooncologo" />
+      <mat-error *ngIf="form.get('codigooncologo')?.hasError('required')"
+    >El codigo no se modifica.</mat-error
+  >
+  </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <mat-label>Herramienta</mat-label>
+      <mat-select formControlName="herramienta">
+      <mat-option *ngFor="let g of listaHerramientas" [value]="g.value">
+        {{g.viewValue}}
+      </mat-option>
+    </mat-select>
+    <mat-error *ngIf="form.get('herramienta')?.hasError('required')"
+    >El Género es obligatorio.</mat-error
+  >
+  </mat-form-field>
+<br/>     
     </mat-form-field>
-    <mat-error *ngIf="form.get('codigo_oncologo')?.hasError('required')">
-      Registrar el código del Oncólogo es obligatorio.
-    </mat-error> 
-  
-    <mat-form-field>  
-      <mat-label>Nombre de la herramienta</mat-label>
-     <mat-select formControlName="nombreHerramienta">
-     <mat-option *ngFor="let tipoHerramienta of listaHerramientas" [value]="tipoHerramienta.value">
-        {{tipoHerramienta.viewValue}}
-    </mat-option>
-</mat-select>
- <mat-error *ngIf="form.get('nombreHerramienta')?.hasError('required')">
-     Registrar el nombre de la herramienta es obligatorio.
-   </mat-error>
-  </mat-form-field> 
-      
-        <div class="title-container">
-          <button mat-raised-button color="accent">Guardar</button>
-        </div>
-      </form>
-  </div>
+    <br />
+    <button mat-raised-button color="primary">Aceptar</button>
+    <button mat-raised-button color="warn" routerLink="/peliculas">
+      Cancelar
+    </button>
+    <p>{{ mensaje }}</p>
+  </form>
+</div>
