@@ -8,6 +8,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { RouterLink } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
+import { CommonModule } from '@angular/common';
 
 export interface PeriodicElement {
   idRespuesta: number;
@@ -26,6 +27,7 @@ export interface PeriodicElement {
     MatFormFieldModule,
     MatInputModule,
     MatIconModule,
+    CommonModule
    
   ],
   templateUrl: './listarrespuesta.component.html',
