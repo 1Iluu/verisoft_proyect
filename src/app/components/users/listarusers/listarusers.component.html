@@ -99,5 +99,10 @@
         [pageSizeOptions]="[5, 10, 25, 100]"
         showFirstLastButtons
       ></mat-paginator>
+      <div *ngFor="let element of dataSource.data">
+
+        {{ element | json }}
+       
+       </div>
     </table>
       </div>
