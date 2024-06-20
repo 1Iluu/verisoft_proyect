@@ -7,23 +7,27 @@
       <mat-label>Id</mat-label>
       <input matInput formControlName="idPaciente" />
     </mat-form-field>
-    <br />
-
-    <mat-form-field>
-      <mat-label>User</mat-label>
-      <input matInput formControlName="user" />
-      <mat-error *ngIf="form.get('user')?.hasError('required')"
-        >El user es obligatorio.</mat-error>
-    </mat-form-field>
-    <br />
     <mat-form-field>
         <mat-label>Contacto de emergencia</mat-label>
         <input matInput formControlName="contactoEmergencia" />
       </mat-form-field>
-    <br />
+    
     <mat-form-field>
         <mat-label>Estado</mat-label>
         <input matInput formControlName="estado" />
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <mat-label>Usuarios</mat-label>
+        <mat-select
+        [(value)]="idUserSeleccionado"
+        formControlName="user_id">
+          <mat-option *ngFor="let u of listaUsers" [value]="u.id">
+            {{u.username}}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="obtenerControlCampo('user_id')?.errors?.['required']">
+          Elegir el usuario es obligatorio.
+        </mat-error>
       </mat-form-field>
     <br />
     <button mat-raised-button color="primary">Aceptar</button>
