@@ -2,7 +2,8 @@ import { Injectable } from '@angular/core';
 import { environment } from '../../environments/enviroment';
 import { HttpClient } from '@angular/common/http';
 import { Cirugias } from '../models/cirugias';
-import { Subject } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
+import { CirugiasByPacienteDTO } from '../models/CirugiasByPacienteDTO';
 
 const base_url=environment.csbase
 @Injectable({
@@ -33,5 +34,8 @@ export class CirugiasService  {
   delete(id: number) {
     return this.http.delete(`${this.url}/${id}`);
   }
-  
+
+  getQuantity():Observable<CirugiasByPacienteDTO[]>{
+    return this.http.get<CirugiasByPacienteDTO[]>(`${this.url}/cantidadescirugias`);
+  }
 }
