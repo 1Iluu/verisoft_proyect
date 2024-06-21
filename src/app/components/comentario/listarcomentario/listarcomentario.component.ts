@@ -8,6 +8,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { Comentario } from '../../../models/comentario';
 import { ComentarioService } from '../../../services/comentario.service';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-listarcomentario',
@@ -20,6 +21,7 @@ import { ComentarioService } from '../../../services/comentario.service';
     MatPaginatorModule,
     MatInputModule,
     MatIconModule,
+    CommonModule
   ],
   templateUrl: './listarcomentario.component.html',
   styleUrl: './listarcomentario.component.css'
