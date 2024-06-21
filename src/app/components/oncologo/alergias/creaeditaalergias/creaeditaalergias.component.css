@@ -33,4 +33,7 @@
   button {
     margin-top: 10px; /* Agregar espacio entre los botones y el último campo de formulario */
   }
+  button:hover {
+    background-color: green;
+  }
   
