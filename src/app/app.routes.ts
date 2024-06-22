@@ -35,6 +35,7 @@ import { PacientesComponent } from './components/pacientes/pacientes.component';
 import { creaeditapaciente } from './components/pacientes/creaeditapaciente/creaeditapaciente.component';
 import { TratamientoComponent } from './components/tratamiento/tratamiento.component';
 import { CreaeditatratamientoComponent } from './components/tratamiento/creaeditatratamiento/creaeditatratamiento.component';
+import { JosereportsComponent } from './components/josereports/josereports.component';
 
 
 
@@ -201,6 +202,16 @@ export const routes: Routes = [
   ],
   canActivate: [segGuard],
 },
+{
+  path: 'cardenas1',
+  component: JosereportsComponent,
+  children: [
+    { path: 'cardenas2', component: CreaeditatratamientoComponent },
+  ],
+  canActivate: [segGuard],
+},
+
+
 
 
 ];

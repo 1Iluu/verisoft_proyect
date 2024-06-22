@@ -38,7 +38,15 @@ export class AppComponent {
     this.role = this.loginService.showRole();
     return this.loginService.verificar();
   }
-  isAdmin() {
+
+  isAdminsitrador() {
     return this.role === 'ADMIN';
+  }
+
+  isPaciente() {
+    return this.role === 'PACIENTE';
+  }
+  isOncolgo() {
+    return this.role === 'ONCOLOGO';
   }
 }

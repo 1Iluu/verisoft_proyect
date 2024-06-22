@@ -1,1 +1,68 @@
-<p>creaeditacomentario works!</p>
+<div class="container" style="text-align: center">
+    <h2>Haz tu comentario :)</h2>
+    <form [formGroup]="form" (submit)="aceptar()" class="example-form">
+
+      <mat-form-field *ngIf="edicion">
+        <mat-label>Codigo</mat-label>
+        <input matInput placeholder="idComentario" formControlName="idComentario" readonly />
+        <mat-error *ngIf="form.get('idComentario')?.hasError('required')"
+          >Los puntos son obligatorios.</mat-error
+        >
+      </mat-form-field>
+      <br />
+      <mat-form-field class="example-full-width">
+        <mat-label>estrellas</mat-label>
+        <mat-select formControlName="estrellas">
+          <mat-option *ngFor="let g of estrellas" [value]="g.value">
+            {{ g.viewValue }}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="form.get('estrellas')?.hasError('required')"
+          >El Género es obligatorio.</mat-error
+        >
+      </mat-form-field>
+      <br />
+     
+      <mat-form-field class="example-full-width">
+        <mat-label>descripcion:</mat-label>
+        <textarea
+          matInput
+          placeholder="descripcion"
+          formControlName="descripcion"
+        ></textarea>
+        <mat-error *ngIf="form.get('descripcion')?.hasError('required')"
+          >La descripcion es obligatoria.</mat-error
+        >
+      </mat-form-field>
+      <br />
+      <mat-form-field class="example-full-width">
+        <mat-label>Oncologo</mat-label>
+        <mat-select formControlName="oncologo">
+          <mat-option *ngFor="let c of listaOncologo" [value]="c.oncologo_id">
+            {{ c.oncologo_id }}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="form.get('oncologo')?.hasError('required')"
+          >El Género es obligatorio.</mat-error
+        >
+      </mat-form-field>
+  
+      <br />
+      <mat-form-field class="example-full-width">
+        <mat-label>Paciente</mat-label>
+        <mat-select formControlName="paciente">
+          <mat-option *ngFor="let c of listaPaciente" [value]="c.idPaciente">
+            {{ c.idPaciente }}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="form.get('paciente')?.hasError('required')"
+          >El Género es obligatorio.</mat-error
+        >
+      </mat-form-field>
+      <br />
+      <button mat-raised-button class="custom-button">Aceptar</button>
+     
+    </form>
+    
+  </div>
+  

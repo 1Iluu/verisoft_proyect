@@ -1,7 +1,6 @@
 <div class="container">
-    <br />
-    <h2 style="text-align: center">Citas</h2>
-  
+    <div class="title-container"><h1 class="title">Citas</h1></div>
+    <div style="text-align: right;"><button mat-raised-button color="primary" style="background-color: #999B85;" routerLink="/cita/nuevo">Nuevo</button>
     <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
       <!-- Position Column -->
       <ng-container matColumnDef="c1">
@@ -55,12 +54,31 @@
           {{ element.oncologo.nombreyapellido }}
         </td>
       </ng-container>
+
+         <!-- Weight Column -->
+         <ng-container matColumnDef="c9">
+          <th mat-header-cell *matHeaderCellDef> Actualizar </th>
+          <td mat-cell *matCellDef="let element">  
+            <button mat-raised-button class="custom-button" style="background-color: #999B85" [routerLink]="['ediciones',element.idCita]"> <mat-icon> border_color</mat-icon></button>
+          </td>
+        </ng-container>
+
+        
+
+<!-- Weight Column -->
+<ng-container matColumnDef="c10">
+  <th mat-header-cell *matHeaderCellDef> Eliminar </th>
+  <td mat-cell *matCellDef="let element">  
+    <button mat-raised-button class="custom-button" style="background-color: #999B85" (click)="eliminar(element.idCita)"><mat-icon>delete</mat-icon></button> 
+   
+  </td>
+</ng-container>
+
+        
   
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
       <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
     </table>
-
-   
     
   </div>
   
