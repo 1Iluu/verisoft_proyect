@@ -1,4 +1,6 @@
-import { Oncologo } from "./oncologo";
+import { Cita } from './cita';
+import { Oncologo } from './oncologo';
+import { TipoTratamiento } from './tipo_de_tratamiento';
 
 export class Tratamiento {
   idTratamiento: number = 0;
@@ -9,6 +11,6 @@ export class Tratamiento {
   horasTratamiento: number = 0;
   efectosEsperadosTratamiento: string = '';
   oncologo: Oncologo = new Oncologo();
+  tipoTratamiento: TipoTratamiento = new TipoTratamiento();
+  cita: Cita = new Cita();
 }
-
-

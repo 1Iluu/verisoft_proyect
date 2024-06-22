@@ -43,6 +43,8 @@ import { JosereportsComponent } from './components/josereports/josereports.compo
 import { ReportCardenas2Component } from './components/josereports/report-cardenas2/report-cardenas2.component';
 import { reportAbrigo02 } from './components/reportsaf/report-abrigo02/report-abrigo02.component';
 import { Report02Component } from './components/reports/report02/report02.component';
+import { ReportsVargasComponent } from './components/reports-vargas/reports-vargas.component';
+import { ReportTratamientoComponent } from './components/reports-vargas/report-tratamiento/report-tratamiento.component';
 
 
 
@@ -244,6 +246,13 @@ canActivate: [segGuard],
     { path: 'cardenas2', component: ReportCardenas2Component },
   ],
   canActivate: [segGuard],
+},
+{
+  path: 'vargas',
+  component: ReportsVargasComponent,
+  children: [
+    { path: 'reporte-tratamiento', component: ReportTratamientoComponent }
+  ]
 },
 
 

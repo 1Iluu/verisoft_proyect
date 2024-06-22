@@ -22,6 +22,8 @@ export class ListartratamientoComponent {
     'fechaTratamiento',
     'horasTratamiento',
     'efectosEsperadosTratamiento',
+    'tipoTratamiento',
+    'cita',
     'oncologo',
     'accion01',
     'accion02',
@@ -33,6 +35,7 @@ export class ListartratamientoComponent {
 
   ngOnInit(): void {
     this.sS.list().subscribe((data) => {
+      console.log(data)
       this.dataSource = new MatTableDataSource(data);
     });
     this.sS.getList().subscribe((data) => {
