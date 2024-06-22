@@ -39,7 +39,7 @@
       <mat-label>Horas programadas</mat-label>
       <input matInput formControlName="horas" type="number" />
       <mat-error *ngIf="form.get('horas')?.hasError('required')">
-       Las horas son obligatorias.
+        Las horas son obligatorias.
       </mat-error>
     </mat-form-field>
     <br />
@@ -47,15 +47,22 @@
       <mat-label>Efectos esperados</mat-label>
       <input matInput formControlName="efectosEsperados" />
       <mat-error *ngIf="form.get('efectosEsperados')?.hasError('required')">
-       Los efectos esperados son obligatorios.
+        Los efectos esperados son obligatorios.
       </mat-error>
     </mat-form-field>
     <br />
     <mat-form-field>
       <mat-label>Oncologo asignado</mat-label>
-      <input matInput formControlName="oncologo" type="number" />
+      <mat-select formControlName="oncologo">
+        <mat-option
+          *ngFor="let oncologo of listaOncologo"
+          [value]="oncologo.oncologo_id"
+        >
+          {{ oncologo.user_id.nombre }} {{ oncologo.user_id.apellido }}
+        </mat-option>
+      </mat-select>
       <mat-error *ngIf="form.get('oncologo')?.hasError('required')">
-       Se debe asignar un oncologo
+        Se debe asignar un oncologo
       </mat-error>
     </mat-form-field>
     <div class="title-container">

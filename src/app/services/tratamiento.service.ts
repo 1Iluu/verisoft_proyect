@@ -10,9 +10,8 @@ const base_url = environment.csbase;
   providedIn: 'root',
 })
 export class TratamientoService {
-  private url = `${base_url}/Tratamientos`;
+  private url = `${base_url}/tratamientos`;
   private listaCambio = new Subject<Tratamiento[]>();
-  private token = sessionStorage.getItem('token');
 
   constructor(private http: HttpClient) {}
 
@@ -23,12 +22,7 @@ export class TratamientoService {
   insert(s: Tratamiento) {
     console.log(this.url);
 
-    return this.http.post(this.url, s, {
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: `Bearer ${this.token}`,
-      },
-    });
+    return this.http.post(this.url, s);
   }
 
   setList(listaNueva: Tratamiento[]) {
@@ -48,11 +42,6 @@ export class TratamientoService {
   }
 
   delete(id: number) {
-    return this.http.delete(`${this.url}/${id}`, {
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: `Bearer ${this.token}`,
-      },
-    });
+    return this.http.delete(`${this.url}/${id}`);
   }
 }
