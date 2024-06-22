@@ -22,6 +22,7 @@ import { TratamientoService } from '../../../../services/tratamiento.service';
 import { PacienteService } from '../../../../services/paciente.service';
 import { Serviceexamen } from '../../../../services/serviceexamen.service';
 
+
 @Component({
   selector: 'app-creardetallehistorial',
   standalone: true,
@@ -43,7 +44,7 @@ import { Serviceexamen } from '../../../../services/serviceexamen.service';
 
 export class CreardetallehistorialComponent implements OnInit {
   Form: FormGroup = new FormGroup({});
-  Service: DetalleHistorial = new DetalleHistorial();
+  detallehistorial: DetalleHistorial = new DetalleHistorial();
   listaseguros: Seguro[]=[];
   listacirugias: Cirugias[]=[];
   listatratamiento: Tratamiento[]=[];
@@ -65,42 +66,42 @@ export class CreardetallehistorialComponent implements OnInit {
     this.Form = this.FormBuilber.group({
       idDetalleHistorial:['', Validators.required],
       fechaDetalleHistorial: ['',Validators.required],
-      seguro:[''],
-      cirugias:[''],
-      tratamiento:[''],
-      examenDeteccion:[''],
-      paciente:[''],
+      seguro:['',Validators.required],
+      cirugias:['',Validators.required],
+      tratamiento:['',Validators.required],
+      examenDeteccion:['',Validators.required],
+      paciente:['',Validators.required],
     })
     this.ss.list().subscribe((data)=>{
       this.listaseguros=data;
   });
 
   this.cs.list().subscribe((data)=>{
-    this.listacirugias
+    this.listacirugias=data;
   });
   this.ts.list().subscribe((data)=>{
-    this.listatratamiento
+    this.listatratamiento=data;
   }); 
   
   this.es.list().subscribe((data)=>{
-    this.listaexamendeteccion
+    this.listaexamendeteccion=data;
   }); 
   
   this.ps.list().subscribe((data)=>{
-    this.listapaciente
+    this.listapaciente=data;
   });
   }
   guardar(): void {
     if (this.Form.valid) {
-      this.Service.idDetalleHistorial =  this.Form.value.idDetalleHistorial;
-      this.Service.fechaDetalleHistorial =  this.Form.value.fechaDetalleHistorial;
-      this.Service.seguro =  this.Form.value.seguro;
-      this.Service.cirugias =  this.Form.value.cirugias;
-      this.Service.tratamiento =  this.Form.value.tratamiento;
-      this.Service.examenDeteccion =  this.Form.value.examenDeteccion;
-      this.Service.paciente =  this.Form.value.paciente;
+      this.detallehistorial.idDetalleHistorial =  this.Form.value.idDetalleHistorial;
+      this.detallehistorial.fechaDetalleHistorial =  this.Form.value.fechaDetalleHistorial;
+      this.detallehistorial.seguro =  this.Form.value.seguro.idseguro;
+      this.detallehistorial.cirugias =  this.Form.value.cirugias.idcirugias;
+      this.detallehistorial.tratamiento =  this.Form.value.tratamiento.idTratamiento;
+      this.detallehistorial.examenDeteccion =  this.Form.value.examenDeteccion.examenDeteccionId;
+      this.detallehistorial.paciente =  this.Form.value.paciente.idPaciente;
       
-      this.dS.insert(this.Service).subscribe((data) => {
+      this.dS.insert(this.detallehistorial).subscribe((data) => {
         this.dS.list().subscribe((data) => {
           this.dS.setList(data);
         });
