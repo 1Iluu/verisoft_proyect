@@ -68,9 +68,7 @@ export class CreaeditaoncologoComponent implements OnInit {
       Oncologo_id: ['',],
       user_id: ['', Validators.required],
       especialidad_id: ['', Validators.required],
-      nombreyapellido: ['', Validators.required],
       experiencia_laboral_anios: ['', [Validators.required, this.validateNumero]],
-      educacion_universitaria: ['',[Validators.required, Validators.maxLength(30)]],
       cantidad_pacientes: ['', [Validators.required, this.validateNumero]],
       horario_atencion: ['',[Validators.required, Validators.maxLength(100), Validators.pattern(/^[0-9:-]+$/)]],
       salario: ['', [Validators.required, this.validateDecimal]],
@@ -85,32 +83,47 @@ export class CreaeditaoncologoComponent implements OnInit {
   }
   aceptar() {
     if (this.form.valid) {
-      this.Oncologo.oncologo_id = this.form.value.Oncologo_id;
       this.Oncologo.user_id.id = this.form.value.user_id;
-      this.Oncologo.especialidad_id.id = this.form.value.especialidad_id;
-      this.Oncologo.nombreyapellido = this.form.value.nombreyapellido_id;
-      this.Oncologo.experiencia_laboral_anios = this.form.value.experiencia_laboral_anios;
-      this.Oncologo.cantidad_pacientes = this.form.value.cantidad_pacientes;
-      this.Oncologo.horario_atencion = this.form.value.horario_atencion;
-      this.Oncologo.salario = this.form.value.salario;
-      if(this.edicion){
-        this.oS.update(this.Oncologo).subscribe(() => {
-          this.oS.list().subscribe((data) => {
-            this.oS.setList(data);
-          })
+
+      this.uS.list().subscribe((data)=>
+        { 
+          for (let u of data)
+            {
+              if (u.id == this.form.value.user_id)
+                {
+                  console.log('Registrando oncologo');
+                  this.Oncologo.user_id.id = this.form.value.user_id;
+                  this.Oncologo.especialidad_id.id = this.form.value.especialidad_id;
+                  this.Oncologo.nombreyapellido = u.nombre + ' ' + u.apellido;
+                  this.Oncologo.experiencia_laboral_anios = this.form.value.experiencia_laboral_anios;
+                  this.Oncologo.cantidad_pacientes = this.form.value.cantidad_pacientes;
+                  this.Oncologo.horario_atencion = this.form.value.horario_atencion;
+                  this.Oncologo.salario = this.form.value.salario;
+                  if(this.edicion){
+                    this.oS.update(this.Oncologo).subscribe(() => {
+                      this.oS.list().subscribe((data) => {
+                        this.oS.setList(data);
+                      })
+                    })
+                  } else {
+                    this.oS.insert(this.Oncologo).subscribe(data=>{
+                      this.oS.list().subscribe(data=>{
+                        this.oS.setList(data);
+                      })
+                    });
+                  }
+                  this.router.navigate(['/components/Oncologo'])
+                }
+                else console.log('No se registro nada')
+            }
         })
-      } else {
-        this.oS.insert(this.Oncologo).subscribe(data=>{
-          this.oS.list().subscribe(data=>{
-            this.oS.setList(data);
-          })
-        });
-      }
-      this.router.navigate(['/components/Oncologo'])
-    } else {
+    }
+    else 
+    {
       this.mensaje='Ingrese todos los campos!!'
     }
   }
+
   obtenerControlCampo(nombreCampo: string): AbstractControl {
     const control = this.form.get(nombreCampo);
     if (!control) {

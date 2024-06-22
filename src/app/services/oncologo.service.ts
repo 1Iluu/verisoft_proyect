@@ -1,8 +1,10 @@
 import { Injectable } from "@angular/core";
 import { environment } from "../../environments/enviroment";
-import { Subject } from "rxjs";
+import { Observable, Subject } from "rxjs";
 import { HttpClient } from "@angular/common/http";
 import { Oncologo } from "../models/oncologo";
+import { QueryCitasOncologoporFechaDTO } from "../models/QueryCitasOncologoPorFechaDTO";
+import { PromedioEstrellasOncologoDTO } from "../models/PromedioEstrellasOncologoDTO";
 
 const base_url = environment.csbase;
 
@@ -41,6 +43,14 @@ return this.http.put(this.url, o);
 delete(id: number)  {
     return this.http.delete(`${this.url}/${id}`)
   }
- 
+ getQuantityCitas(fechaingresada:Date = new Date(Date.now())): Observable<QueryCitasOncologoporFechaDTO[]> {
+    return this.http.get<QueryCitasOncologoporFechaDTO[]>(
+      `${this.url}/citasporfecha/${fechaingresada}`);
+  }
+  getPromedioEstrellas(): Observable<PromedioEstrellasOncologoDTO[]> {
+    return this.http.get<PromedioEstrellasOncologoDTO[]>(
+      `${this.url}/promedioestrellas`);
+  }
+
 
 }

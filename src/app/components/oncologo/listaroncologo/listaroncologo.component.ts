@@ -8,6 +8,7 @@ import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { RouterLink } from '@angular/router';
 import { Oncologo } from '../../../models/oncologo';
 import { OncologoService } from '../../../services/oncologo.service';
+import { CommonModule } from '@angular/common';
 
 
 
@@ -21,7 +22,8 @@ import { OncologoService } from '../../../services/oncologo.service';
     MatPaginatorModule,
     MatFormFieldModule,
     MatInputModule,
-    MatIconModule],
+    MatIconModule,
+  CommonModule],
   templateUrl: './listaroncologo.component.html',
   styleUrl: './listaroncologo.component.css'
 })
@@ -31,13 +33,22 @@ export class ListaroncologoComponent implements OnInit{
   'usuario',
   'especialidad',
   'anios',
-  'educacion',
   'cantidad',
   'horario',
   'salario',
   'nombreyapellido',
   'accion01',
-  'accion02',
+  'accion02'
+
+  /*  oncologo_id: number = 0;
+  user_id: Users = new Users();
+  especialidad_id: Especialidad = new Especialidad();
+  experiencia_laboral_anios: number=0;
+  cantidad_pacientes: number=0;
+  edad: number=0;
+  horario_atencion: string="";
+  salario: number =0;
+  nombreyapellido: string =""; */
   ]
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   constructor(private oS: OncologoService) {}
