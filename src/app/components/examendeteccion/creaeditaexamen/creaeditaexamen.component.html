@@ -1,5 +1,6 @@
-<div class="container" style="text-align: center">
-  <h2>Registro de Examen Detección</h2>
+<div class="title-container"><h1>Registro de Examenes de Deteccion</h1></div>
+<div class="title-container" > 
+
   <form [formGroup]="form" (submit)="guardar()" class="example-form">
       <mat-form-field class="example-full-width" *ngIf="edicion" >
         <mat-label>Codigo</mat-label>
@@ -55,11 +56,12 @@
         >Ingresar los resultados es obligatorio.</mat-error
       >
       </mat-form-field>
-      <br />
-      <button mat-raised-button color="primary">Guardar</button>
-      <button mat-raised-button color="warn" routerLink="/examenes">
+
+
+    <br />
+   <button mat-raised-button class="custom-button">Guardar</button>
+   <button mat-raised-button class="custom-button" routerLink="/examenes">
         Cancelar
       </button>
-      <p>{{ mensaje }}</p>
     </form>
   </div>
