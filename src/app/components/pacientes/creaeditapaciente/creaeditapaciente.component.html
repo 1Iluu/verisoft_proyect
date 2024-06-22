@@ -23,10 +23,11 @@
         <mat-label>Estado</mat-label>
         <input matInput formControlName="estado" />
       </mat-form-field>
+
       <mat-form-field>
         <mat-label>User</mat-label>
-        <input matInput formControlName="user" />
-        <mat-error *ngIf="form.get('user')?.hasError('required')">
+        <input matInput formControlName="id" />
+        <mat-error *ngIf="form.get('id')?.hasError('required')">
         </mat-error>
       </mat-form-field>
     <br />

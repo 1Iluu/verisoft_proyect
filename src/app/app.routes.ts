@@ -210,10 +210,12 @@ export const routes: Routes = [
   path: 'reportes', component:ReportsComponent,
   children:[{
     path:'reportes02',
-    component:Report02Component,},
+    component:Report02Component},
+    
 ],
-}
- 
+canActivate: [segGuard],
+},
+{
   path: 'cardenas1',
   component: JosereportsComponent,
   children: [
