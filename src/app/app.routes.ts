@@ -35,6 +35,8 @@ import { PacientesComponent } from './components/pacientes/pacientes.component';
 import { creaeditapaciente } from './components/pacientes/creaeditapaciente/creaeditapaciente.component';
 import { TratamientoComponent } from './components/tratamiento/tratamiento.component';
 import { CreaeditatratamientoComponent } from './components/tratamiento/creaeditatratamiento/creaeditatratamiento.component';
+import { ReportsafComponent } from './components/reportsaf/reportsaf.component';
+import { Report02Component } from './components/reportsaf/report02/report02.component';
 
 
 
@@ -202,5 +204,13 @@ export const routes: Routes = [
   canActivate: [segGuard],
 },
 
-
+{
+  path:'reportesAbrigo',
+  component:ReportsafComponent,
+  children:[{
+    path: 'reporte02',
+    component:Report02Component,
+  },
+  ],
+}
 ];
