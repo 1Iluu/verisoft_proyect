@@ -59,18 +59,25 @@
       </td>
     </ng-container>
 
+    <ng-container matColumnDef="tipoTratamiento">
+      <th mat-header-cell *matHeaderCellDef>Tipo de tratamiento</th>
+      <td mat-cell *matCellDef="let element">
+        {{ element.tipoTratamiento.nombreTratamiento }}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="cita">
+      <th mat-header-cell *matHeaderCellDef>Cita</th>
+      <td mat-cell *matCellDef="let element">
+        {{ element.cita.idCita }}
+      </td>
+    </ng-container>
+
     <ng-container matColumnDef="oncologo">
       <th mat-header-cell *matHeaderCellDef>Oncólogo asignado</th>
       <td mat-cell *matCellDef="let element">
         {{ element.oncologo.user_id.nombre }}
         {{ element.oncologo.user_id.apellido }}
-      </td>
-    </ng-container>
-
-    <ng-container matColumnDef="nombreTratamiento">
-      <th mat-header-cell *matHeaderCellDef>Nombre</th>
-      <td mat-cell *matCellDef="let element">
-        {{ element.nombreTratamiento }}
       </td>
     </ng-container>
 
