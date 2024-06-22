@@ -36,8 +36,8 @@ import { MatIconModule } from '@angular/material/icon';
 })
 export class CreaeditaherramientaComponent {
 form:FormGroup=new FormGroup({});
-service:Herramienta=new Herramienta();
-listaOncologos: Oncologo[]=[];
+herramienta:Herramienta=new Herramienta();
+listaoncologos: Oncologo[] = [];
 mensaje: string = '';
 id: number = 0;
 edicion: boolean = false;
@@ -47,7 +47,7 @@ listaHerramientas:{value:string; viewValue:string}[]=[
   {value:'Tijeras Quirúrgicas',viewValue:'Tijeras Quirúrgicas'},
   {value:'Pinzas',viewValue:'Pinzas'},
   {value:'Ganchos y Separadores',viewValue:'Ganchos y Separadores'},
-  {value:'Suturas y Grapadoras Quirúrgicas',viewValue:'Suturas y Grapadoras Quirúrgicas:'},
+  {value:'Suturas y Grapadoras Quirúrgicas',viewValue:'Suturas y Grapadoras Quirúrgicas'},
   {value:'Electrocauterio',viewValue:'Electrocauterio'},
   {value:'Aspirador Quirúrgico',viewValue:'Aspirador Quirúrgico'},
   {value:'Ecografía',viewValue:'Ecografía'},
@@ -64,7 +64,7 @@ constructor(
   private hS:ServicioherramientaService,
   private router:Router,
   private route:ActivatedRoute,
-  private oS: OncologoService
+  private oS:OncologoService
 ){}
 
 ngOnInit(): void{
@@ -75,27 +75,29 @@ ngOnInit(): void{
   });
 
   this.form = this.formBuilber.group({
-    herramienta_id: ['', Validators.required],
-    oncologo_id: ['', Validators.required],
+    codigo:[''],
+    oncologo: ['', Validators.required],
     nombreHerramienta: ['', Validators.required],
  });
-  this.oS.list().subscribe((data) => {
-    this.listaOncologos = data;
-  });
+ this.oS.list().subscribe((data) => {
+  this.listaoncologos = data;
+});
 }
 guardar(): void{
 if (this.form.valid) {
-  this.service.herramienta_id=this.form.value.herramienta_id;
-  this.service.oncologo.oncologo_id=this.form.value.oncologo_id;
-  this.service.nombreHerramienta=this.form.value.nombreHerramienta;
+  this.herramienta.herramienta_id=this.form.value.codigo;
+  this.herramienta.oncologo.oncologo_id=this.form.value.oncologo_id;
+  this.herramienta.nombreHerramienta=this.form.value.nombreHerramienta;
+  console.log(this.herramienta);
+  
     if (this.edicion) {
-      this.hS.update(this.service).subscribe(() => {
+      this.hS.update(this.herramienta).subscribe((data) => {
         this.hS.list().subscribe((data) => {
           this.hS.setList(data);
         });
       });
     } else {
-      this.hS.insert(this.service).subscribe((data) => {
+      this.hS.insert(this.herramienta).subscribe((data) => {
         this.hS.list().subscribe((data) => {
           this.hS.setList(data);
         });
@@ -107,9 +109,9 @@ if (this.form.valid) {
   init() {
     if (this.edicion) {
       this.hS.listId(this.id).subscribe((data) => {
-        this.form = new FormGroup({
-          herramienta_id: new FormControl(data.herramienta_id),
-          oncologo_id: new FormControl(data.oncologo.oncologo_id),
+        this.form=new FormGroup({
+          codigo:new FormControl(data.herramienta_id),
+          oncologo: new FormControl(data.oncologo.oncologo_id),
           nombreHerramienta: new FormControl(data.nombreHerramienta),
         });
       });
