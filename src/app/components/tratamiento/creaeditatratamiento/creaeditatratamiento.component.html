@@ -11,7 +11,14 @@
     <br />
     <mat-form-field>
       <mat-label>Estado</mat-label>
-      <input matInput formControlName="estado" />
+      <mat-select formControlName="estado">
+        <mat-option
+          *ngFor="let estado of listaEstadoPaciente"
+          [value]="estado.value"
+        >
+          {{ estado.viewValue }}
+        </mat-option>
+      </mat-select>
       <mat-error *ngIf="form.get('estado')?.hasError('required')">
         El estado es obligatorio.
       </mat-error>
@@ -39,7 +46,7 @@
       <mat-label>Horas programadas</mat-label>
       <input matInput formControlName="horas" type="number" />
       <mat-error *ngIf="form.get('horas')?.hasError('required')">
-       Las horas son obligatorias.
+        Las horas son obligatorias.
       </mat-error>
     </mat-form-field>
     <br />
@@ -47,15 +54,49 @@
       <mat-label>Efectos esperados</mat-label>
       <input matInput formControlName="efectosEsperados" />
       <mat-error *ngIf="form.get('efectosEsperados')?.hasError('required')">
-       Los efectos esperados son obligatorios.
+        Los efectos esperados son obligatorios.
+      </mat-error>
+    </mat-form-field>
+    <br />
+    <mat-form-field>
+      <mat-label>Tipo de tratamiento</mat-label>
+      <mat-select formControlName="tipoTratamiento">
+        <mat-option
+          *ngFor="let tipo of listaTiposTratamiento"
+          [value]="tipo.id"
+        >
+          {{ tipo.nombreTratamiento }}
+        </mat-option>
+      </mat-select>
+      <mat-error *ngIf="form.get('tipoTratamiento')?.hasError('required')">
+        Se debe elegir un tipo de tratamiento
+      </mat-error>
+    </mat-form-field>
+    <br />
+    <mat-form-field>
+      <mat-label>Cita</mat-label>
+      <mat-select formControlName="cita">
+        <mat-option *ngFor="let cita of listaCitas" [value]="cita.idCita">
+          {{ cita.idCita }}
+        </mat-option>
+      </mat-select>
+      <mat-error *ngIf="form.get('cita')?.hasError('required')">
+        Se debe asignar a una cita
       </mat-error>
     </mat-form-field>
     <br />
     <mat-form-field>
       <mat-label>Oncologo asignado</mat-label>
-      <input matInput formControlName="oncologo" type="number" />
+      <mat-select formControlName="oncologo">
+        <mat-option
+          *ngFor="let oncologo of listaOncologo"
+          [value]="oncologo.oncologo_id"
+        >
+          {{ oncologo.user_id.nombre }} {{ oncologo.user_id.apellido }}
+        </mat-option>
+      </mat-select>
       <mat-error *ngIf="form.get('oncologo')?.hasError('required')">
-       Se debe asignar un oncologo
+        Se debe asignar un oncologo
       </mat-error>
     </mat-form-field>
     <div class="title-container">
