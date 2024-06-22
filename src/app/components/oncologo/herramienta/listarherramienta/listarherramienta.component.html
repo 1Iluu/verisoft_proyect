@@ -1,8 +1,8 @@
 <div class="container">
   <br />
-  <h2 style="text-align: center">Lista de Herramientas</h2>
+  <h2 style="text-align: center">Herramientas del Oncologo</h2>
   <div style="text-align: right">
-    <button mat-raised-button color="primary" routerLink="/herramientas/nuevo">
+    <button mat-raised-button color="primary" style="background-color: #999B85;" routerLink="/herramientas/nuevo">
       Nuevo
     </button>
   </div>
@@ -28,25 +28,18 @@
           <ng-container matColumnDef="c4">
             <th mat-header-cell *matHeaderCellDef>Actualizar</th>
             <td mat-cell *matCellDef="let element">
-              <button
-                mat-raised-button
-                color="warn"
-                [routerLink]="['ediciones', element.herramienta_id]"
-              >
-              <mat-icon> border_color</mat-icon>        </button>
-            </td></ng-container
+              <button mat-raised-button class="custom-button" style="background-color: #999B85" [routerLink]="['ediciones', element.herramienta_id]">
+                <mat-icon> border_color</mat-icon></button>
+              </td>
+              </ng-container
           >
           <ng-container matColumnDef="c5">
             <th mat-header-cell *matHeaderCellDef>Eliminar</th>
             <td mat-cell *matCellDef="let element">
-              <button
-                mat-raised-button
-                color="accent"
-                (click)="eliminar(element.herramienta_id)"
-              >
-              <mat-icon>delete</mat-icon>
-            </button>
-            </td></ng-container
+              <button mat-raised-button class="custom-button" style="background-color: #999B85" (click)="eliminar(element.herramienta_id)"><mat-icon>delete</mat-icon></button>
+
+            </td>
+            </ng-container
           >
           <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
           <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
@@ -55,6 +48,7 @@
           [pageSizeOptions]="[5, 10, 25, 100]"
           showFirstLastButtons
         ></mat-paginator>
+        
       </div>
       
   
