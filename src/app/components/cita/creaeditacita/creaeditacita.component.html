@@ -1,7 +1,8 @@
 <div class="container" style="text-align: center">
     <h2>Registrar de Citas</h2>
     <form [formGroup]="form" (submit)="aceptar()" class="example-form">
-      <mat-form-field class="example-full-width">
+
+      <mat-form-field *ngIf="edicion">
         <mat-label>Codigo</mat-label>
         <input matInput placeholder="idCita" formControlName="idCita" />
         <mat-error *ngIf="form.get('idCita')?.hasError('required')"
@@ -106,7 +107,7 @@
         >
       </mat-form-field>
       <br />
-      <button mat-raised-button color="primary">Aceptar</button>
+      <button mat-raised-button class="custom-button">Aceptar</button>
      
     </form>
     

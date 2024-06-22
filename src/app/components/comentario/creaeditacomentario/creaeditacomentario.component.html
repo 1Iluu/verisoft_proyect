@@ -1,9 +1,10 @@
 <div class="container" style="text-align: center">
     <h2>Haz tu comentario :)</h2>
     <form [formGroup]="form" (submit)="aceptar()" class="example-form">
-      <mat-form-field class="example-full-width">
+
+      <mat-form-field *ngIf="edicion">
         <mat-label>Codigo</mat-label>
-        <input matInput placeholder="idComentario" formControlName="idComentario" />
+        <input matInput placeholder="idComentario" formControlName="idComentario" readonly />
         <mat-error *ngIf="form.get('idComentario')?.hasError('required')"
           >Los puntos son obligatorios.</mat-error
         >

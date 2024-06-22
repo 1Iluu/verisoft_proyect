@@ -65,6 +65,11 @@ export class CreaeditacitaComponent implements OnInit {
   ){}
 
 ngOnInit(): void {
+  this.route.params.subscribe((data:Params)=>{
+    this.id=data[`id`];
+    this.edicion=data[`id`]!=null;
+    this.init()
+  })
 
 this.form = this.formBuilder.group({
   idCita: [''],
@@ -94,14 +99,37 @@ aceptar(): void {
     this.cita.oncologo.oncologo_id = this.form.value.oncologo;
     this.cita.paciente.idPaciente = this.form.value.paciente;
     
+if(this.edicion){
+  this.cS.update(this.cita).subscribe((data)=>{
+    this.cS.list().subscribe((data) => {
+      this.cS.setList(data);
+    });
+  });
 
+}else{
     this.cS.inser(this.cita).subscribe((data) => {
       this.cS.list().subscribe((data) => {
         this.cS.setList(data);
       });
     });
-
+  }
     this.router.navigate(['cita']);
+  }
+}
+init(){
+  if(this.edicion){
+    this.cS.listId(this.id).subscribe((data)=>{
+      this.form=new FormGroup({
+        idCita:new FormControl(data.idCita),
+        consultorio:new FormControl(data.consultorio),
+        fecha:new FormControl(data.fecha),
+        estado:new FormControl(data.estado),
+        hora:new FormControl(data.hora),
+        motivo:new FormControl(data.motivo),
+        oncologo:new FormControl(data.oncologo.oncologo_id),
+        paciente:new FormControl(data.paciente.idPaciente),
+      })
+    })
   }
 }
 }

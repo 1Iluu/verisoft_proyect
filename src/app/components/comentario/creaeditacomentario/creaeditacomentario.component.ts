@@ -64,6 +64,11 @@ export class CreaeditacomentarioComponent implements OnInit{
     private pS : PacienteService,
   ){}
   ngOnInit(): void {
+    this.route.params.subscribe((data:Params)=>{
+      this.id=data[`id`];
+      this.edicion=data[`id`]!=null;
+      this.init()
+    })
     this.form = this.formBuilder.group({
       idComentario: [''],
       descripcion: ['', Validators.required],
@@ -86,14 +91,34 @@ export class CreaeditacomentarioComponent implements OnInit{
         this.comentario.oncologo.oncologo_id = this.form.value.oncologo;
         this.comentario.paciente.idPaciente = this.form.value.paciente;
         
-    
+        if(this.edicion){
+          this.cC.update(this.comentario).subscribe((data)=>{
+            this.cC.list().subscribe((data) => {
+              this.cC.setList(data);
+            });
+          });
+        
+        }else{
         this.cC.inser(this.comentario).subscribe((data) => {
           this.cC.list().subscribe((data) => {
             this.cC.setList(data);
           });
         });
-    
+      }
         this.router.navigate(['comentario']);
+      }
+    }
+    init(){
+      if(this.edicion){
+        this.cC.listId(this.id).subscribe((data)=>{
+          this.form=new FormGroup({
+            idComentario:new FormControl(data.idComentario),
+            estrellas:new FormControl(data.estrellas),
+            descripcion:new FormControl(data.descripcion),
+            oncologo:new FormControl(data.oncologo.oncologo_id),
+            paciente:new FormControl(data.paciente.idPaciente),
+          })
+        })
       }
     }
   }

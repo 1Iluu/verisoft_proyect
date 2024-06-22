@@ -34,6 +34,9 @@ export class ListarcomentarioComponent implements OnInit {
     'c3',
     'c4',
     'c5',
+    'c6',
+    'c7',
+    
    
   ];
   constructor(private cS: ComentarioService){}
