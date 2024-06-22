@@ -10,6 +10,9 @@ import { Oncologo } from '../../../models/oncologo';
 import { OncologoService } from '../../../services/oncologo.service';
 import { CommonModule } from '@angular/common';
 
+
+
+
 @Component({
   selector: 'app-listaroncologo',
   standalone: true,

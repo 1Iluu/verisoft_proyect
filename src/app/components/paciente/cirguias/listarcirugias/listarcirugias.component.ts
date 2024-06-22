@@ -8,6 +8,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { Cirugias } from '../../../../models/cirugias';
 import { CirugiasService } from '../../../../services/cirugias.service';
+import { CommonModule } from '@angular/common';
 
 export interface PeriodicElement {
   codigo: number;
@@ -24,7 +25,8 @@ export interface PeriodicElement {
     MatFormFieldModule,
     MatPaginatorModule,
     MatIconModule,
-    MatInputModule
+    MatInputModule,
+    CommonModule
   ],
   templateUrl: './listarcirugias.component.html',
   styleUrl: './listarcirugias.component.css'

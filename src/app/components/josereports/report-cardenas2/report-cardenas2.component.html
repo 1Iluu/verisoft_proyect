@@ -1,0 +1,37 @@
+<div class="container">
+  <div class="title-container"><h1 class="title">Buscar Citas por Nombre del Oncólogo</h1></div>
+  <div style="text-align: right;"><button mat-raised-button color="primary" style="background-color: #999B85;" (click)="getCitas()">Buscar</button>
+  <div class="results my-4">
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+      <!-- Fecha Column -->
+      <ng-container matColumnDef="fecha">
+        <th mat-header-cell *matHeaderCellDef> Fecha </th>
+        <td mat-cell *matCellDef="let element"> {{element.fecha}} </td>
+      </ng-container>
+    
+      <!-- Hora Column -->
+      <ng-container matColumnDef="hora">
+        <th mat-header-cell *matHeaderCellDef> Hora </th>
+        <td mat-cell *matCellDef="let element"> {{element.hora}} </td>
+      </ng-container>
+    
+      <!-- Motivo Column -->
+      <ng-container matColumnDef="motivo">
+        <th mat-header-cell *matHeaderCellDef> Motivo </th>
+        <td mat-cell *matCellDef="let element"> {{element.motivo}} </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </div>
+</div>
+<div class="form-group" style="text-align: left;">
+  <input
+    type="text"
+    class="form-control"
+    placeholder="Ingrese el nombre del oncólogo"
+    [(ngModel)]="oncologo"
+  />
+</div>
+

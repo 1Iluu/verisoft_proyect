@@ -22,6 +22,12 @@ body {
       z-index: 2000;
       visibility: visible; }
   
+      .container button {
+        background-color: #ddb7ac;
+        color: #fff;
+      
+      }
+
   p {
     color: #b3b3b3;
     font-weight: 300; }
@@ -38,6 +44,10 @@ body {
     a, a:hover {
       text-decoration: none !important; }
  
+      .custom-button {
+        background-color: #000000;
+        
+      }
   .hero {
     height: 100vh;
     width: 100%;
@@ -50,7 +60,7 @@ body {
     background: #eee; }
     .top-bar a {
       color: #666666; }
-  
+
   .site-navbar {
     margin-bottom: 0px;
     z-index: 1999;

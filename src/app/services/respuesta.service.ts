@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { environment } from '../../environments/enviroment';
-import { Subject } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Respuesta } from '../models/respuesta';
 const base_url= environment.csbase;
@@ -26,11 +26,19 @@ export class respuestaService {
   listId(id: number) {
     return this.httpClient.get<Respuesta>(`${this.url}/${id}`);
   }
-  update(a: Respuesta) {
-    return this.httpClient.put(this.url, a);
+  update(r: Respuesta) {
+    return this.httpClient.put(this.url, r);
   }
   delete(id: number) {
     return this.httpClient.delete(`${this.url}/${id}`);
   }
-  
+
+  getQuantity(estado:string):Observable<Respuesta[]>{
+    return this.httpClient.get<Respuesta[]>(
+      `${this.url}/consulta01?estado=${estado}`);
+  }
+  getQuantityGrado(grado:string):Observable<Respuesta[]>{
+    return this.httpClient.get<Respuesta[]>(
+      `${this.url}/consulta02?grado=${grado}`);
+  }
 }

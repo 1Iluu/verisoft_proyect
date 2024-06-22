@@ -60,7 +60,7 @@ export class CreaeditaalergiasComponent implements OnInit {
 
 
        this.form = this.formBuilder.group({
-        id: [''],
+        idalergias: [''],
         descripcionAlergias: ['', Validators.required],
        });
        

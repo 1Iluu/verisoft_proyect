@@ -1,43 +1,60 @@
 <div class="container">
-    <div class="title-container">
-      <h1 class="title">Lista de Detalle Historial</h1>
-    </div>
-      <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
-        
-        <ng-container matColumnDef="codigo">
-          <th mat-header-cell *matHeaderCellDef>Código</th>
-          <td mat-cell *matCellDef="let element">{{element.idDetalleHistorial}}</td>
-        </ng-container>
-  
-            <ng-container matColumnDef="fechaDetalleHistorial">
-            <th mat-header-cell *matHeaderCellDef>Fecha</th>
-            <td mat-cell *matCellDef="let element">{{element.fechaDetalleHistorial}}</td>
-            </ng-container>
-        
-            <ng-container matColumnDef="codigoseguro">
-            <th mat-header-cell *matHeaderCellDef>Nro.Seguro</th>
-            <td mat-cell *matCellDef="let element">{{element.seguro.idseguro}}</td>
-            </ng-container>
-  
-            <ng-container matColumnDef="codigocirugia">
-            <th mat-header-cell *matHeaderCellDef> Nro.Cirugia</th>
-            <td mat-cell *matCellDef="let element">{{element.cirugias.idcirugias}}</td>
-            </ng-container>
-   
-            <ng-container matColumnDef="codigotratamiento">
-            <th mat-header-cell *matHeaderCellDef> Nro.Tratamiento </th>
-            <td mat-cell *matCellDef="let element">{{element.tratamiento.idTratamiento}}</td>
-            </ng-container>
-  
-            <ng-container matColumnDef="codigoexamendeteccion">
-            <th mat-header-cell *matHeaderCellDef> Tipo de Examen</th>
-            <td mat-cell *matCellDef="let element">{{element.examendeteccion.examenDeteccionId}}</td>
-            </ng-container>
-            
-            <ng-container matColumnDef="codigopaciente">
-            <th mat-header-cell *matHeaderCellDef> Tipo de Examen</th>
-            <td mat-cell *matCellDef="let element">{{element.paciente.idPaciente}}</td>
-            </ng-container>
-          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-        </table>
+  <br/>
+  <h2 style="text-align: center">Lista de Detalle Historial</h2>
+
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+    <!-- Position Column -->
+    <ng-container matColumnDef="c1">
+      <th mat-header-cell *matHeaderCellDef>No.</th>
+      <td mat-cell *matCellDef="let element">{{ element.idDetalleHistorial }}</td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="c2">
+      <th mat-header-cell *matHeaderCellDef>Fecha</th>
+      <td mat-cell *matCellDef="let element">{{ element.fechaDetalleHistorial }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="c3">
+      <th mat-header-cell *matHeaderCellDef>No. Seguro</th>
+      <td mat-cell *matCellDef="let element">
+        {{ element.seguro.idseguro }}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="c4">
+      <th mat-header-cell *matHeaderCellDef>No. Cirugía</th>
+      <td mat-cell *matCellDef="let element">
+        {{ element.cirugias.idcirugias }}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="c5">
+      <th mat-header-cell *matHeaderCellDef>No. Tratamiento</th>
+      <td mat-cell *matCellDef="let element">
+        {{ element.tratamiento.idTratamiento }}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="c6">
+      <th mat-header-cell *matHeaderCellDef>No. Examen</th>
+      <td mat-cell *matCellDef="let element">
+        {{ element.examenDeteccion.examenDeteccionId }}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="c7">
+      <th mat-header-cell *matHeaderCellDef>No. Paciente</th>
+      <td mat-cell *matCellDef="let element">
+        {{ element.paciente.idPaciente }}
+      </td>
+    </ng-container>
+ 
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
+  <mat-paginator
+  [pageSizeOptions]="[5, 10, 25, 100]"
+  showFirstLastButtons
+></mat-paginator>
+  </div>

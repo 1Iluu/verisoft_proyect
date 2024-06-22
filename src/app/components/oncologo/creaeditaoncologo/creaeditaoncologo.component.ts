@@ -21,7 +21,7 @@ import { EspecialidadService } from '../../../services/especialidad.service';
   selector: 'app-creaeditaoncologo',
   standalone: true,
   imports: [MatFormFieldModule,
-    NgIf,
+  
     ReactiveFormsModule,
     MatButtonModule,
     MatInputModule,

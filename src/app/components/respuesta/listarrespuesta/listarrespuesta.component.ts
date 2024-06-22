@@ -8,6 +8,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { RouterLink } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
+import { CommonModule } from '@angular/common';
 
 export interface PeriodicElement {
   idRespuesta: number;
@@ -26,6 +27,7 @@ export interface PeriodicElement {
     MatFormFieldModule,
     MatInputModule,
     MatIconModule,
+    CommonModule
    
   ],
   templateUrl: './listarrespuesta.component.html',
@@ -42,18 +44,18 @@ export class ListarrespuestaComponent implements OnInit {
     'accion01',
     'accion02'
   ];
-  @ViewChild(MatPaginator) paginator!: MatPaginator;
+
   dataSource: MatTableDataSource<Respuesta> = new MatTableDataSource();
   constructor(private rS:respuestaService ){}
   ngOnInit(): void {
     this.rS.list().subscribe((data)=>{
       this.dataSource=new MatTableDataSource(data);
-      this.dataSource.paginator = this.paginator;
+
 
     });
     this.rS.getList().subscribe((data)=>{
       this.dataSource=new MatTableDataSource(data);
-      this.dataSource.paginator = this.paginator;
+
 
     });
 }

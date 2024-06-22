@@ -8,9 +8,9 @@ export class DetalleHistorial{
     idDetalleHistorial:number=0;
     fechaDetalleHistorial:string="";
     seguro:Seguro=new Seguro();
-    cirugia:Cirugias=new Cirugias();
+    cirugias:Cirugias=new Cirugias();
     tratamiento:Tratamiento=new Tratamiento();
-    examendeteccion:Examendeteccion=new Examendeteccion();
+    examenDeteccion:Examendeteccion=new Examendeteccion();
     paciente:Paciente=new Paciente()
 
 }

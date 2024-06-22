@@ -37,6 +37,14 @@ import { TratamientoComponent } from './components/tratamiento/tratamiento.compo
 import { CreaeditatratamientoComponent } from './components/tratamiento/creaeditatratamiento/creaeditatratamiento.component';
 import { ReportVictor02Component } from './components/reports-victorarevalo/report-victor02/report-victor02.component';
 import { ReportsComponentVictorArevalo } from './components/reports-victorarevalo/reports-victorarevalo.component';
+import { ReportsafComponent } from './components/reportsaf/reportsaf.component';
+import { ReportsComponent } from './components/reports/reports.component';
+import { JosereportsComponent } from './components/josereports/josereports.component';
+import { ReportCardenas2Component } from './components/josereports/report-cardenas2/report-cardenas2.component';
+import { reportAbrigo02 } from './components/reportsaf/report-abrigo02/report-abrigo02.component';
+import { Report02Component } from './components/reports/report02/report02.component';
+
+
 
 
 
@@ -179,7 +187,7 @@ export const routes: Routes = [
 },
 {
 
-  path: 'paciente', component: PacientesComponent,
+  path: 'pacientes', component: PacientesComponent,
   children:[
     {path:'nuevo',component: creaeditapaciente},
     {path:'ediciones/:id',component:creaeditapaciente}
@@ -204,6 +212,7 @@ export const routes: Routes = [
   canActivate: [segGuard],
 },
 {
+
   path: 'reportes',
   component: ReportsComponentVictorArevalo,
   children: [
@@ -213,5 +222,34 @@ export const routes: Routes = [
 
   ],
   canActivate: [segGuard],
+
+  path: 'reportes', component:ReportsComponent,
+  children:[{
+    path:'reportes02',
+    component:Report02Component},
+    
+],
+canActivate: [segGuard],
+},
+{
+  path: 'cardenas1',
+  component: JosereportsComponent,
+  children: [
+    { path: 'cardenas2', component: ReportCardenas2Component },
+  ],
+  canActivate: [segGuard],
+},
+
+
+
+{
+  path:'reportesAbrigo1',
+  component:ReportsafComponent,
+  children:[{
+    path: 'reportesAbrigo2',
+    component:reportAbrigo02
+  },
+  ],
+
 }
 ];
