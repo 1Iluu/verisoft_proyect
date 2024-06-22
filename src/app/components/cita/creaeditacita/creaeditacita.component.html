@@ -1,1 +1,112 @@
-<p>creaeditacita works!</p>
+<div class="container" style="text-align: center">
+    <h2>Registrar de Citas</h2>
+    <form [formGroup]="form" (submit)="aceptar()" class="example-form">
+
+      <mat-form-field *ngIf="edicion">
+        <mat-label>Codigo</mat-label>
+        <input matInput placeholder="idCita" formControlName="idCita" />
+      </mat-form-field>
+      <br />
+      <mat-form-field class="example-full-width">
+        <mat-label>consultorio</mat-label>
+        <mat-select formControlName="consultorio">
+          <mat-option *ngFor="let g of consultorio" [value]="g.value">
+            {{ g.viewValue }}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="form.get('consultorio')?.hasError('required')"
+          >El consultorio es obligatorio.</mat-error
+        >
+      </mat-form-field>
+      <br />
+      
+      <mat-form-field appearance="fill" class="example-full-width">
+        <input
+          matInput
+          placeholder="Ingrese fecha"
+          [matDatepicker]="picker"
+          formControlName="fecha"
+        />
+        <mat-hint>MM/DD/YYYY</mat-hint>
+        <mat-datepicker-toggle
+          matIconSuffix
+          [for]="picker"
+        ></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+  
+        <mat-error *ngIf="form.get('fecha')?.hasError('required')"
+          >La fecha es obligatoria.</mat-error
+        >
+      </mat-form-field>
+      <br />
+      <mat-form-field class="example-full-width">
+        <mat-label>estado:</mat-label>
+        <textarea
+          matInput
+          placeholder="estado"
+          formControlName="estado"
+        ></textarea>
+        <mat-error *ngIf="form.get('estado')?.hasError('required')"
+          >El estado es obligatorio.</mat-error
+        >
+      </mat-form-field>
+      <br />
+      <mat-form-field class="example-full-width">
+        <mat-label>hora:</mat-label>
+        <textarea
+          matInput
+          placeholder="hora"
+          formControlName="hora"
+        ></textarea>
+        <mat-error *ngIf="form.get('hora')?.hasError('required')"
+          >La hora es obligatoria.</mat-error
+        >
+      </mat-form-field>
+  
+      <br />
+      <mat-form-field class="example-full-width">
+        <mat-label>motivo:</mat-label>
+        <textarea
+          matInput
+          placeholder="motivo"
+          formControlName="motivo"
+        ></textarea>
+        <mat-error *ngIf="form.get('motivo')?.hasError('required')"
+          >La motivo es obligatoria.</mat-error
+        >
+      </mat-form-field>
+  
+      <br />
+     
+  
+      <mat-form-field class="example-full-width">
+        <mat-label>Oncologo</mat-label>
+        <mat-select formControlName="oncologo">
+          <mat-option *ngFor="let c of listaOncologo" [value]="c.oncologo_id">
+            {{ c.oncologo_id }}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="form.get('oncologo')?.hasError('required')"
+          >El Oncologo es obligatorio.</mat-error
+        >
+      </mat-form-field>
+  
+      <br />
+      <mat-form-field class="example-full-width">
+        <mat-label>Paciente</mat-label>
+        <mat-select formControlName="paciente">
+          <mat-option *ngFor="let c of listaPaciente" [value]="c.idPaciente">
+            {{ c.idPaciente }}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="form.get('paciente')?.hasError('required')"
+          >El Paciente es obligatorio.</mat-error
+        >
+      </mat-form-field>
+      <br />
+      <button mat-raised-button class="custom-button">Aceptar</button>
+     
+    </form>
+    
+  </div>
+  

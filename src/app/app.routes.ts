@@ -38,6 +38,8 @@ import { CreaeditatratamientoComponent } from './components/tratamiento/creaedit
 import { Report01Component } from './components/reports/report01/report01.component';
 import { ReportsComponent } from './components/reports/reports.component';
 import { Report02Component } from './components/reports/report02/report02.component';
+import { JosereportsComponent } from './components/josereports/josereports.component';
+
 
 
 
@@ -211,5 +213,16 @@ export const routes: Routes = [
     component:Report02Component,},
 ],
 }
+ 
+  path: 'cardenas1',
+  component: JosereportsComponent,
+  children: [
+    { path: 'cardenas2', component: CreaeditatratamientoComponent },
+  ],
+  canActivate: [segGuard],
+},
+
+
+
 
 ];
