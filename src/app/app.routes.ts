@@ -35,6 +35,9 @@ import { PacientesComponent } from './components/pacientes/pacientes.component';
 import { creaeditapaciente } from './components/pacientes/creaeditapaciente/creaeditapaciente.component';
 import { TratamientoComponent } from './components/tratamiento/tratamiento.component';
 import { CreaeditatratamientoComponent } from './components/tratamiento/creaeditatratamiento/creaeditatratamiento.component';
+import { ReportsComponent } from './components/reports/reports.component';
+import { ReportVictor01Component } from './components/reports/report-victor01/report-victor01.component';
+import { ReportVictor02Component } from './components/reports/report-victor02/report-victor02.component';
 
 
 
@@ -201,6 +204,15 @@ export const routes: Routes = [
   ],
   canActivate: [segGuard],
 },
+{
+  path: 'reportes',
+  component: ReportsComponent,
+  children: [
+    {
+      path: 'reporte02', component: ReportVictor02Component
+    },
 
-
+  ],
+  canActivate: [segGuard],
+}
 ];

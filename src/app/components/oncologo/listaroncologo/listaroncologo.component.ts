@@ -8,6 +8,7 @@ import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { RouterLink } from '@angular/router';
 import { Oncologo } from '../../../models/oncologo';
 import { OncologoService } from '../../../services/oncologo.service';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-listaroncologo',
@@ -18,7 +19,8 @@ import { OncologoService } from '../../../services/oncologo.service';
     MatPaginatorModule,
     MatFormFieldModule,
     MatInputModule,
-    MatIconModule],
+    MatIconModule,
+  CommonModule],
   templateUrl: './listaroncologo.component.html',
   styleUrl: './listaroncologo.component.css'
 })
@@ -28,7 +30,6 @@ export class ListaroncologoComponent implements OnInit{
   'usuario',
   'especialidad',
   'anios',
-  'educacion',
   'cantidad',
   'horario',
   'salario',

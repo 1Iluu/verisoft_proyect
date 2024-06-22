@@ -63,20 +63,7 @@
           </mat-error>
       </mat-form-field>
 
-      <br>
-      <mat-form-field class="example-full-width">
-        <mat-label>Educacion Universitaria</mat-label>
-        <mat-select formControlName="educacion_universitaria">
-          <mat-option *ngFor="let e of educacion" [value]="e.value">
-            {{e.viewValue}}
-          </mat-option>
-        </mat-select>
-        <mat-error *ngIf="obtenerControlCampo('educacion_universitaria')?.errors?.['required']">
-          Elegir la educacion es obligatorio.
-        </mat-error>
-      </mat-form-field>
-
-
+  
       <br />
       <mat-form-field class="example-full-width">
         <mat-label>Numero de pacientes</mat-label>

@@ -4,6 +4,10 @@
   <button mat-button [matMenuTriggerFor]="menuAdmin">Admin</button>
   <button mat-button [matMenuTriggerFor]="menuRol">Roles</button>
   <button mat-button [matMenuTriggerFor]="menuLogin">Salir</button>
+  <button mat-button [matMenuTriggerFor]="menuReport" >
+    <mat-icon> insert_drive_file</mat-icon>
+    Reportes
+  </button>
 
 </mat-toolbar>
 
@@ -55,11 +59,15 @@
   <button mat-menu-item routerLink="/users/nuevo">crear usuarios</button>
 </mat-menu>
 
+
 <mat-menu #menuRol="matMenu">
   <button mat-menu-item routerLink="/rol">listar rol</button>
   <button mat-menu-item routerLink="/rol/nuevo">crear rol</button>
 </mat-menu>
-
+<mat-menu #menuReport="matMenu">
+  <button mat-menu-item routerLink="/reportes">Cantidad de Citas por Fechas Oncologo</button>
+  <button mat-menu-item routerLink="/reportes/reporte02">Promedio de estrellas</button>
+</mat-menu>
 <mat-menu #menuLogin="matMenu">
   <button mat-menu-item routerLink="/">Salir</button>
   <button mat-menu-item>
