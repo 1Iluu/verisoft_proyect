@@ -1,6 +1,6 @@
 <div class="container">
   <div class="title-container"><h1 class="title">Nuestros de Seguros</h1></div>
-  <div style="text-align: right;"><button mat-raised-button color="primary" style="background-color: #ddb7ac;" routerLink="/seguros/nuevo">Nuevo</button>
+  <div style="text-align: right;"><button mat-raised-button color="primary" style="background-color: #999B85;" routerLink="/seguros/nuevo">Nuevo</button>
     <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
         <!-- Position Column -->
         <ng-container matColumnDef="codigo">
@@ -24,7 +24,7 @@
          <ng-container matColumnDef="accion01">
           <th mat-header-cell *matHeaderCellDef> Actualizar </th>
           <td mat-cell *matCellDef="let element">  
-            <button mat-raised-button  [routerLink]="['ediciones',element.idseguro]"> <mat-icon> border_color</mat-icon></button>
+            <button mat-raised-button class="custom-button" style="background-color: #999B85" [routerLink]="['ediciones',element.idseguro]"> <mat-icon> border_color</mat-icon></button>
           </td>
         </ng-container>
 
@@ -32,7 +32,7 @@
         <ng-container matColumnDef="accion02">
           <th mat-header-cell *matHeaderCellDef> Eliminar </th>
           <td mat-cell *matCellDef="let element">  
-            <button mat-raised-button color="accent" (click)="deletes(element.idseguro)"><mat-icon>delete</mat-icon></button> 
+            <button mat-raised-button class="custom-button" style="background-color: #999B85" (click)="deletes(element.idseguro)"><mat-icon>delete</mat-icon></button> 
            
           </td>
         </ng-container>

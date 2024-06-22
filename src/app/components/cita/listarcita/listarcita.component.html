@@ -1,7 +1,6 @@
 <div class="container">
-    <br />
-    <h2 style="text-align: center">Citas</h2>
-  
+    <div class="title-container"><h1 class="title">Citas</h1></div>
+    <div style="text-align: right;"><button mat-raised-button color="primary" style="background-color: #999B85;" routerLink="/cita/nuevo">Nuevo</button>
     <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
       <!-- Position Column -->
       <ng-container matColumnDef="c1">
@@ -59,12 +58,6 @@
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
       <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
     </table>
-
-    <div *ngFor="let element of dataSource.data">
-      {{ element | json }}
-    </div>
-    
-   
     
   </div>
   

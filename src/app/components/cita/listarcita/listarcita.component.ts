@@ -5,6 +5,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { CommonModule } from '@angular/common';
 import { Cita } from '../../../models/cita';
 import { CitaService } from '../../../services/cita.service';
+import { MatButtonModule } from '@angular/material/button';
+import { RouterLink } from '@angular/router';
 
 
 @Component({
@@ -15,6 +17,8 @@ import { CitaService } from '../../../services/cita.service';
     MatFormFieldModule,
     MatPaginatorModule,
     CommonModule,
+    MatButtonModule,
+    RouterLink,
   ],
   templateUrl: './listarcita.component.html',
   styleUrl: './listarcita.component.css'
