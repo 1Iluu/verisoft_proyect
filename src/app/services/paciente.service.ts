@@ -8,6 +8,9 @@ const base_url= environment.csbase;
   providedIn: 'root'
 })
 export class PacienteService {
+  eliminar(id: number) {
+    throw new Error('Method not implemented.');
+  }
   private url=`${base_url}/pacientes`;
   private listaCambio= new Subject<Paciente[]>();
   constructor(private httpClient: HttpClient){}

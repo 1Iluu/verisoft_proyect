@@ -76,7 +76,7 @@ export class creaeditapaciente implements OnInit{
       this.paciente.idPaciente = this.form.value.idPaciente;
       this.paciente.contactoEmergencia = this.form.value.contactoEmergencia;
       this.paciente.estado= this.form.value.estado;
-      this.paciente.id= this.form.value.id.id;
+      this.paciente.user.id= this.form.value.id;
 
       if (this.edicion) {
         this.pS.update(this.paciente).subscribe((data) => {
@@ -112,7 +112,7 @@ init(){
         idPaciente:new FormControl(data.idPaciente),
         contactoEmergencia:new FormControl(data.contactoEmergencia),
         estado:new FormControl(data.estado),
-        user: new FormControl(data.id.id),
+        user: new FormControl(data.user.id),
 
       })
     })
