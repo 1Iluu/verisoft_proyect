@@ -52,6 +52,36 @@
     </mat-form-field>
     <br />
     <mat-form-field>
+      <mat-label>Tipo de tratamiento</mat-label>
+      <mat-select formControlName="tipoTratamiento">
+        <mat-option
+          *ngFor="let tipo of listaTiposTratamiento"
+          [value]="tipo.id"
+        >
+          {{ tipo.nombreTratamiento }}
+        </mat-option>
+      </mat-select>
+      <mat-error *ngIf="form.get('tipoTratamiento')?.hasError('required')">
+        Se debe elegir un tipo de tratamiento
+      </mat-error>
+    </mat-form-field>
+    <br />
+    <mat-form-field>
+      <mat-label>Cita</mat-label>
+      <mat-select formControlName="cita">
+        <mat-option
+          *ngFor="let cita of listaCitas"
+          [value]="cita.idCita"
+        >
+          {{ cita.idCita }}
+        </mat-option>
+      </mat-select>
+      <mat-error *ngIf="form.get('cita')?.hasError('required')">
+        Se debe asignar a una cita
+      </mat-error>
+    </mat-form-field>
+    <br />
+    <mat-form-field>
       <mat-label>Oncologo asignado</mat-label>
       <mat-select formControlName="oncologo">
         <mat-option
