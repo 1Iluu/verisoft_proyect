@@ -10,7 +10,7 @@
       <!-- Position Column -->
       <ng-container matColumnDef="codigo">
         <th mat-header-cell *matHeaderCellDef>codigo</th>
-        <td mat-cell *matCellDef="let element">{{ element.Oncologo_id }}</td>
+        <td mat-cell *matCellDef="let element">{{ element.oncologo_id }}</td>
       </ng-container>
 
       <ng-container matColumnDef="usuario">
@@ -19,11 +19,12 @@
             {{ element.user_id.username }}
           </td>
       </ng-container>
-      <!-- Name Column -->
+      
       <ng-container matColumnDef="especialidad">
         <th mat-header-cell *matHeaderCellDef>especialidad</th>
-        <td mat-cell *matCellDef="let element">{{ element.especialidad_id.nombreEspecialidad }}</td>
+        <td mat-cell *matCellDef="let element">{{element.especialidad_id.nombreEspecialidad }}</td>
       </ng-container>
+      
      <ng-container matColumnDef="anios">
           <th mat-header-cell *matHeaderCellDef>anios</th>
           <td mat-cell *matCellDef="let element">
@@ -50,7 +51,7 @@
         </ng-container>
         <ng-container matColumnDef="nombreyapellido">
             <th mat-header-cell *matHeaderCellDef>nombreyapellido</th>
-            <td mat-cell *matCellDef="let element">{{ element.nombrenombreyapellido }}</td>
+            <td mat-cell *matCellDef="let element">{{ element.nombreyapellido }}</td>
           </ng-container>
 
       <ng-container matColumnDef="accion01">
@@ -69,8 +70,10 @@
       <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
     </table>
 
-    <mat-paginator
-    [pageSizeOptions]="[5, 10, 25, 100]"
-    showFirstLastButtons
-  ></mat-paginator>
+
   </div>
+
+  <mat-paginator
+  [pageSizeOptions]="[5, 10, 25, 100]"
+  showFirstLastButtons
+></mat-paginator>

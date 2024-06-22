@@ -35,7 +35,7 @@
       <mat-form-field class="example-full-width">
         <mat-label>Especialidad</mat-label>
         <mat-select
-        [(value)]="idEspecialidadSeleccionado"
+     [(value)]="idEspecialidadSeleccionado"
         formControlName="especialidad_id">
           <mat-option *ngFor="let e of listaEspecialidad" [value]="e.id">
             {{e.nombreEspecialidad}}
@@ -108,7 +108,7 @@
         El salario no puede ser negativo.
       </mat-error>
     </mat-form-field>
-
+    <br />
       <br />
       <button mat-raised-button color="primary" class="accept">Aceptar</button>
       <button mat-raised-button color="warn" routerLink="/components/oncologo" class="cancel">
