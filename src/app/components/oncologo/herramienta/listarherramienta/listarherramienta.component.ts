@@ -28,11 +28,11 @@ export class ListarherramientaComponent implements OnInit {
   dataSource:MatTableDataSource<Herramienta>=new MatTableDataSource();
 
   displayedColumns: string[] = [
-    'herramienta_id',
-    'oncologo_id',
-    'nombreHerramienta',
-    'accion01',
-    'accion02'
+    'c1',
+    'c2',
+    'c3',
+    'c4',
+    'c5'
   ];
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
