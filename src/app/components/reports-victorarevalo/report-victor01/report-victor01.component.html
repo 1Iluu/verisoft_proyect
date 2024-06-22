@@ -10,8 +10,8 @@
               <mat-form-field>
                 <mat-label class="textoBox">Fecha</mat-label>
                 <mat-select formControlName="Fecha">
-                  <mat-option *ngFor="let c of listaCitas" [value]="c.Fecha">
-                    {{ c.Fecha }}
+                  <mat-option *ngFor="let c of listaCitas" [value]="c.fecha">
+                    {{ c.fecha }}
                   </mat-option>
                 </mat-select>
                 <mat-error *ngIf="form.get('Fecha')?.hasError('required')">

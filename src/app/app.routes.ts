@@ -211,18 +211,22 @@ export const routes: Routes = [
   ],
   canActivate: [segGuard],
 },
+
+
 {
 
-  path: 'reportes',
+  path: 'reportesVictor',
   component: ReportsComponentVictorArevalo,
   children: [
     {
-      path: 'reporte02', component: ReportVictor02Component
+      path: 'reportevictor2', component: ReportVictor02Component
     },
 
   ],
   canActivate: [segGuard],
+},
 
+{
   path: 'reportes', component:ReportsComponent,
   children:[{
     path:'reportes02',
@@ -231,6 +235,8 @@ export const routes: Routes = [
 ],
 canActivate: [segGuard],
 },
+
+
 {
   path: 'cardenas1',
   component: JosereportsComponent,
