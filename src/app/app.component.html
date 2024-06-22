@@ -8,6 +8,10 @@
     <mat-icon>file_copy</mat-icon>
   </button>
   <button mat-button [matMenuTriggerFor]="menuLogin">Salir</button>
+  <button mat-button [matMenuTriggerFor]="menuReport" >
+    <mat-icon> insert_drive_file</mat-icon>
+    Reportes
+  </button>
 
 
 </mat-toolbar>
@@ -15,7 +19,7 @@
 <mat-menu #menuPaciente="matMenu">
   <button mat-menu-item routerLink="/seguros">listar seguros</button>
   <button mat-menu-item routerLink="/cirugias">Listar cirugias</button>
-  <button mat-menu-item routerLink="/tipotratamiento">listar tipo de tratamiento</button> 
+  <button mat-menu-item routerLink="/tipotratamiento">listar tipo de tratamiento</button>
   <button mat-menu-item routerLink="/comentario">listar comentarios</button>
   <button mat-menu-item routerLink="/especialidades">listar especialidad</button>
   <button mat-menu-item routerLink="/especialidades/nuevo">Registrar especialidad</button>
@@ -56,8 +60,10 @@
   <button mat-menu-item routerLink="/rol">listar rol</button>
   <button mat-menu-item routerLink="/rol/nuevo">crear rol</button>
 </mat-menu>
-
-
+<mat-menu #menuReport="matMenu">
+  <button mat-menu-item routerLink="/reportes">Cantidad de Citas por Fechas Oncologo</button>
+  <button mat-menu-item routerLink="/reportes/reporte02">Promedio de estrellas</button>
+</mat-menu>
 <mat-menu #menuLogin="matMenu">
   <button mat-menu-item routerLink="/">Salir</button>
   <button mat-menu-item>
