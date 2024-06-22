@@ -1,3 +1,4 @@
+
 import { CommonModule, NgIf } from '@angular/common';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
@@ -12,7 +13,7 @@ import { Respuesta } from '../../../models/respuesta';
 import { respuestaService } from '../../../services/respuesta.service';
 
 @Component({
-  selector: 'app-report02',
+  selector: 'app-reportAbrigo02',
   standalone: true,
   imports: [BaseChartDirective,
     MatFormFieldModule,
@@ -24,10 +25,11 @@ import { respuestaService } from '../../../services/respuesta.service';
     CommonModule,
     MatTableModule,
     MatPaginatorModule],
-  templateUrl: './report02.component.html',
-  styleUrl: './report02.component.css'
+  templateUrl: './report-abrigo02.component.html',
+  styleUrl: './report-abrigo02.component.css',
 })
-export class Report02Component  implements OnInit {
+
+export class reportAbrigo02  implements OnInit {
    
   displayedColumns: string[]=
   [
@@ -65,3 +67,6 @@ export class Report02Component  implements OnInit {
       }
   }
 }
+
+
+

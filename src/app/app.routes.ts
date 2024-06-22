@@ -39,7 +39,8 @@ import { ReportsafComponent } from './components/reportsaf/reportsaf.component';
 import { ReportsComponent } from './components/reports/reports.component';
 import { JosereportsComponent } from './components/josereports/josereports.component';
 import { ReportCardenas2Component } from './components/josereports/report-cardenas2/report-cardenas2.component';
-import { Report02Component } from './components/reportsaf/report02/report02.component';
+import { reportAbrigo02 } from './components/reportsaf/report-abrigo02/report-abrigo02.component';
+import { Report02Component } from './components/reports/report02/report02.component';
 
 
 
@@ -229,11 +230,11 @@ canActivate: [segGuard],
 
 
 {
-  path:'reportesAbrigo',
+  path:'reportesAbrigo1',
   component:ReportsafComponent,
   children:[{
-    path: 'reporteAbrigo',
-    component:Report02Component,
+    path: 'reportesAbrigo2',
+    component:reportAbrigo02
   },
   ],
 }

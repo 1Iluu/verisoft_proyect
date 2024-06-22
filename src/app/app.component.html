@@ -8,8 +8,7 @@
     <mat-icon>file_copy</mat-icon>
   </button>
   <button mat-button [matMenuTriggerFor]="menuLogin">Salir</button>
-  <button mat-button [matMenuTriggerFor]="menuReport">
-  <mat-icon>file_copy</mat-icon>Reportes</button>
+
 
 
 </mat-toolbar>
@@ -47,10 +46,7 @@
   <button mat-menu-item routerLink="/examenes/nuevo">Registrar Exámenes de Deteccion</button>
 </mat-menu>
 
-  <mat-menu #menuReport="matMenu">
-  <button mat-menu-item routerLink="/reportesAbrigo">Reporte01Abrigo</button>
-  <button mat-menu-item routerLink="/reportesAbrigo/reporte02">Reporte02Abrigo</button>
-</mat-menu>
+
 
 <mat-menu #menuAdmin="matMenu">
   <button mat-menu-item routerLink="/users">listar usuarios</button>
@@ -76,7 +72,10 @@
   <button mat-menu-item routerLink="/cardenas1/cardenas2">Reportecardenas2</button>
   <button mat-menu-item routerLink="/reportes">Villanueva1</button>
   <button mat-menu-item routerLink="/reportes/reportes02">Villanueva2</button>
+  <button mat-menu-item routerLink="/reportesAbrigo1">Reporte01Abrigo</button>
+  <button mat-menu-item routerLink="/reportesAbrigo1/reportesAbrigo2">Reporte02Abrigo</button>
 </mat-menu>
+
 
   <router-outlet></router-outlet>
 
