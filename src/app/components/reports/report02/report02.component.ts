@@ -39,7 +39,7 @@ barChartData: ChartDataset[]=[];
         }
       ]
     })
-      
+
   }
 
 }

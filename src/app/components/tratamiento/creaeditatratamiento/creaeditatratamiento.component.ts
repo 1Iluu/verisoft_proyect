@@ -21,6 +21,7 @@ import { TipoTratamiento } from '../../../models/tipo_de_tratamiento';
 import { Cita } from '../../../models/cita';
 import { TipoTratamientoService } from '../../../services/tipo-tratamiento.service';
 import { CitaService } from '../../../services/cita.service';
+import { estadosPaciente } from '../../../consts/consts';
 
 @Component({
   selector: 'app-creaeditatratamiento',
@@ -46,6 +47,7 @@ export class CreaeditatratamientoComponent implements OnInit {
   listaOncologo: Oncologo[] = [];
   listaTiposTratamiento: TipoTratamiento[] = [];
   listaCitas: Cita[] = [];
+  listaEstadoPaciente = estadosPaciente;
 
   constructor(
     private formBuilder: FormBuilder,

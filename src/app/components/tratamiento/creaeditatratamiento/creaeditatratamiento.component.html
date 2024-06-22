@@ -11,7 +11,14 @@
     <br />
     <mat-form-field>
       <mat-label>Estado</mat-label>
-      <input matInput formControlName="estado" />
+      <mat-select formControlName="estado">
+        <mat-option
+          *ngFor="let estado of listaEstadoPaciente"
+          [value]="estado.value"
+        >
+          {{ estado.viewValue }}
+        </mat-option>
+      </mat-select>
       <mat-error *ngIf="form.get('estado')?.hasError('required')">
         El estado es obligatorio.
       </mat-error>
@@ -69,10 +76,7 @@
     <mat-form-field>
       <mat-label>Cita</mat-label>
       <mat-select formControlName="cita">
-        <mat-option
-          *ngFor="let cita of listaCitas"
-          [value]="cita.idCita"
-        >
+        <mat-option *ngFor="let cita of listaCitas" [value]="cita.idCita">
           {{ cita.idCita }}
         </mat-option>
       </mat-select>

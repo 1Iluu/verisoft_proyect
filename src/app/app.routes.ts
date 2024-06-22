@@ -39,6 +39,7 @@ import { ReportsComponent } from './components/reports/reports.component';
 import { Report02Component } from './components/reports/report02/report02.component';
 import { JosereportsComponent } from './components/josereports/josereports.component';
 import { ReportVictor02Component } from './components/reports/report-victor02/report-victor02.component';
+import { ReportTratamientoComponent } from './components/reports/report-tratamiento/report-tratamiento.component';
 
 export const routes: Routes = [
   {
@@ -236,6 +237,17 @@ export const routes: Routes = [
       {
         path: 'reporte02',
         component: ReportVictor02Component,
+      },
+    ],
+    canActivate: [segGuard],
+  },
+  {
+    path: 'reportes',
+    component: ReportsComponent,
+    children: [
+      {
+        path: 'tratamiento',
+        component: ReportTratamientoComponent,
       },
     ],
     canActivate: [segGuard],
