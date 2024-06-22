@@ -19,6 +19,7 @@ import { CirugiasService } from '../../../../services/cirugias.service';
     MatInputModule,
     MatSelectModule,
     CommonModule,
+    NgIf
   ],
   templateUrl: './creaeditacirugias.component.html',
   styleUrl: './creaeditacirugias.component.css'

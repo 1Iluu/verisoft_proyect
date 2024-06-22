@@ -61,7 +61,7 @@ export class creaeditapaciente implements OnInit{
 
     this.form = this.formBuilber.group({
       idPaciente: ['',],
-      user_id: ['', Validators.required],
+      id: ['', Validators.required],
       contactoEmergencia:['', Validators.required],
       estado:['', Validators.required],
       
@@ -76,7 +76,7 @@ export class creaeditapaciente implements OnInit{
       this.paciente.idPaciente = this.form.value.idPaciente;
       this.paciente.contactoEmergencia = this.form.value.contactoEmergencia;
       this.paciente.estado= this.form.value.estado;
-      this.paciente.user_id.id = this.form.value.user_id;
+      this.paciente.id= this.form.value.id.id;
 
       if (this.edicion) {
         this.pS.update(this.paciente).subscribe((data) => {
@@ -112,7 +112,7 @@ init(){
         idPaciente:new FormControl(data.idPaciente),
         contactoEmergencia:new FormControl(data.contactoEmergencia),
         estado:new FormControl(data.estado),
-        user_id: new FormControl(data.user_id.id),
+        user: new FormControl(data.id.id),
 
       })
     })

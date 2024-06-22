@@ -26,8 +26,8 @@ export class respuestaService {
   listId(id: number) {
     return this.httpClient.get<Respuesta>(`${this.url}/${id}`);
   }
-  update(a: Respuesta) {
-    return this.httpClient.put(this.url, a);
+  update(r: Respuesta) {
+    return this.httpClient.put(this.url, r);
   }
   delete(id: number) {
     return this.httpClient.delete(`${this.url}/${id}`);

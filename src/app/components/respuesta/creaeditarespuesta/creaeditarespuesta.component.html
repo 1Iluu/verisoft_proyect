@@ -4,9 +4,13 @@
     </div>
     <div class="form-container">
       <form [formGroup]="form" (submit)="aceptar()" class="example-form">
-        <mat-form-field>
-          <mat-label>idRespuesta</mat-label>
-          <input matInput formControlName="idRespuesta">
+        
+        <mat-form-field *ngIf="edicion">
+          <mat-label>Codigo</mat-label>
+          <input matInput placeholder="idRespuesta" formControlName="idRespuesta" readonly />
+          <mat-error *ngIf="form.get('idRespuesta')?.hasError('required')"
+            >Los puntos son obligatorios.</mat-error
+          >
         </mat-form-field>
         <mat-form-field>
           <mat-label>gradoConsulta</mat-label>
@@ -21,13 +25,12 @@
             <mat-label>Nro. Paciente</mat-label>
             <input matInput formControlName="idPaciente" />
             <mat-error *ngIf="form.get('idPaciente')?.hasError('required')">
-            Ingresar el Nro de Paciente es obligatorio.
             </mat-error>
           </mat-form-field>
           <br />
-        <button mat-raised-button color="primary">Aceptar</button>
-        <button mat-raised-button color="warn" routerLink="/respuestas">Cancelar</button>
-        <p>{{ mensaje }}</p>
+        <button mat-raised-button class="custom-button">Aceptar</button>
+        
+       
       </form>
     </div>
   

@@ -1,9 +1,19 @@
-<div class="title-container"><h1>Registro de Pacientes</h1></div>
-<div class="title-container" >
-    
-  <form [formGroup]="form" (submit)="aceptar()">
+<div class="title-container">
+  <div class="title-container" >
+  <h1>Registro de Pacientes</h1>
+</div>
 
     
+  <form [formGroup]="form" (submit)="aceptar()" class="example-form">
+
+    <mat-form-field *ngIf="edicion">
+      <mat-label>Codigo</mat-label>
+      <input matInput placeholder="idPaciente" formControlName="idPaciente" readonly />
+      <mat-error *ngIf="form.get('idPaciente')?.hasError('required')"
+        >Los puntos son obligatorios.</mat-error
+      >
+    </mat-form-field>
+   
     <mat-form-field>
         <mat-label>Contacto de emergencia</mat-label>
         <input matInput formControlName="contactoEmergencia" />
@@ -13,22 +23,15 @@
         <mat-label>Estado</mat-label>
         <input matInput formControlName="estado" />
       </mat-form-field>
-      <mat-form-field class="example-full-width">
-        <mat-label>Usuarios</mat-label>
-        <mat-select
-        [(value)]="idUserSeleccionado"
-        formControlName="user_id">
-          <mat-option *ngFor="let u of listaUsers" [value]="u.id">
-            {{u.username}}
-          </mat-option>
-        </mat-select>
-        <mat-error *ngIf="obtenerControlCampo('user_id')?.errors?.['required']">
-          Elegir el usuario es obligatorio.
+      <mat-form-field>
+        <mat-label>User</mat-label>
+        <input matInput formControlName="user" />
+        <mat-error *ngIf="form.get('user')?.hasError('required')">
         </mat-error>
       </mat-form-field>
     <br />
-    <button mat-raised-button color="primary">Aceptar</button>
-    <button mat-raised-button color="warn" routerLink="/paciente">Cancelar</button>
+    <button mat-raised-button class="custom-button">Aceptar</button>
+    
     
   </form>
 </div>
