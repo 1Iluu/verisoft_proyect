@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { environment } from '../../environments/enviroment';
 import { Observable, Subject } from 'rxjs';
 import { Cita } from '../models/cita';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { CitaByOncologoDTO } from '../models/citaByOncologoDTO';
 const base_url=environment.csbase
 
@@ -43,4 +43,10 @@ export class CitaService {
    getQuantity():Observable<CitaByOncologoDTO[]>{
     return this.http.get<CitaByOncologoDTO[]>(`${this.url}/CantidadCitas`)
    }
+
+   getCitasPorNombre(oncologo: string): Observable<Cita[]> {
+    const params = new HttpParams().set('oncologo', oncologo);
+    return this.http.get<Cita[]>(`${this.url}/ConsultaNombre`, { params });
+  }
+
 }

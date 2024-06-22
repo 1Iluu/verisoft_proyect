@@ -39,6 +39,7 @@ import { Report01Component } from './components/reports/report01/report01.compon
 import { ReportsComponent } from './components/reports/reports.component';
 import { Report02Component } from './components/reports/report02/report02.component';
 import { JosereportsComponent } from './components/josereports/josereports.component';
+import { ReportCardenas2Component } from './components/josereports/report-cardenas2/report-cardenas2.component';
 
 
 
@@ -219,7 +220,7 @@ canActivate: [segGuard],
   path: 'cardenas1',
   component: JosereportsComponent,
   children: [
-    { path: 'cardenas2', component: CreaeditatratamientoComponent },
+    { path: 'cardenas2', component: ReportCardenas2Component },
   ],
   canActivate: [segGuard],
 },
