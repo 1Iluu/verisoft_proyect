@@ -1,8 +1,5 @@
-  <div class="container">
-    <div style="text-align: center" class="title">
-      <h1>Reporte 1</h1>
-    </div>
-    <div style="text-align: center" class="form-container">
+<div class="container" style="text-align: center">
+  <h2>Reporte Cantidad de Respuestas por Estado del Paciente</h2>
       <form [formGroup]="form" (ngSubmit)="insertar()">
         <mat-form-field>
           <mat-label class="textoBox">Estado</mat-label>
@@ -17,14 +14,14 @@
         </mat-form-field>
         <br />
         <br />
-        <button mat-raised-button color="primary" type="submit">Aceptar</button>
+        <button mat-raised-button class="custom-button">Aceptar</button>
         <br />
       </form>
       <br />
     </div>
 
     <div class="container">
-      <div class="title-container"><h1 class="title">Lista de Respuestas por Estado del Paciente</h1></div>
+      <div class="title-container"><h1 class="title"></h1></div>
         <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
             <!-- Position Column -->
             <ng-container matColumnDef="idRespuesta">
@@ -54,9 +51,4 @@
         showFirstLastButtons
       ></mat-paginator>
     </div>
-          
-  
-   
-  </div>
-
 
