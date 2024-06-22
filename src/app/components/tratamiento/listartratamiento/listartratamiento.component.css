@@ -10,3 +10,13 @@
   font-size: 2em;
   color: #333;
 }
+
+.new-container {
+  margin-bottom: 24px;
+  margin-right: 24px;
+  text-align: end;
+}
+
+.btn-new {
+  background-color: #999b85;
+}

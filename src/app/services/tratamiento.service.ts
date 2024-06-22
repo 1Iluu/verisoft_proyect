@@ -10,7 +10,7 @@ const base_url = environment.csbase;
   providedIn: 'root',
 })
 export class TratamientoService {
-  private url = `${base_url}/Tratamientos`;
+  private url = `${base_url}/tratamientos`;
   private listaCambio = new Subject<Tratamiento[]>();
   private token = sessionStorage.getItem('token');
 

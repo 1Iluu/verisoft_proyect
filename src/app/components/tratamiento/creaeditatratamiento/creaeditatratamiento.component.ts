@@ -14,6 +14,14 @@ import { ActivatedRoute, Params, Router } from '@angular/router';
 import { TratamientoService } from '../../../services/tratamiento.service';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
+import { Oncologo } from '../../../models/oncologo';
+import { OncologoService } from '../../../services/oncologo.service';
+import { MatSelectModule } from '@angular/material/select';
+import { TipoTratamiento } from '../../../models/tipo_de_tratamiento';
+import { Cita } from '../../../models/cita';
+import { TipoTratamientoService } from '../../../services/tipo-tratamiento.service';
+import { CitaService } from '../../../services/cita.service';
+import { estadosPaciente } from '../../../consts/consts';
 
 @Component({
   selector: 'app-creaeditatratamiento',
@@ -25,7 +33,8 @@ import { MatNativeDateModule } from '@angular/material/core';
     MatInputModule,
     MatButtonModule,
     MatDatepickerModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    MatSelectModule,
   ],
   templateUrl: './creaeditatratamiento.component.html',
   styleUrl: './creaeditatratamiento.component.css',
@@ -35,10 +44,17 @@ export class CreaeditatratamientoComponent implements OnInit {
   tratamiento: Tratamiento = new Tratamiento();
   id: number = 0;
   edicion: boolean = false;
+  listaOncologo: Oncologo[] = [];
+  listaTiposTratamiento: TipoTratamiento[] = [];
+  listaCitas: Cita[] = [];
+  listaEstadoPaciente = estadosPaciente;
 
   constructor(
     private formBuilder: FormBuilder,
     private tratamientoService: TratamientoService,
+    private oncologoService: OncologoService,
+    private tiposTratamiento: TipoTratamientoService,
+    private citas: CitaService,
     private router: Router,
     private route: ActivatedRoute
   ) {}
@@ -57,21 +73,50 @@ export class CreaeditatratamientoComponent implements OnInit {
       fecha: ['', Validators.required],
       horas: ['', Validators.required],
       efectosEsperados: ['', Validators.required],
+      tipoTratamiento: ['', Validators.required],
+      cita: ['', Validators.required],
       oncologo: ['', Validators.required],
     });
+
+    this.oncologoService.list().subscribe((data) => {
+      this.listaOncologo = data;
+    });
+
+    this.tiposTratamiento.list().subscribe((data) => {
+      this.listaTiposTratamiento = data;
+    })
+
+    this.citas.list().subscribe((data) => {
+      this.listaCitas = data;
+    })
   }
 
   aceptar(): void {
     if (this.form.valid) {
-      this.tratamiento.idTratamiento = this.id;
-      this.tratamiento.descripcionTratamiento = this.form.value.descripcion;
-      this.tratamiento.estadoTratamiento = this.form.value.estado;
-      this.tratamiento.presupuestoTratamiento = this.form.value.presupuesto;
-      this.tratamiento.fechaTratamiento = this.form.value.fecha;
-      this.tratamiento.horasTratamiento = this.form.value.horas;
-      this.tratamiento.efectosEsperadosTratamiento =
-        this.form.value.efectosEsperados;
-      this.tratamiento.oncologo.oncologo_id = this.form.value.oncologo;
+      const formValues = this.form.value;
+
+      this.tratamiento = {
+        ...this.tratamiento,
+        idTratamiento: this.id,
+        descripcionTratamiento: formValues.descripcion,
+        estadoTratamiento: formValues.estado,
+        presupuestoTratamiento: formValues.presupuesto,
+        fechaTratamiento: formValues.fecha,
+        horasTratamiento: formValues.horas,
+        efectosEsperadosTratamiento: formValues.efectosEsperados,
+        oncologo: {
+          ...this.tratamiento.oncologo,
+          oncologo_id: formValues.oncologo,
+        },
+        cita: {
+          ...this.tratamiento.cita,
+          idCita: formValues.cita,
+        },
+        tipoTratamiento: {
+          ...this.tratamiento.tipoTratamiento,
+          id: formValues.tipoTratamiento,
+        },
+      };
 
       if (this.edicion) {
         this.tratamientoService.update(this.tratamiento).subscribe(() => {
@@ -102,6 +147,8 @@ export class CreaeditatratamientoComponent implements OnInit {
           fecha: this.tratamiento.fechaTratamiento,
           horas: this.tratamiento.horasTratamiento,
           efectosEsperados: this.tratamiento.efectosEsperadosTratamiento,
+          cita: this.tratamiento.cita.idCita,
+          tipoTratamiento: this.tratamiento.tipoTratamiento.id,
           oncologo: this.tratamiento.oncologo.oncologo_id,
         });
       });

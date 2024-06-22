@@ -1,0 +1,22 @@
+<div class="container report-container">
+    <div class="title">
+      <h1>Tratamientos clasificados por estado</h1>
+    </div>
+  
+    <div class="chart-container">
+      <canvas
+        *ngIf="hasData"
+        baseChart
+        [type]="'pie'"
+        [datasets]="pieChartDatasets"
+        [labels]="pieChartLabels"
+        [options]="pieChartOptions"
+        [legend]="pieChartLegend"
+      >
+      </canvas>
+      <div *ngIf="!hasData" class="no-data">
+        <h2>No se ha registrado ningún tratamiento</h2>
+      </div>
+    </div>
+  </div>
+  
