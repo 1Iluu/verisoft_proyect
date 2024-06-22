@@ -35,9 +35,8 @@ import { PacientesComponent } from './components/pacientes/pacientes.component';
 import { creaeditapaciente } from './components/pacientes/creaeditapaciente/creaeditapaciente.component';
 import { TratamientoComponent } from './components/tratamiento/tratamiento.component';
 import { CreaeditatratamientoComponent } from './components/tratamiento/creaeditatratamiento/creaeditatratamiento.component';
-import { ReportsComponent } from './components/reports/reports.component';
-import { ReportVictor01Component } from './components/reports/report-victor01/report-victor01.component';
-import { ReportVictor02Component } from './components/reports/report-victor02/report-victor02.component';
+import { ReportVictor02Component } from './components/reports-victorarevalo/report-victor02/report-victor02.component';
+import { ReportsComponentVictorArevalo } from './components/reports-victorarevalo/reports-victorarevalo.component';
 
 
 
@@ -206,7 +205,7 @@ export const routes: Routes = [
 },
 {
   path: 'reportes',
-  component: ReportsComponent,
+  component: ReportsComponentVictorArevalo,
   children: [
     {
       path: 'reporte02', component: ReportVictor02Component
