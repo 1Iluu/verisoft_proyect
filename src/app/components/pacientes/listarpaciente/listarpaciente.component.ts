@@ -48,7 +48,7 @@ export class ListaPacienteComponent implements OnInit {
       this.dataSource=new MatTableDataSource(data)
     })
   }
-  deletes(id:number){
+  eliminar(id:number){
     this.pS.delete(id).subscribe((data)=>{
       this.pS.list().subscribe((data)=>{
         this.pS.setList(data)
