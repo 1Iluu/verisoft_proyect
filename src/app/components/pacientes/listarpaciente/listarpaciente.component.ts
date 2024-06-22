@@ -5,20 +5,25 @@ import { MatButtonModule } from '@angular/material/button';
 import { PacienteService } from '../../../services/paciente.service';
 import { Paciente } from '../../../models/paciente';
 import { Users } from '../../../models/users';
-
-
-export interface PeriodicElement {
-    idPaciente: number;
-    user: Users;
-    contactoEmergencia:string;
-    estado:string;
-  }
+import { CommonModule } from '@angular/common';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatIconModule } from '@angular/material/icon';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 
 @Component({
   selector: 'app-listarpaciente',
   standalone: true,
-  imports: [MatTableModule,RouterLink,MatButtonModule],
+  imports: [MatTableModule,
+    MatButtonModule, 
+    RouterLink,
+    MatPaginatorModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatIconModule,
+    CommonModule
+  ],
   templateUrl: `./listarpaciente.component.html`,
   styleUrl: './listarpaciente.component.css'
 })
@@ -50,4 +55,8 @@ export class ListaPacienteComponent implements OnInit {
       })
     })
   }
+  filter(en: any) {
+    this.dataSource.filter = en.target.value.trim();
+  }
 }
+

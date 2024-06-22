@@ -26,8 +26,8 @@ export class PacienteService {
   listId(id: number) {
     return this.httpClient.get<Paciente>(`${this.url}/${id}`);
   }
-  update(c: Paciente) {
-    return this.httpClient.put(this.url, c);
+  update(p: Paciente) {
+    return this.httpClient.put(this.url, p);
   }
   delete(id: number) {
     return this.httpClient.delete(`${this.url}/${id}`);

@@ -2,16 +2,20 @@
 <div class="title-container" >
     
   <form [formGroup]="form" (submit)="aceptar()">
-      <mat-form-field>
-        <mat-label>Id de la Cirugias</mat-label>
-        <input matInput formControlName="idcirugias">
-      </mat-form-field>
+    <mat-form-field *ngIf="edicion">
+      <mat-label>Codigo</mat-label>
+      <input matInput placeholder="idcirugias" formControlName="idcirugias" readonly />
+      <mat-error *ngIf="form.get('idcirugias')?.hasError('required')"
+        >Los puntos son obligatorios.</mat-error
+      >
+    </mat-form-field>
+        
       <mat-form-field>
         <mat-label>Descripción de la Cirugias</mat-label>
-        <input matInput formControlName="descripcionCirugias">
+        <input matInput formControlName="descripcioncirugias">
       </mat-form-field>
       <br />
-      <div class="title-container"><button mat-raised-button color="accent">Aceptar</button></div>
+      <div class="title-container"><button mat-raised-button class="custom-button">Aceptar</button></div>
      
       
     </form>

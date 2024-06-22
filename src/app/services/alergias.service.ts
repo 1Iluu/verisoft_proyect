@@ -2,7 +2,8 @@ import { Injectable } from '@angular/core';
 import { environment } from '../../environments/enviroment';
 import { HttpClient } from '@angular/common/http';
 import { Alergias } from '../models/alergias';
-import { Subject } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
+import { AlergiasByPacienteDTO } from '../models/AlergiasByPacienteDTO';
 
 const base_url=environment.csbase
 @Injectable({
@@ -34,4 +35,7 @@ export class AlergiasService {
     return this.httpClient.delete(`${this.url}/${id}`);
   }
   
+  getQuantity():Observable<AlergiasByPacienteDTO[]>{
+    return this.httpClient.get<AlergiasByPacienteDTO[]>(`${this.url}/cantidadesalergias`);
+  }
 }

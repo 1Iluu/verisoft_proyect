@@ -8,6 +8,7 @@ import { RouterLink } from '@angular/router';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-listarusers',
@@ -19,6 +20,7 @@ import { MatIconModule } from '@angular/material/icon';
     MatFormFieldModule,
     MatInputModule,
     MatIconModule,
+    CommonModule,
   RouterLink],
   templateUrl: './listarusers.component.html',
   styleUrl: './listarusers.component.css'

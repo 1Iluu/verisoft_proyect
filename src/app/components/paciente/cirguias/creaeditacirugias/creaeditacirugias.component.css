@@ -1,6 +1,7 @@
 .title-container {
   text-align: center;
   margin: 20px 0;
+  
 }
 
 form {
@@ -17,7 +18,8 @@ mat-form-field {
   margin-bottom: 20px;
 }
 
-button {
-  display: block;
-  margin: 0 auto;
+
+.custom-button {
+  background-color: #999B85; 
+  color: white;
 }

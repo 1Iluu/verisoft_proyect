@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { COMPILER_OPTIONS, Component, OnInit } from '@angular/core';
 import {
+  AbstractControl,
   FormBuilder,
   FormControl,
   FormGroup,
@@ -14,6 +15,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { PacienteService } from '../../../services/paciente.service';
 import { Paciente } from '../../../models/paciente';
+import { UsersService } from '../../../services/users.service';
+import { Users } from '../../../models/users';
 
 
 @Component({
@@ -35,7 +38,8 @@ export class creaeditapaciente implements OnInit{
   id:number =0;
   paciente:Paciente= new Paciente
   edicion:boolean=false;
-  
+  listaUsers: Users[] = [];
+  idUserSeleccionado:number=0
 
  
   constructor(
@@ -43,6 +47,7 @@ export class creaeditapaciente implements OnInit{
     private pS: PacienteService,
     private router: Router,
     private route:ActivatedRoute,
+    private uS: UsersService,
 
   ) {}
 
@@ -56,19 +61,23 @@ export class creaeditapaciente implements OnInit{
 
     this.form = this.formBuilber.group({
       idPaciente: ['',],
-      user: ['', Validators.required],
+      id: ['', Validators.required],
       contactoEmergencia:['', Validators.required],
       estado:['', Validators.required],
       
+    });
+    this.uS.list().subscribe((data) => {
+      this.listaUsers = data;
     });
   }
 
   aceptar(): void {
     if (this.form.valid) {
       this.paciente.idPaciente = this.form.value.idPaciente;
-      this.paciente.user = this.form.value.user;
       this.paciente.contactoEmergencia = this.form.value.contactoEmergencia;
       this.paciente.estado= this.form.value.estado;
+      this.paciente.id= this.form.value.id.id;
+
       if (this.edicion) {
         this.pS.update(this.paciente).subscribe((data) => {
           this.pS.list().subscribe((data) => {
@@ -87,15 +96,24 @@ export class creaeditapaciente implements OnInit{
     this.router.navigate(['pacientes']);
   }
 }
+  obtenerControlCampo(nombreCampo: string): AbstractControl {
+    const control = this.form.get(nombreCampo);
+    if (!control) {
+      throw new Error(`Control no encontrado para el campo ${nombreCampo}`);
+    }
+    return control;
+  
+}
 
 init(){
   if(this.edicion){
     this.pS.listId(this.id).subscribe((data)=>{
       this.form=new FormGroup({
         idPaciente:new FormControl(data.idPaciente),
-        user:new FormControl(data.user),
         contactoEmergencia:new FormControl(data.contactoEmergencia),
         estado:new FormControl(data.estado),
+        user: new FormControl(data.id.id),
+
       })
     })
   }

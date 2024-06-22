@@ -4,5 +4,4 @@ export class  Respuesta{
     idRespuesta: number=0
     gradoConsulta:string=""
     nivelRespuesta:string=""
-    paciente: Paciente= new Paciente();
-}
+    paciente:Paciente=new Paciente()}

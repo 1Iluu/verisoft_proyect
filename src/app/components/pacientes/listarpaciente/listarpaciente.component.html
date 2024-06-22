@@ -1,6 +1,8 @@
 <div class="container">
-    <div class="title-container"><h1 class="title">Pacientes</h1></div>
-      <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+    <div class="title-container"><h1 class="title">Lista de Pacientes</h1></div>
+    <div style="text-align: right;"><button mat-raised-button color="primary" style="background-color: #999B85;" routerLink="/pacientes/nuevo">Nuevo</button>
+  
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
           <!-- Position Column -->
           <ng-container matColumnDef="idPaciente">
             <th mat-header-cell *matHeaderCellDef> idPaciente </th>
@@ -9,9 +11,10 @@
         
           <!-- Name Column -->
           <ng-container matColumnDef="user">
-            <th mat-header-cell *matHeaderCellDef> user </th>
-            <td mat-cell *matCellDef="let element"> {{element.user}} </td>
-          </ng-container>
+            <th mat-header-cell *matHeaderCellDef>user</th>
+            <td mat-cell *matCellDef="let element">{{ element.user.id}}
+            </td>
+        </ng-container>
         
           <!-- Weight Column -->
           <ng-container matColumnDef="contactoEmergencia">
@@ -24,17 +27,16 @@
           </ng-container>
            <!-- Weight Column -->
            <ng-container matColumnDef="accion01">
-            <th mat-header-cell *matHeaderCellDef> Acciones </th>
+            <th mat-header-cell *matHeaderCellDef> Actualizar </th>
             <td mat-cell *matCellDef="let element">  
-              <button mat-raised-button color="accent" [routerLink]="['ediciones',element.idPaciente]">Actualizar</button> 
-            </td>
-          </ng-container>
+              <button mat-raised-button class="custom-button" style="background-color: #999B85" [routerLink]="['ediciones',element.idPaciente]"><mat-icon> border_color</mat-icon></button></td></ng-container>
+            
   
           <!-- Weight Column -->
           <ng-container matColumnDef="accion02">
             <th mat-header-cell *matHeaderCellDef> Acciones </th>
             <td mat-cell *matCellDef="let element">  
-              <button mat-raised-button color="accent" (click)="deletes(element.idPaciente)">Eliminar</button> 
+              <button mat-raised-button class="custom-button" style="background-color: #999B85" (click)="deletes(element.idPaciente)"><mat-icon>delete</mat-icon></button>
             </td>
           </ng-container>
         
@@ -42,6 +44,10 @@
           <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
           <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
         </table>
-        
+        <div *ngFor="let element of dataSource.data">
+
+          {{ element | json }}
+         
+         </div>
         
   </div>
