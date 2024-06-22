@@ -1,62 +1,60 @@
 <div class="container">
-  <br />
-  <h2 style="text-align: center">Detalle Historial</h2>
-  <div style="text-align: right">
-    <button mat-raised-button color="primary" routerLink="/DetalleHistorial/nuevo">
-      Nuevo
-    </button>
-  </div>
+  <br/>
+  <h2 style="text-align: center">Lista de Detalle Historial</h2>
 
   <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
     <!-- Position Column -->
-    <ng-container matColumnDef="idDetalleHistorial">
+    <ng-container matColumnDef="c1">
       <th mat-header-cell *matHeaderCellDef>No.</th>
       <td mat-cell *matCellDef="let element">{{ element.idDetalleHistorial }}</td>
     </ng-container>
 
     <!-- Name Column -->
-    <ng-container matColumnDef="fechaDetalleHistorial">
+    <ng-container matColumnDef="c2">
       <th mat-header-cell *matHeaderCellDef>Fecha</th>
       <td mat-cell *matCellDef="let element">{{ element.fechaDetalleHistorial }}</td>
     </ng-container>
 
-    <ng-container matColumnDef="seguro">
+    <ng-container matColumnDef="c3">
       <th mat-header-cell *matHeaderCellDef>No. Seguro</th>
       <td mat-cell *matCellDef="let element">
-        {{ element.seguro }}
+        {{ element.seguro.idseguro }}
       </td>
     </ng-container>
 
-    <ng-container matColumnDef="cirugias">
+    <ng-container matColumnDef="c4">
       <th mat-header-cell *matHeaderCellDef>No. Cirugía</th>
       <td mat-cell *matCellDef="let element">
-        {{ element.cirugias }}
+        {{ element.cirugias.idcirugias }}
       </td>
     </ng-container>
 
-    <ng-container matColumnDef="tratamiento">
+    <ng-container matColumnDef="c5">
       <th mat-header-cell *matHeaderCellDef>No. Tratamiento</th>
       <td mat-cell *matCellDef="let element">
-        {{ element.tratamiento }}
+        {{ element.tratamiento.idTratamiento }}
       </td>
     </ng-container>
 
-    <ng-container matColumnDef="examenDeteccion">
+    <ng-container matColumnDef="c6">
       <th mat-header-cell *matHeaderCellDef>No. Examen</th>
       <td mat-cell *matCellDef="let element">
-        {{ element.examenDeteccion }}
+        {{ element.examenDeteccion.examenDeteccionId }}
       </td>
     </ng-container>
 
-    <ng-container matColumnDef="paciente">
+    <ng-container matColumnDef="c7">
       <th mat-header-cell *matHeaderCellDef>No. Paciente</th>
       <td mat-cell *matCellDef="let element">
-        {{ element.paciente }}
+        {{ element.paciente.idPaciente }}
       </td>
     </ng-container>
  
-   
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
   </table>
+  <mat-paginator
+  [pageSizeOptions]="[5, 10, 25, 100]"
+  showFirstLastButtons
+></mat-paginator>
   </div>
