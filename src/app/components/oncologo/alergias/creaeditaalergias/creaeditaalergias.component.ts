@@ -61,7 +61,7 @@ export class CreaeditaalergiasComponent implements OnInit {
 
        this.form = this.formBuilder.group({
         idalergias: [''],
-        descripcionalergias: ['', Validators.required],
+        descripcionAlergias: ['', Validators.required],
        });
        
   }
@@ -69,7 +69,7 @@ export class CreaeditaalergiasComponent implements OnInit {
   aceptar(): void {
     if (this.form.valid) {
       this.alergias.idalergias = this.form.value.idalergias;
-      this.alergias.descripcionalergias = this.form.value.descripcionalergias;
+      this.alergias.descripcionAlergias = this.form.value.descripcionAlergias;
         
       if(this.edicion){
         this.aS.update(this.alergias).subscribe((data) => {
@@ -93,7 +93,7 @@ export class CreaeditaalergiasComponent implements OnInit {
       this.aS.listId(this.id).subscribe((data)=>{
         this.form=new FormGroup({
           id:new FormControl(data.idalergias),
-          descripcionalergias: new FormControl(data.descripcionalergias),
+          descripcionAlergias: new FormControl(data.descripcionAlergias),
   
         });
       });
