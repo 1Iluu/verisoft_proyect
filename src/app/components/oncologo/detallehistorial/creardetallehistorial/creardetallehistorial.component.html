@@ -1,5 +1,5 @@
 <div class="container" style="text-align: center">
-  <h2>Detalle Historial</h2>
+  <h2>Registro Detalle Historial</h2>
   <form [formGroup]="Form" (submit)="guardar()" class="example-form">
      
     <mat-form-field appearance="fill" class="example-full-width">
@@ -17,8 +17,8 @@
       <mat-datepicker #picker></mat-datepicker>
       
       <mat-error *ngIf="Form.get('fechaDetalleHistorial')?.hasError('required')"
-      >La fecha es obligatoria.
-      </mat-error>
+      >La fecha es obligatoria.</mat-error
+      >
     </mat-form-field>  
       <br/>
     <mat-form-field class="example-full-width">
@@ -28,8 +28,12 @@
           {{c.idseguro}}
         </mat-option>
       </mat-select>
+      <mat-error *ngIf="Form.get('seguro')?.hasError('required')"
+      >El seguro es obligatorio.</mat-error
+      >     
     </mat-form-field>
-    <br/>
+    <br/>  
+
  <mat-form-field class="example-full-width">
       <mat-label>No. Cirugias</mat-label>
       <mat-select formControlName="cirugias">
@@ -37,7 +41,11 @@
           {{c.idcirugias}}
         </mat-option>
       </mat-select>
+    <mat-error *ngIf="Form.get('cirugias')?.hasError('required')"
+      >La cirugía es obligatoria.</mat-error
+      >       
     </mat-form-field>
+
     <br/>
     <mat-form-field class="example-full-width">
       <mat-label>No. Tratamiento</mat-label>
@@ -46,7 +54,11 @@
           {{c.idTratamiento}}
         </mat-option>
       </mat-select>
+      <mat-error *ngIf="Form.get('tratamiento')?.hasError('required')"
+      >El tratamiento es obligatorio.</mat-error
+      >       
     </mat-form-field>
+
     <br/>
     <mat-form-field class="example-full-width">
       <mat-label>No. Examen</mat-label>
@@ -55,7 +67,11 @@
           {{c.examenDeteccionId}}
         </mat-option>
       </mat-select>
+      <mat-error *ngIf="Form.get('examenDeteccion')?.hasError('required')"
+      >El examen es obligatorio.</mat-error
+      >  
     </mat-form-field>
+
     <br/>
     <mat-form-field class="example-full-width">
       <mat-label>No. Paciente</mat-label>
@@ -64,9 +80,16 @@
           {{c.idPaciente}}
         </mat-option>
       </mat-select>
+      <mat-error *ngIf="Form.get('paciente.')?.hasError('required')"
+      >El paciente es obligatorio.</mat-error
+      >  
     </mat-form-field>
-    <br/>
+
+
+    <br />
     <button mat-raised-button color="primary">Guardar</button>
     <button mat-raised-button color="warn" routerLink="/DetalleHistorial">
       Cancelar
     </button>
+   </form>
+  </div>
