@@ -22,14 +22,17 @@ export class ServicioherramientaService {
     setList(listaNueva:Herramienta[]){
       this.listaCambio.next(listaNueva);
     }    
-    getList(){
-      return this.listaCambio.asObservable();
-    }
-  ListId(id:number){
-    return this.httpClient.get<Herramienta>(`${this.url}/${id}`)
+  getList(){
+    return this.listaCambio.asObservable();
   }
-  
-  update(e: Herramienta){
-    return this.httpClient.put(this.url, e);
+
+  listId(id: number) {
+    return this.httpClient.get<Herramienta>(`${this.url}/${id}`);
+  }
+  update(h: Herramienta) {
+    return this.httpClient.put(this.url, h);
+  }
+  eliminar(id: number) {
+    return this.httpClient.delete(`${this.url}/${id}`);
   }
 }

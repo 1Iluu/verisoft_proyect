@@ -1,39 +1,54 @@
 <div class="container">
-    <div class="title-container">
-      <h1 class="title">Lista de Herramientas del Oncólogo</h1>
-    </div>
+  <br />
+  <h2 style="text-align: center">Herramientas del Oncologo</h2>
+  <div style="text-align: right">
+    <button mat-raised-button color="primary" style="background-color: #999B85;" routerLink="/herramientas/nuevo">
+      Nuevo
+    </button>
+  </div>
       <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
-        
-        <ng-container matColumnDef="codigo_herramienta">
-          <th mat-header-cell *matHeaderCellDef>Código herramienta</th>
+        <ng-container matColumnDef="c1">
+          <th mat-header-cell *matHeaderCellDef>No. herramienta</th>
           <td mat-cell *matCellDef="let element">{{element.herramienta_id}}</td>
         </ng-container>
-  
-          <ng-container matColumnDef="codigo_oncologo">
-            <th mat-header-cell *matHeaderCellDef>Código del Oncólogo</th>
-            <td mat-cell *matCellDef="let element">{{element.oncologo_id.oncologo_id}}</td>
+
+          <ng-container matColumnDef="c2">
+            <th mat-header-cell *matHeaderCellDef>Oncólogo</th>
+            <td mat-cell *matCellDef="let element">{{ element.oncologo_id }}
+            </td>
           </ng-container>
-        
-          <ng-container matColumnDef="nombreHerramienta">
+
+          <ng-container matColumnDef="c3">
             <th mat-header-cell *matHeaderCellDef>Nombre de la herramienta</th>
-            <td mat-cell *matCellDef="let element">{{element.nombreHerramienta}}</td>
+            <td mat-cell *matCellDef="let element">
+            {{element.nombreHerramienta}}
+            </td>
           </ng-container>
-  
-          <ng-container matColumnDef="accion01">
-          <th mat-header-cell *matHeaderCellDef> Acciones </th>
-          <td mat-cell *matCellDef="let element">
-          <button mat-raised-button color="accent" [routerLink]="['ediciones',element.herramienta_id]">
-            Actualizar
-            </button> 
+
+          <ng-container matColumnDef="c4">
+            <th mat-header-cell *matHeaderCellDef>Actualizar</th>
+            <td mat-cell *matCellDef="let element">
+              <button mat-raised-button class="custom-button" style="background-color: #999B85" [routerLink]="['ediciones', element.herramienta_id]">
+                <mat-icon> border_color</mat-icon></button>
               </td>
-                </ng-container>
-  
+              </ng-container
+          >
+          <ng-container matColumnDef="c5">
+            <th mat-header-cell *matHeaderCellDef>Eliminar</th>
+            <td mat-cell *matCellDef="let element">
+              <button mat-raised-button class="custom-button" style="background-color: #999B85" (click)="eliminar(element.herramienta_id)"><mat-icon>delete</mat-icon></button>
+
+            </td>
+            </ng-container
+          >
           <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
         </table>
-        <div *ngFor="let element of dataSource.data">
-          {{ element | json }}
-        </div>
-  
-  </div>
+        <mat-paginator
+          [pageSizeOptions]="[5, 10, 25, 100]"
+          showFirstLastButtons
+        ></mat-paginator>
+        
+      </div>
+      
   

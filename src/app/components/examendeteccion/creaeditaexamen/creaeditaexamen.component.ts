@@ -32,11 +32,11 @@ import { Serviceexamen } from '../../../services/serviceexamen.service';
 
 export class CreaeditaexamenComponent implements OnInit {
 form: FormGroup=new FormGroup({});
-service: Examendeteccion=new Examendeteccion ();
+service: Examendeteccion=new Examendeteccion();
 id:number=0;
 edicion:boolean=false
 
-listaTipoExamenes:{value:String;viewValue:string}[]=[
+listaTipoExamenes: {value: String; viewValue: string }[] = [
   {value:'Mamografía', viewValue: 'Mamografía'},
   {value:'Radiografía', viewValue: 'Radiografía'},
   {value:'Tomografía', viewValue: 'Tomografía'},
@@ -44,8 +44,7 @@ listaTipoExamenes:{value:String;viewValue:string}[]=[
   {value:'Resonancia Magnética',viewValue: 'Resonancia Magnética'},
   {value:'Colonoscopia', viewValue: 'Colonoscopia'},
   {value:'Biopsia', viewValue: 'Biopsia'},
-  {value:'Análisis de Sangre', viewValue: 'Análisis de Sangre'},
-];
+  {value:'Análisis de Sangre', viewValue: 'Análisis de Sangre'},];
 
 constructor(
   private formBuilber:FormBuilder,
@@ -64,16 +63,11 @@ ngOnInit(): void{
 
   this.form=this.formBuilber.group({
     codigo:[''],
-    fecha:['',[
-    Validators.required,
-    this.fechaValidar()
-    ]],
+    fecha:['', Validators.required],
     hora: ['',Validators.required],
-
     tipoExamen: ['', Validators.required],
-
     resultados:['',Validators.required],
-})
+  });
 }
 
 guardar(): void {
@@ -84,8 +78,6 @@ guardar(): void {
     this.service.tipoExamen=this.form.value.tipoExamen;
     this.service.resultados=this.form.value.resultados;
     console.log(this.service);
-
-
     if(this.edicion){
       this.eS.update(this.service).subscribe((data) => {
         this.eS.list().subscribe((data) => {
@@ -93,14 +85,13 @@ guardar(): void {
         });
       });
     }else{
-
-      this.eS.insert(this.service).subscribe((data) => {
+    this.eS.insert(this.service).subscribe((data) => {
       this.eS.list().subscribe((data) => {
         this.eS.setList(data);
       });
     });
+  }
      this.router.navigate(['examenes']);
-    };
   }
 }
 
@@ -113,21 +104,8 @@ init(){
         hora:new FormControl(data.hora),
         tipoExamen:new FormControl(data.tipoExamen),
         resultados:new FormControl(data.resultados),
+          });
       });
-    })
+   }
   }
-}
-
-fechaValidar() {
-  return (control: { value: string; }) => {
-    const FechaControl = new Date(control.value);
-
-    if (FechaControl > new Date()) {
-      return { fechaExamenVal: true };
-    }else{
-      return null;
-    }
-  };
-}
-
 }
