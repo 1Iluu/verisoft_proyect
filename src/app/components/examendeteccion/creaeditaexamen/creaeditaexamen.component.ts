@@ -33,7 +33,6 @@ import { Serviceexamen } from '../../../services/serviceexamen.service';
 export class CreaeditaexamenComponent implements OnInit {
 form: FormGroup=new FormGroup({});
 service: Examendeteccion=new Examendeteccion();
-mensaje: string= " ";
 id:number=0;
 edicion:boolean=false
 
