@@ -5,9 +5,6 @@
       <mat-form-field *ngIf="edicion">
         <mat-label>Codigo</mat-label>
         <input matInput placeholder="idCita" formControlName="idCita" />
-        <mat-error *ngIf="form.get('idCita')?.hasError('required')"
-          >Los puntos son obligatorios.</mat-error
-        >
       </mat-form-field>
       <br />
       <mat-form-field class="example-full-width">
@@ -18,7 +15,7 @@
           </mat-option>
         </mat-select>
         <mat-error *ngIf="form.get('consultorio')?.hasError('required')"
-          >El Género es obligatorio.</mat-error
+          >El consultorio es obligatorio.</mat-error
         >
       </mat-form-field>
       <br />
@@ -50,7 +47,7 @@
           formControlName="estado"
         ></textarea>
         <mat-error *ngIf="form.get('estado')?.hasError('required')"
-          >La descripción es obligatoria.</mat-error
+          >El estado es obligatorio.</mat-error
         >
       </mat-form-field>
       <br />
@@ -62,7 +59,7 @@
           formControlName="hora"
         ></textarea>
         <mat-error *ngIf="form.get('hora')?.hasError('required')"
-          >La descripción es obligatoria.</mat-error
+          >La hora es obligatoria.</mat-error
         >
       </mat-form-field>
   
@@ -75,7 +72,7 @@
           formControlName="motivo"
         ></textarea>
         <mat-error *ngIf="form.get('motivo')?.hasError('required')"
-          >La descripción es obligatoria.</mat-error
+          >La motivo es obligatoria.</mat-error
         >
       </mat-form-field>
   
@@ -90,7 +87,7 @@
           </mat-option>
         </mat-select>
         <mat-error *ngIf="form.get('oncologo')?.hasError('required')"
-          >El Género es obligatorio.</mat-error
+          >El Oncologo es obligatorio.</mat-error
         >
       </mat-form-field>
   
@@ -103,7 +100,7 @@
           </mat-option>
         </mat-select>
         <mat-error *ngIf="form.get('paciente')?.hasError('required')"
-          >El Género es obligatorio.</mat-error
+          >El Paciente es obligatorio.</mat-error
         >
       </mat-form-field>
       <br />
