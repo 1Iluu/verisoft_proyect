@@ -37,6 +37,13 @@ import { TratamientoComponent } from './components/tratamiento/tratamiento.compo
 import { CreaeditatratamientoComponent } from './components/tratamiento/creaeditatratamiento/creaeditatratamiento.component';
 import { ReportsafComponent } from './components/reportsaf/reportsaf.component';
 import { Report02Component } from './components/reportsaf/report02/report02.component';
+import { Report01Component } from './components/reports/report01/report01.component';
+import { ReportsComponent } from './components/reports/reports.component';
+import { Report02Component } from './components/reports/report02/report02.component';
+import { JosereportsComponent } from './components/josereports/josereports.component';
+import { ReportCardenas2Component } from './components/josereports/report-cardenas2/report-cardenas2.component';
+
+
 
 
 
@@ -179,7 +186,7 @@ export const routes: Routes = [
 },
 {
 
-  path: 'paciente', component: PacientesComponent,
+  path: 'pacientes', component: PacientesComponent,
   children:[
     {path:'nuevo',component: creaeditapaciente},
     {path:'ediciones/:id',component:creaeditapaciente}
@@ -203,6 +210,25 @@ export const routes: Routes = [
   ],
   canActivate: [segGuard],
 },
+{
+  path: 'reportes', component:ReportsComponent,
+  children:[{
+    path:'reportes02',
+    component:Report02Component},
+    
+],
+canActivate: [segGuard],
+},
+{
+  path: 'cardenas1',
+  component: JosereportsComponent,
+  children: [
+    { path: 'cardenas2', component: ReportCardenas2Component },
+  ],
+  canActivate: [segGuard],
+},
+
+
 
 {
   path:'reportesAbrigo',

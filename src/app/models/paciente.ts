@@ -5,6 +5,7 @@ export class Paciente {
   user: Users = new Users();
   contactoEmergencia: string = "";
   estado: string = "";
+  
 
 }
 

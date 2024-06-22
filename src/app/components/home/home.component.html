@@ -1,2 +1,7 @@
-<h1>Hola </h1>  Rol: <span>{{ role }}</span>
+<div class=  "diva" >
+<h1 *ngIf="isAdminsitrador()" style = "margin-bottom: 100px" >Bienvenido a Verisoft Administrador </h1> 
+<h1 style = "margin-bottom: 100px" *ngIf="isPaciente()">Bienvenido a Verisoft Paciente </h1> 
+<h1 style = "margin-bottom: 100px" *ngIf="isOncolgo()">Bienvenido a Verisoft Oncologo </h1> 
+<p>En esta seccion tendras acceso a todos los datos, siente libre de modificar eliminar o actualizar el dato que necesites</p>
+</div>
 <router-outlet></router-outlet>
