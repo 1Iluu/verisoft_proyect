@@ -1,106 +1,142 @@
 <mat-toolbar color="accent" *ngIf="verificar()">
   <img src="assets/images/logito.png" alt="" width="50" height="50" class="d-inline-block align-text-top">
   
-
-
-
-  <button mat-button [matMenuTriggerFor]="menuRespuesta" *ngIf="isPaciente()">Respuesta</button>
-  <button mat-button [matMenuTriggerFor]="menuComentario" *ngIf="isPaciente()">comentario</button>
-  <button mat-button [matMenuTriggerFor]="menuSeguro" *ngIf="isPaciente()">Seguro</button>
-  <button mat-button [matMenuTriggerFor]="menuCita" *ngIf="isPaciente()" >Cita</button>
-  <button mat-button [matMenuTriggerFor]="menuOncologo" *ngIf="isPaciente()">Oncologo</button>
-  <button mat-button [matMenuTriggerFor]="menuExamen" *ngIf="isPaciente()">Examen</button>
+  <button mat-button [matMenuTriggerFor]="menulistarRespuesta" *ngIf="isPaciente()">Respuesta</button>
+  <button mat-button [matMenuTriggerFor]="menuComentario" *ngIf="isPaciente()">Comentario</button>
+  <button mat-button [matMenuTriggerFor]="menulistarSeguro" *ngIf="isPaciente()">Seguro</button>
+  <button mat-button [matMenuTriggerFor]="menucreaCita" *ngIf="isPaciente()">Cita</button>
+  <button mat-button [matMenuTriggerFor]="menulistaOncologo" *ngIf="isPaciente()">Oncólogo</button>
+  <button mat-button [matMenuTriggerFor]="menulistaExamen" *ngIf="isPaciente()">Examen</button>
   <button mat-button [matMenuTriggerFor]="menuAlergia" *ngIf="isPaciente()">Alergia</button>
-  <button mat-button [matMenuTriggerFor]="menuEspecialidad" *ngIf="isPaciente()">Especialidad</button>
-  <button mat-button [matMenuTriggerFor]="menuTipotratamiento" *ngIf="isPaciente()">Tipotratamiento</button>
-  <button mat-button [matMenuTriggerFor]="menuCirugia"*ngIf="isPaciente()" >Cirugia</button>
+  <button mat-button [matMenuTriggerFor]="menulistaTipotratamiento" *ngIf="isPaciente()">Tipo de Tratamiento</button>
 
+  <button mat-button [matMenuTriggerFor]="menulistarAlergia" *ngIf="isOncologo()">Alergias</button>
+  <button mat-button [matMenuTriggerFor]="menuListarDetalleHistorial" *ngIf="isOncologo()">Detalle de Historial</button>
+  <button mat-button [matMenuTriggerFor]="menucreaTipotratamiento" *ngIf="isOncologo()">Tipo de Tratamiento</button>
+  <button mat-button [matMenuTriggerFor]="menuTratamiento" *ngIf="isOncologo()">Tratamiento</button>
+  <button mat-button [matMenuTriggerFor]="menuHeramientas" *ngIf="isOncologo()">Herramientas</button>
+  <button mat-button [matMenuTriggerFor]="menulistaPaciente" *ngIf="isOncologo()">Paciente</button>
+  <button mat-button [matMenuTriggerFor]="menulistaExamenDeteccion" *ngIf="isOncologo()">Examen de Detección</button>
+  <button mat-button [matMenuTriggerFor]="menucreaRespuesta" *ngIf="isOncologo()">Respuesta</button>
+  <button mat-button [matMenuTriggerFor]="menucrearCirugia" *ngIf="isOncologo()">Cirugía</button>
 
-  <button mat-button [matMenuTriggerFor]="menuOncologo">Oncologo</button>
-  <button mat-button [matMenuTriggerFor]="menuAdmin">Admin</button>
-  <button mat-button [matMenuTriggerFor]="menuRol">Roles</button>
+  <button mat-button [matMenuTriggerFor]="menucreaPaciente" *ngIf="isAdministrador()">Paciente</button>
+  <button mat-button [matMenuTriggerFor]="menuCreaOncolgo" *ngIf="isAdministrador()">Oncólogo</button>
+  <button mat-button [matMenuTriggerFor]="menucreaExamenDeteccion" *ngIf="isAdministrador()">Examen de Detección</button>
+  <button mat-button [matMenuTriggerFor]="menuCreraDetalleHistorial" *ngIf="isAdministrador()">Detalle de Historial</button>
+  <button mat-button [matMenuTriggerFor]="menuCrearEspecialdad" *ngIf="isAdministrador()">Especialidad</button>
+  <button mat-button [matMenuTriggerFor]="menuCreaUsuarios" *ngIf="isAdministrador()">Usuario</button>
+  <button mat-button [matMenuTriggerFor]="menuCrearoles" *ngIf="isAdministrador()">Roles</button>
+
   <button mat-button [matMenuTriggerFor]="menuReport">
     <mat-icon>file_copy</mat-icon>
   </button>
   <button mat-button [matMenuTriggerFor]="menuLogin">Salir</button>
-
-
-
 </mat-toolbar>
 
 
-<mat-menu #menuOncologo="matMenu">
-  <button mat-menu-item routerLink="/oncologos/nuevo">Registrar oncologos</button>
-  <button mat-menu-item routerLink="/pacientes">Listar pacientes</button>
-  <button mat-menu-item routerLink="/respuestas/nuevo">Registrar Respuesta</button>
-  <button mat-menu-item routerLink="/alergias">Listar alergias</button>
-  <button mat-menu-item routerLink="/examenes/nuevo">Registrar Exámenes de Deteccion</button>
-  <button mat-menu-item routerLink="/herramientas">Listar Herramientas</button>
-  <button mat-menu-item routerLink="/herramientas/nuevo">Registrar Herramientas del Oncólogo</button>
-  <button mat-menu-item routerLink="/DetalleHistorial">Listar Detalle Historial</button>
-  <button mat-menu-item routerLink="/DetalleHistorial/nuevo">Registrar DetalleHistorial</button>
-  <button mat-menu-item routerLink="/examenes/nuevo">Registrar Exámenes de Deteccion</button>
-</mat-menu>
-
-
-
-<mat-menu #menuAdmin="matMenu">
-  <button mat-menu-item routerLink="/users">listar usuarios</button>
-  <button mat-menu-item routerLink="/users/nuevo">crear usuarios</button>
-</mat-menu>
-
-
-<mat-menu #menuRol="matMenu">
-  <button mat-menu-item routerLink="/rol">listar rol</button>
-  <button mat-menu-item routerLink="/rol/nuevo">crear rol</button>
-</mat-menu>
-
-
-<mat-menu #menuRespuesta="matMenu">
+<mat-menu #menulistarRespuesta="matMenu">
   <button mat-menu-item routerLink="/respuestas">Listar Respuesta</button>
 </mat-menu>
-
 <mat-menu #menuComentario="matMenu">
   <button mat-menu-item routerLink="/comentario">listar comentarios</button>
+  <button mat-menu-item routerLink="/comentario/nuevo">Crear comentarios</button>
 </mat-menu>
-
-
-<mat-menu #menuSeguro="matMenu">
+<mat-menu #menulistarSeguro="matMenu">
   <button mat-menu-item routerLink="/seguros">listar seguros</button>
 </mat-menu>
-
-<mat-menu #menuCita="matMenu">
+<mat-menu #menucreaCita="matMenu">
   <button mat-menu-item routerLink="/cita">Listar cita</button>
+  <button mat-menu-item routerLink="/cita/nuevo">Listar cita</button>
 </mat-menu>
-
-<mat-menu #menuTratamiento="matMenu">
-  <button mat-menu-item routerLink="/tratamientos">listar tratamientos</button>
-</mat-menu>
-
-<mat-menu #menuOncologos="matMenu">
+<mat-menu #menulistaOncologo="matMenu">
   <button mat-menu-item routerLink="/oncologos">Listar oncologos</button>
 </mat-menu>
 
-<mat-menu #menuExamen="matMenu">
+<mat-menu #menulistaExamen="matMenu">
   <button mat-menu-item routerLink="/examenes">Listar Exámenes de Deteccion</button>
 </mat-menu>
-
-
 <mat-menu #menuAlergia="matMenu">
   <button mat-menu-item routerLink="/alergias/nuevo">Registrar alergias</button>
 </mat-menu>
 
-<mat-menu #menuEspecialidad="matMenu">
-  <button mat-menu-item routerLink="/especialidades">listar especialidad</button>
+<mat-menu #menulistaTipotratamiento="matMenu">
+  <button mat-menu-item routerLink="/tratamientos">listar tratamientos</button>
 </mat-menu>
 
-<mat-menu #menuTipotratamiento="matMenu">
-  <button mat-menu-item routerLink="/tipotratamientos">listar tipo de tratamiento</button>
-</mat-menu>
 
-<mat-menu #menuCirugia="matMenu">
-  <button mat-menu-item routerLink="/cirugias">Listar cirugias</button>
-</mat-menu>
+
+
+
+  <mat-menu #menulistarAlergia="matMenu">
+    <button mat-menu-item routerLink="/alergias">Listar alergias</button>
+  </mat-menu>
+  <mat-menu #menuListarDetalleHistorial="matMenu">
+    <button mat-menu-item routerLink="/DetalleHistorial">Listar Detalle Historial</button>
+  </mat-menu>
+  <mat-menu #menucreaTipotratamiento="matMenu">
+    <button mat-menu-item routerLink="/tipotratamientos">listar tipo de tratamiento</button>
+    <button mat-menu-item routerLink="/tipotratamientos/nuevo">Creer tipo de tratamiento</button>
+  </mat-menu>
+  <mat-menu #menuTratamiento="matMenu">
+    <button mat-menu-item routerLink="/tratamientos">listar tratamientos</button>
+    <button mat-menu-item routerLink="/tratamientos/nuevo">Crear tratamientos</button>
+  </mat-menu>
+<mat-menu #menuHeramientas="matMenu">
+    <button mat-menu-item routerLink="/herramientas">listar tratamientos</button>
+    <button mat-menu-item routerLink="/herramientas/nuevo">Crear tratamientos</button>
+  </mat-menu>
+  <mat-menu #menulistaPaciente="matMenu">
+    <button mat-menu-item routerLink="/pacientes">Listar pacientes</button>
+  </mat-menu>
+  <mat-menu #menulistaExamenDeteccion="matMenu">
+    <button mat-menu-item routerLink="/examenes">Listar Exámenes de Deteccion</button>
+  </mat-menu>
+  <mat-menu #menucreaRespuesta="matMenu">
+    <button mat-menu-item routerLink="/respuestas">Listar Respuesta</button>
+    <button mat-menu-item routerLink="/respuestas/nuevo">Crear Respuesta</button>
+  </mat-menu>
+  <mat-menu #menucrearCirugia="matMenu">
+    <button mat-menu-item routerLink="/cirugias">Listar cirugias</button>
+    <button mat-menu-item routerLink="/cirugias/nuevo">Creear cirugias</button>
+  </mat-menu>
+
+
+
+
+
+
+
+
+  <mat-menu #menucreaPaciente="matMenu">
+    <button mat-menu-item routerLink="/pacientes">Listar pacientes</button>
+    <button mat-menu-item routerLink="/pacientes/nuevo">Crear pacientes</button>
+  </mat-menu>
+  <mat-menu #menuCreaOncolgo="matMenu">
+    <button mat-menu-item routerLink="/oncologos">Listar oncologos</button>
+    <button mat-menu-item routerLink="/oncologos/nuevo">Crear oncologos</button>
+  </mat-menu>
+  <mat-menu #menucreaExamenDeteccion="matMenu">
+    <button mat-menu-item routerLink="/examenes">Listar Exámenes de Deteccion</button>
+    <button mat-menu-item routerLink="/examenes/nuevo">crear Exámenes de Deteccion</button>
+  </mat-menu>
+  <mat-menu #menuCreraDetalleHistorial="matMenu">
+    <button mat-menu-item routerLink="/DetalleHistorial">Listar Detalle Historial</button>
+    <button mat-menu-item routerLink="/DetalleHistorial/nuevo">Registrar DetalleHistorial</button>
+  </mat-menu>
+  <mat-menu #menuCreaUsuarios="matMenu">
+    <button mat-menu-item routerLink="/users">listar usuarios</button>
+    <button mat-menu-item routerLink="/users/nuevo">crear usuarios</button>
+  </mat-menu>
+  <mat-menu #menuCrearoles="matMenu">
+    <button mat-menu-item routerLink="/rol">listar rol</button>
+    <button mat-menu-item routerLink="/rol/nuevo">crear rol</button>
+  </mat-menu>
+  <mat-menu #menuCrearEspecialdad="matMenu">
+    <button mat-menu-item routerLink="/especialidades">listar especialidad</button>
+    <button mat-menu-item routerLink="/especialidades/nuevo">crear especialidad</button>
+  </mat-menu>
+
 
 <mat-menu #menuReport="matMenu">
   <button mat-menu-item routerLink="/cardenas1">Reportecardenas1</button>

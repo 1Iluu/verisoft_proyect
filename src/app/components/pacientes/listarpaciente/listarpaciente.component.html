@@ -43,11 +43,7 @@
           <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
           <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
         </table>
-        <div *ngFor="let element of dataSource.data">
-
-          {{ element | json }}
-         
-         </div>
+        
          <mat-paginator 
     [pageSizeOptions]="[10, 30, 50]" 
     showFirstLastButtons aria-label="Select page">
