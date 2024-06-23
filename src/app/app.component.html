@@ -1,13 +1,19 @@
 <mat-toolbar color="accent" *ngIf="verificar()">
   <img src="assets/images/logito.png" alt="" width="50" height="50" class="d-inline-block align-text-top">
-  <button mat-button [matMenuTriggerFor]="menuPaciente" >Paciente</button>
+  
 
 
 
-  <button mat-button [matMenuTriggerFor]="menuRespuesta" >Respuesta</button>
-  <button mat-button [matMenuTriggerFor]="menuComentario" >comentario</button>
-  <button mat-button [matMenuTriggerFor]="menuSeguro" >Seguro</button>
-  <button mat-button [matMenuTriggerFor]="menuCita" >Cita</button>
+  <button mat-button [matMenuTriggerFor]="menuRespuesta" *ngIf="isPaciente()">Respuesta</button>
+  <button mat-button [matMenuTriggerFor]="menuComentario" *ngIf="isPaciente()">comentario</button>
+  <button mat-button [matMenuTriggerFor]="menuSeguro" *ngIf="isPaciente()">Seguro</button>
+  <button mat-button [matMenuTriggerFor]="menuCita" *ngIf="isPaciente()" >Cita</button>
+  <button mat-button [matMenuTriggerFor]="menuOncologo" *ngIf="isPaciente()">Oncologo</button>
+  <button mat-button [matMenuTriggerFor]="menuExamen" *ngIf="isPaciente()">Examen</button>
+  <button mat-button [matMenuTriggerFor]="menuAlergia" *ngIf="isPaciente()">Alergia</button>
+  <button mat-button [matMenuTriggerFor]="menuEspecialidad" *ngIf="isPaciente()">Especialidad</button>
+  <button mat-button [matMenuTriggerFor]="menuTipotratamiento" *ngIf="isPaciente()">Tipotratamiento</button>
+  <button mat-button [matMenuTriggerFor]="menuCirugia"*ngIf="isPaciente()" >Cirugia</button>
 
 
   <button mat-button [matMenuTriggerFor]="menuOncologo">Oncologo</button>
@@ -21,33 +27,18 @@
 
 
 </mat-toolbar>
-<mat-menu #menuPaciente="matMenu">
 
-  <button mat-menu-item routerLink="/cirugias">Listar cirugias</button>
-  <button mat-menu-item routerLink="/tipotratamiento">listar tipo de tratamiento</button> 
-  <button mat-menu-item routerLink="/especialidades">listar especialidad</button>
-  <button mat-menu-item routerLink="/especialidades/nuevo">Registrar especialidad</button>
-  <button mat-menu-item routerLink="/tipotratamientos">listar tipo de tratamiento</button>
-  <button mat-menu-item routerLink="/tipotratamientos/nuevo">Registrar tipo de tratamiento</button>
-  <button mat-menu-item routerLink="/tratamientos">listar tratamientos</button>
-  
-</mat-menu>
 
 <mat-menu #menuOncologo="matMenu">
-
-  <button mat-menu-item routerLink="/oncologos">Listar oncologos</button>
   <button mat-menu-item routerLink="/oncologos/nuevo">Registrar oncologos</button>
   <button mat-menu-item routerLink="/pacientes">Listar pacientes</button>
   <button mat-menu-item routerLink="/respuestas/nuevo">Registrar Respuesta</button>
   <button mat-menu-item routerLink="/alergias">Listar alergias</button>
-  <button mat-menu-item routerLink="/alergias/nuevo">Registrar alergias</button>
-  <button mat-menu-item routerLink="/examenes">Listar Exámenes de Deteccion</button>
   <button mat-menu-item routerLink="/examenes/nuevo">Registrar Exámenes de Deteccion</button>
   <button mat-menu-item routerLink="/herramientas">Listar Herramientas</button>
   <button mat-menu-item routerLink="/herramientas/nuevo">Registrar Herramientas del Oncólogo</button>
   <button mat-menu-item routerLink="/DetalleHistorial">Listar Detalle Historial</button>
   <button mat-menu-item routerLink="/DetalleHistorial/nuevo">Registrar DetalleHistorial</button>
-  <button mat-menu-item routerLink="/examenes">Listar Exámenes de Deteccion</button>
   <button mat-menu-item routerLink="/examenes/nuevo">Registrar Exámenes de Deteccion</button>
 </mat-menu>
 
@@ -63,29 +54,6 @@
   <button mat-menu-item routerLink="/rol">listar rol</button>
   <button mat-menu-item routerLink="/rol/nuevo">crear rol</button>
 </mat-menu>
-
-
-
-<mat-menu #menuLogin="matMenu">
-  <button mat-menu-item routerLink="/">Salir</button>
-  <button mat-menu-item>
-    Rol: <span>{{ role }}</span>
-  </button>
-</mat-menu>
-
-<mat-menu #menuReport="matMenu">
-  <button mat-menu-item routerLink="/cardenas1">Reportecardenas1</button>
-  <button mat-menu-item routerLink="/cardenas1/cardenas2">Reportecardenas2</button>
-  <button mat-menu-item routerLink="/reportes">Villanueva1</button>
-  <button mat-menu-item routerLink="/reportes/reportes02">Villanueva2</button>
-  <button mat-menu-item routerLink="/reportesAbrigo1">Reporte01Abrigo</button>
-  <button mat-menu-item routerLink="/reportesAbrigo1/reportesAbrigo2">Reporte02Abrigo</button>
-  <button mat-menu-item routerLink="/reportesVictor">Cantidad de Citas por Fechas Oncologo</button>
-  <button mat-menu-item routerLink="/reportesVictor/reportevictor2">Promedio de estrellas</button>
-  <button mat-menu-item routerLink="/vargas/reporte-tratamiento">ReporteVargas</button>
-</mat-menu>
-
-
 
 
 <mat-menu #menuRespuesta="matMenu">
@@ -105,6 +73,53 @@
   <button mat-menu-item routerLink="/cita">Listar cita</button>
 </mat-menu>
 
+<mat-menu #menuTratamiento="matMenu">
+  <button mat-menu-item routerLink="/tratamientos">listar tratamientos</button>
+</mat-menu>
+
+<mat-menu #menuOncologos="matMenu">
+  <button mat-menu-item routerLink="/oncologos">Listar oncologos</button>
+</mat-menu>
+
+<mat-menu #menuExamen="matMenu">
+  <button mat-menu-item routerLink="/examenes">Listar Exámenes de Deteccion</button>
+</mat-menu>
+
+
+<mat-menu #menuAlergia="matMenu">
+  <button mat-menu-item routerLink="/alergias/nuevo">Registrar alergias</button>
+</mat-menu>
+
+<mat-menu #menuEspecialidad="matMenu">
+  <button mat-menu-item routerLink="/especialidades">listar especialidad</button>
+</mat-menu>
+
+<mat-menu #menuTipotratamiento="matMenu">
+  <button mat-menu-item routerLink="/tipotratamientos">listar tipo de tratamiento</button>
+</mat-menu>
+
+<mat-menu #menuCirugia="matMenu">
+  <button mat-menu-item routerLink="/cirugias">Listar cirugias</button>
+</mat-menu>
+
+<mat-menu #menuReport="matMenu">
+  <button mat-menu-item routerLink="/cardenas1">Reportecardenas1</button>
+  <button mat-menu-item routerLink="/cardenas1/cardenas2">Reportecardenas2</button>
+  <button mat-menu-item routerLink="/reportes">Villanueva1</button>
+  <button mat-menu-item routerLink="/reportes/reportes02">Villanueva2</button>
+  <button mat-menu-item routerLink="/reportesAbrigo1">Reporte01Abrigo</button>
+  <button mat-menu-item routerLink="/reportesAbrigo1/reportesAbrigo2">Reporte02Abrigo</button>
+  <button mat-menu-item routerLink="/reportesVictor">Cantidad de Citas por Fechas Oncologo</button>
+  <button mat-menu-item routerLink="/reportesVictor/reportevictor2">Promedio de estrellas</button>
+  <button mat-menu-item routerLink="/vargas/reporte-tratamiento">ReporteVargas</button>
+</mat-menu>
+
+<mat-menu #menuLogin="matMenu">
+  <button mat-menu-item routerLink="/">Salir</button>
+  <button mat-menu-item>
+    Rol: <span>{{ role }}</span>
+  </button>
+</mat-menu>
   <router-outlet></router-outlet>
 
 
