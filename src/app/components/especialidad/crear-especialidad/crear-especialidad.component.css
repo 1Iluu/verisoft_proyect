@@ -17,8 +17,7 @@
     margin-bottom: 20px;
   }
   
-  button {
-    display: block;
-    margin: 0 auto;
+  .custom-button {
+    background-color: #999B85; 
+    color: white;
   }
-  
