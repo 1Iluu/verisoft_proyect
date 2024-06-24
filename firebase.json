@@ -1,10 +1,13 @@
 {
   "hosting": {
-    "public": "dist/verisoft_angular/browser",
+    "public": "dist/verisoft_angular",
     "ignore": [
       "firebase.json",
       "**/.*",
       "**/node_modules/**"
     ]
+  },
+  "storage": {
+    "rules": "storage.rules"
   }
 }
