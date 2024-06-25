@@ -39,14 +39,14 @@ export class AppComponent {
     return this.loginService.verificar();
   }
 
-  isAdminsitrador() {
+  isAdministrador() {
     return this.role === 'ADMIN';
   }
 
   isPaciente() {
     return this.role === 'PACIENTE';
   }
-  isOncolgo() {
+  isOncologo() {
     return this.role === 'ONCOLOGO';
   }
 }
