@@ -112,7 +112,7 @@ export class CreaeditaoncologoComponent implements OnInit {
                       })
                     });
                   }
-                  this.router.navigate(['/components/Oncologo'])
+                  this.router.navigate(['oncologos'])
                 }
                 else console.log('No se registro nada')
             }
