@@ -9,13 +9,15 @@ import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 import { CommonModule, NgIf } from '@angular/common';
-
+import { BaseChartDirective } from 'ng2-charts';
+import { ChartDataset, ChartOptions, ChartType } from 'chart.js';
 
 @Component({
   selector: 'app-report01',
   standalone: true,
   imports: [
     MatFormFieldModule,
+    BaseChartDirective,
     NgIf,
     ReactiveFormsModule,
     MatButtonModule,
@@ -23,28 +25,37 @@ import { CommonModule, NgIf } from '@angular/common';
     MatSelectModule,
     CommonModule,
     MatTableModule,
-    MatPaginatorModule],
+    MatPaginatorModule,
+  ],
 
   templateUrl: './report01.component.html',
   styleUrl: './report01.component.css'
 })
 export class Report01Component implements OnInit {
-  
+  barChartOptions: ChartOptions = {
+    responsive: true,
+  };
+  barChartLabel:string[] = [];
+  barChartType:ChartType = 'bar'
+  barChartLegend=true;
+  barChartData:ChartDataset[] = [];
+  barChartLabels: string[] = [];
+  //barChartType: ChartType = 'pie';
+  //barChartType: ChartType = 'line';
+  //barChartType: ChartType = 'polarArea';
+
+  form:FormGroup=new FormGroup({});
   displayedColumns: string[]=
   [
     'idRespuesta',
-    'gradoConsulta',
     'nivelRespuesta',
     'paciente',
   ];
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   dataSource: MatTableDataSource<Respuesta> = new MatTableDataSource();
  
-
-  form:FormGroup=new FormGroup({});
   constructor(private rS: respuestaService,
     private formBuilder:FormBuilder) {
- 
   }
 
   tipos: { value: string, viewValue: string }[] = [{ value: 'activo', viewValue: 'Activo' },
@@ -60,7 +71,13 @@ export class Report01Component implements OnInit {
       this.rS.getQuantity(this.form.value.estado).subscribe(data => {
         this.dataSource=new MatTableDataSource(data);
         this.dataSource.paginator = this.paginator;
-     
+        this.barChartLabel = data.map(item => "Cantidad");
+      this.barChartData = [{
+        data: data.map(item => data.length),
+        label:'Respuestas por Estado',
+        backgroundColor: ['#DCDCB8'],
+        barThickness:150
+      }] 
       });
       
       }

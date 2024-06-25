@@ -23,3 +23,13 @@
     background-color: #999B85; 
     color: white;
   }
+
+  .grafico {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .graficocontenido {
+    width: 35%;
+    text-align: center;
+  }
