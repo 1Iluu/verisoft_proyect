@@ -34,10 +34,6 @@
               <th mat-header-cell *matHeaderCellDef> Grado de Consulta </th>
               <td mat-cell *matCellDef="let element"> {{element.gradoConsulta}} </td>
             </ng-container>
-              <ng-container matColumnDef="nivelRespuesta">
-                  <th mat-header-cell *matHeaderCellDef> Nivel de Respuesta </th>
-                  <td mat-cell *matCellDef="let element"> {{element.nivelRespuesta}} </td>
-              </ng-container>
               <ng-container matColumnDef="paciente">
                   <th mat-header-cell *matHeaderCellDef> Nombre del Paciente </th>
                   <td mat-cell *matCellDef="let element"> {{element.paciente.user.nombre}}  {{element.paciente.user.apellido}} </td>

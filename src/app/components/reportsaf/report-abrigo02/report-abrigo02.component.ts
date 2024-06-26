@@ -46,7 +46,6 @@ export class reportAbrigo02  implements OnInit {
   [
     'idRespuesta',
     'gradoConsulta',
-    'nivelRespuesta',
     'paciente',
   ];
 
